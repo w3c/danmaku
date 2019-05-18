@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>弹幕规范</title>
+  <meta charset='utf-8'>
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "IG-NOTE",
+      edDraftURI: "https://w3c-proposal-incubation.github.io/danmaku-proposal/",
+      editors: [{
+        name: "之昊",
+        url: "https://www.bilibili.com/",
+        company: "哔哩哔哩"
+
+      }, {
+        name: "徐嵩",
+        url: 'http://www.migu.cn',
+        company: "中国移动咪咕"
+
+      }],
+      wg: "Chinese Interest Group",
+      wgURI: "https://www.w3.org/2018/chinese-web-ig/",
+      charterDisclosureURI: "https://www.w3.org/2018/09/chinese-web-ig-charter.html",
+      github: "https://github.com/w3c-proposal-incubation/danmaku-proposal",
+    };
+  </script>
+</head>
+
+<body>
+  <section id='abstract'>
+    <p>
+      This document collects use cases and requirements for Danmaku,and makes recommendations for new or changed web
+      APIs to realize these requirements.
+    </p>
+  </section>
+  <section id='sotd'>
+    <p>
+      The Chinese Interest Group may update these use cases and requirements over time.
+    </p>
+  </section>
+  <section>
+    <h2>引言</h2>
+    <p>
+      弹幕介绍
+    </p>
+  </section>
+
+  <section>
+    <h2>术语</h2>
+    <p>
+      <p>
+        本文档使用了如下术语:
+      </p>
+      <ul>
+        <li>
+          <dfn data-cite='webvtt1'>WebVTT</dfn> &mdash; 一种用于标记文本轨道的文件格式。
+        </li>
+        <li>
+          <dfn data-cite='ttml2'>TTML</dfn> &mdash; 一种内容类型，它代表了在编写系统之间进行交换的时序文本媒体。
+        </li>
+      </ul>
+    </p>
+  </section>
+  <section data-dfn-for="Foo" data-link-for="Foo">
+    <h2>使用场景</h2>
+    主要用于描述弹幕的具体使用场景
+    <section>
+      <h2>视频播放</h2>
+      <p>用户在观看视频时，可与其他用户一起，针对视频中的某个热点场景、话题，进行实时互动与评论。<p>
+    </section>
+    <section>
+      <h2>页面提示</h2>
+      <p>滚动提醒用户感兴趣的内容</p>
+    </section>
+  </section>
+
+  <section>
+    <h2>API接口</h2>
+    <section>
+      <h2>新的组件</h2>
+      <aside class="example" title="弹幕使用">
+        <pre>
+          &lt;danmakulist&gt;
+            &lt;danmaku&gt;&lt;/danmaku&gt;
+            &lt;danmaku&gt;&lt;/danmaku&gt;
+          &lt;/danmakulist&gt;
+          </pre>
+      </aside>
+    </section>
+
+    <section>
+      <h2>vdt 格式</h2>
+      <aside class="example" title="video引入弹幕">
+        <pre>
+          &lt;video width="320" height="240"&gt;
+            &lt;source src="video.mp4" type="video/mp4"&gt;
+            &lt;track src="danmaku.vdt" kind="subtitles"&gt;
+          &lt;/video&gt;
+        </pre>
+      </aside>
+      <aside class="example" title="vdt文件格式">
+        <pre>
+            WEBVDT
+
+            00:22.000 --> 00:27:000
+            {
+              "text": "这是弹幕", 
+              "mode": "scroll", 
+              "color": "#ff0000", 
+              "fontSize": 18
+            }
+            
+        </pre>
+      </aside>
+    </section>
+
+</body>
+
+</html>
