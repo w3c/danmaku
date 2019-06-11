@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-hans">
 
 <head>
   <title>弹幕规范</title>
@@ -7,23 +7,28 @@
   <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
   <script class='remove'>
     var respecConfig = {
-      specStatus: "IG-NOTE",
+      specStatus: "ED",
       edDraftURI: "https://w3c-proposal-incubation.github.io/danmaku-proposal/",
+      shortName:  "danmaku",
       editors: [{
         name: "之昊",
-        url: "https://www.bilibili.com/",
+        companyURL: "https://www.bilibili.com/",
         company: "哔哩哔哩"
 
       }, {
         name: "徐嵩",
-        url: 'http://www.migu.cn',
+        companyURL: 'http://www.migu.cn',
         company: "中国移动咪咕"
 
       }],
-      wg: "Chinese Interest Group",
+      wg: "Chinese Web Interest Group",
       wgURI: "https://www.w3.org/2018/chinese-web-ig/",
-      charterDisclosureURI: "https://www.w3.org/2018/09/chinese-web-ig-charter.html",
-      github: "https://github.com/w3c-proposal-incubation/danmaku-proposal",
+      charterDisclosureURI: "https://www.w3.org/2004/01/pp-impl/109611/status",
+      github: {
+          repoURL: "https://github.com/w3c-proposal-incubation/danmaku-proposal",
+          branch: "master"
+      },
+      processVersion: 2019,
     };
   </script>
 </head>
@@ -31,8 +36,8 @@
 <body>
   <section id='abstract'>
     <p>
-      This document collects use cases and requirements for Danmaku,and makes recommendations for new or changed web
-      APIs to realize these requirements.
+      This document collects use cases and requirements for Danmaku, and makes recommendations for new or changed Web
+      APIs to satisfy these requirements.
     </p>
   </section>
   <section id='sotd'>
@@ -43,11 +48,11 @@
   <section>
     <h2>引言</h2>
     <p>
-      弹幕在日本被称呼为评论（コメント/comment）。指代的是在视频的特定时间点以某种规律漂浮在视频上的评论或注释，可以为视频观赏带来趣味性和意想不到的体验。
-      只有当大量相同评论出现于屏幕的时候，人们才把这种状态称为“弹幕”。在中国为了避免和原有评论的功能所冲突所以改名为弹幕。
+      弹幕在日本被称呼为评论（コメント/comment），指代的是在视频的特定时间点以某种规律漂浮在视频上的评论或注释，可为视频观赏带来趣味性和意想不到的体验，
+      只有当大量评论同时出现在屏幕上时，人们才把这种状态称为“弹幕”。在中国，为了避免和原有评论的功能所冲突，改名为弹幕。
     </p>
     <p>
-      弹幕最早在日本 NICONICO 弹幕视频网站出现。在中国除了 bilibili、acfun 这样的弹幕视频网站外，大部分视频网站，如咪咕视频、腾讯视频、爱奇艺视频、优酷视频等都具有弹幕功能。
+      弹幕最早在日本 niconico (ニコニコ) 弹幕视频网站出现。在中国除了 bilibili、acfun 这样的弹幕视频网站外，大部分视频网站，如咪咕视频、腾讯视频、爱奇艺视频、优酷视频等都具有弹幕功能。
     </p>
     <p>
       传统的播放器评论系统是独立于播放器之外的，因此评论的内容大多围绕在整个视频上。
@@ -121,7 +126,7 @@
     <section>
       <h2>弹幕的商业化运作</h2>
       <p>
-        弹幕在中国及日本有着广泛的应用，主流的视频网站及其 APP都对弹幕有着较好的支持和应用。相关视频网站的月活可以参考如下（仅仅统计视频网站APP月活）：
+        弹幕在中国及日本有着广泛的应用，主流的视频网站及其 app 都对弹幕有着较好的支持和应用。相关视频网站的月活可以参考如下（仅仅统计视频网站 app 月活）：
       </p>
       <ul>
         <li>爱奇艺：月活57516.7.7万</li>
@@ -132,7 +137,7 @@
         <li>搜狐视频：月活3635.0万</li>
         <li>咪咕视频：月活1562.5万</li>
       </ul>
-      <p>以上数据来源<a href='https://www.analysys.cn/article/detail/20019224'>2019年最新移动APP TOP1000</a>。</p>
+      <p>数据来源：<a href='https://www.analysys.cn/article/detail/20019224'>2019年最新移动APP TOP1000</a></p>
     </section>
 
   </section>
@@ -145,24 +150,24 @@
       </p>
       <ul>
         <li>
-          <dfn data-cite='webvtt1'>WebVTT</dfn> &mdash; 一种用于标记文本轨道的文件格式。
+          <dfn>WebVTT</dfn> &mdash; 一种用于标记文本轨道的文件格式。[[webvtt1]]
         </li>
         <li>
-          <dfn data-cite='ttml2'>TTML</dfn> &mdash; 一种内容类型，它代表了在编写系统之间进行交换的时序文本媒体。
+          <dfn>TTML</dfn> &mdash; 一种内容类型，它代表了在编写系统之间进行交换的时序文本媒体。[[ttml1]]
         </li>
       </ul>
     </p>
   </section>
   <section data-dfn-for="Foo" data-link-for="Foo">
     <h2>使用场景</h2>
-    本节主要用于描述弹幕的具体使用场景
+    本节主要描述弹幕的具体使用场景。
     <section>
       <h2>点播视频互动</h2>
       <p>
         在视频网站上观看视频时，观看者对于看到的视频内容可能会有一些想法或者槽点，就想要发表出来和更多的人分享，这时就需要弹幕来满足这个需求。通过弹幕，可以把同一时间观看者的评论通过固定方向滚动的方式显示在视频区域中，或者静止的显示在视频区域的顶部或底部，这样可以增加观看者和视频的互动特性以及观看者之间的互动。在相同时刻发送的弹幕基本上也具有相同的主题。
       </p>
       <p>
-        此种场景，弹幕数据一般是离线数据（非实时），也存在少部分实时数据。 
+        此种场景，弹幕数据一般是离线数据（非实时），也存在少部分实时数据。
       </p>
     </section>
     <section>
@@ -213,7 +218,7 @@
   <section>
     <h2>API接口</h2>
     <section>
-      <h2>新的组件</h2>
+      <h2>新的 HTML 元素</h2>
       <aside class="example" title="弹幕使用">
         <pre>
           &lt;danmakulist&gt;
@@ -249,6 +254,7 @@
         </pre>
       </aside>
     </section>
+  </section>
 
 </body>
 
