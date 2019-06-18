@@ -4,6 +4,8 @@
 
 #### 2019-6
 
+2019-06-18：[会议纪要-弹幕标准化小组周例会（第六次）](https://docs.qq.com/doc/DUnJsRlNZcHN3cWJH
+
 2019-06-11：[会议纪要-弹幕标准化小组周例会（第五次）](https://docs.qq.com/doc/DUnJSZ3psZWpYdndL)
 
 2019-06-03：[会议纪要-弹幕标准化小组周例会（第四次）](https://docs.qq.com/doc/DUmJEVGhFQWJidlBN)
