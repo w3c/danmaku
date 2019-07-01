@@ -9,7 +9,7 @@
     var respecConfig = {
       specStatus: "ED",
       edDraftURI: "https://w3c-proposal-incubation.github.io/danmaku-proposal/",
-      shortName:  "danmaku",
+      shortName: "danmaku",
       editors: [{
         name: "之昊",
         companyURL: "https://www.bilibili.com/",
@@ -25,8 +25,8 @@
       wgURI: "https://www.w3.org/2018/chinese-web-ig/",
       charterDisclosureURI: "https://www.w3.org/2004/01/pp-impl/109611/status",
       github: {
-          repoURL: "https://github.com/w3c-proposal-incubation/danmaku-proposal",
-          branch: "master"
+        repoURL: "https://github.com/w3c-proposal-incubation/danmaku-proposal",
+        branch: "master"
       },
       processVersion: 2019,
     };
@@ -208,52 +208,89 @@
         此种场景，弹幕也是单独展现的，不依附于视频。
       </p>
     </section>
-
-    <section>
-      <h2>电视弹幕</h2>
-      <p>待讨论</p>
-    </section>
   </section>
 
   <section>
-    <h2>API接口</h2>
+    <h2>建议接口与属性</h2>
     <section>
-      <h2>新的 HTML 元素</h2>
+      <h2>样例</h2>
       <aside class="example" title="弹幕使用">
         <pre>
-          &lt;danmakulist&gt;
-            &lt;danmaku&gt;&lt;/danmaku&gt;
-            &lt;danmaku&gt;&lt;/danmaku&gt;
+          &lt;danmakulist area="100" &gt;
+            &lt;danmaku mode="scroll" &gt;这里是弹幕内容&lt;/danmaku&gt;
+            &lt;danmaku mode="bottom" &gt;固定在底部弹幕&lt;/danmaku&gt;
           &lt;/danmakulist&gt;
           </pre>
       </aside>
     </section>
 
     <section>
-      <h2>vdt 格式</h2>
-      <aside class="example" title="video引入弹幕">
-        <pre>
-          &lt;video width="320" height="240"&gt;
-            &lt;source src="video.mp4" type="video/mp4"&gt;
-            &lt;track src="danmaku.vdt" kind="subtitles"&gt;
-          &lt;/video&gt;
-        </pre>
-      </aside>
-      <aside class="example" title="vdt文件格式">
-        <pre>
-            WEBVDT
+      <h2>属性</h2>
 
-            00:22.000 --> 00:27:000
-            {
-              "text": "这是弹幕", 
-              "mode": "scroll", 
-              "color": "#ff0000", 
-              "fontSize": 18
-            }
-            
-        </pre>
-      </aside>
+      <section>
+        <h2>danmakulist 元素</h2>
+        <ul>
+          <li><code>area</code>：定义滚动弹幕及顶部弹幕显示区域占 danmakulist 总高度的百分比，范围 0-100，50为半屏，100为满屏</li>
+          <li>
+            <code>allowOverlap</code>：定义超出显示区域的弹幕是否允许重叠。<code>false</code>表示不展示超出显示区域弹幕，<code>true</code>则表示超出显示区域弹幕会进行重叠展示。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>danmaku 元素</h2>
+        <ul>
+          <li>
+            <code>mode</code>：定义弹幕类型，可选值为<code>scroll</code>、<code>top</code>、<code>bottom</code>以及<code>reverse</code>。
+
+            <p><code>scroll</code> 为默认值，表示滚动弹幕。弹幕会从左往右进行滚动，滚动时间由CSS
+              属性<code>danmaku-duration</code>控制。显示时间规则为：<code>danmaku</code>元素的最左侧进入到 <code>danmaku</code>
+              元素最右侧消失所消耗的时间。</p>
+            <p><code>top</code> 表示顶部弹幕。</p>
+            <p><code>bottom</code> 表示底部弹幕。</p>
+            <p><code>reverse</code> 表示逆向滚动弹幕。弹幕会从右往左进行滚动，滚动时间与<code>scroll</code>类似。</p>
+          </li>
+        </ul>
+      </section>
     </section>
+
+    <section>
+      <h2>事件</h2>
+      <section>
+        <h2>danmaku 元素</h2>
+        <ul>
+          <li><code>danmakustart</code>：弹幕动画开始时触发。</li>
+          <li><code>danmakuend</code>：弹幕动画结束时触发。</li>
+          <li><code>danmakucancel</code>：弹幕意外终止时触发，如弹幕被移除或被隐藏，或因为超出显示区域不被展示。</li>
+        </ul>
+      </section>
+    </section>
+
+
+    <section>
+      <h2>样式</h2>
+      <section>
+        <h2>danmakulist元素</h2>
+        <ul>
+          <li><code>danmaku-play-state</code>：running | paused，定义弹幕是否运行或者暂停，可继承。</li>
+          <li><code>danmaku-duration</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕播放速度，可继承。</li>
+          <li>字号、颜色、边框、行高、透明度、阴影等，同现有 CSS 属性。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>danmaku元素</h2>
+        <ul>
+          <li><code>danmaku-play-state</code>：running | paused，定义弹幕是否运行或者暂停，可继承。</li>
+          <li><code>danmaku-duration</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕播放速度，可继承。</li>
+          <li><code>danmaku-delay</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕动画于何时开始，定义一个负值可以实现一个弹幕从中间开始运动。
+          </li>
+          <li>字号、颜色、边框、行高、透明度、阴影等，同现有 CSS 属性。</li>
+        </ul>
+      </section>
+    </section>
+
+
   </section>
 
 </body>
