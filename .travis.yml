@@ -10,8 +10,10 @@ after_script:
     - cd repo
     - git config user.name "robot"
     - git config user.email "robot@no_reply.com"
-    - git push --quiet
+    - git add .
     - git commit -a -m "docs: update proposal documenation automatically."
+    - git push -u origin master
+
 # E: Build LifeCycle
 
 branches:
