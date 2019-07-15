@@ -11,14 +11,14 @@
       edDraftURI: "https://w3c-proposal-incubation.github.io/danmaku-proposal/",
       shortName: "danmaku",
       editors: [{
-        name: "之昊",
+        name: "Zhihao Huang",
         companyURL: "https://www.bilibili.com/",
-        company: "哔哩哔哩"
+        company: "‎Bilibili Inc."
 
       }, {
-        name: "徐嵩",
+        name: "Song Xu",
         companyURL: 'http://www.migu.cn',
-        company: "中国移动咪咕"
+        company: "China Mobile"
 
       }],
       wg: "Chinese Web Interest Group",
@@ -36,7 +36,8 @@
 <body>
   <section id='abstract'>
     <p>
-      This document collects use cases and requirements for Danmaku, and makes recommendations for new or changed Web
+      This document collects use cases and requirements for Bullet Chatting, and makes recommendations for new or
+      changed Web
       APIs to satisfy these requirements.
     </p>
   </section>
@@ -48,10 +49,16 @@
   <section>
     <h2>Introduction</h2>
     <p>
-      The Bullet Chatting is called a comment (コメント/comment) in Japan. It refers to a comment or comment floating on the video in a certain way at a specific point in time of the video, which can bring interesting and unexpected experiences to the video viewing. Only when a large number of comments appear on the screen at the same time, people call this state a "Bullet Chatting." In China, in order to avoid conflict with the function of the original comment, it was renamed the Bullet Chatting.
+      The Bullet Chatting is called a comment (コメント/comment) in Japan. It refers to a comment or comment floating on the
+      video in a certain way at a specific point in time of the video, which can bring interesting and unexpected
+      experiences to the video viewing. Only when a large number of comments appear on the screen at the same time,
+      people call this state a "Bullet Chatting." In China, in order to avoid conflict with the function of the original
+      comment, it was renamed the Bullet Chatting.
     </p>
     <p>
-      The Bullet Chatting first appeared on the Japanese niconico (ニコニコ) Bullet Chatting video site. In China, in addition to the Bullet Chatting video sites such as Bilibili and Acfun, most video sites, such as MiGu video, Tencent video, iQiyi video, Youku video, etc., have a Bullet Chatting function.
+      The Bullet Chatting first appeared on the Japanese niconico (ニコニコ) Bullet Chatting video site. In China, in
+      addition to the Bullet Chatting video sites such as Bilibili and Acfun, most video sites, such as MiGu video,
+      Tencent video, iQiyi video, Youku video, etc., have a Bullet Chatting function.
 
     </p>
     <section>
@@ -67,7 +74,8 @@
           • Basic properties: body, appearance time, duration, font, font size, color, etc.
         </li>
         <li>
-          Timeline: The on-demand barcorder is a real-time insertion or custom timeline for video playback time, live broadcasts, and other scenes.
+          Timeline: The on-demand barcorder is a real-time insertion or custom timeline for video playback time, live
+          broadcasts, and other scenes.
         </li>
         <li>
           Container: A block-level element, typically the same size as the video.
@@ -82,10 +90,13 @@
       </p>
       <ul>
         <li>
-          Independence of space: Although it is displayed in the same element, each type of Bullet Chatting mode is in different layers in spatial calculation, and each mode can have multiple layers, and the Bullet Chatting occupancy in each layer does not overlap.
+          Independence of space: Although it is displayed in the same element, each type of Bullet Chatting mode is in
+          different layers in spatial calculation, and each mode can have multiple layers, and the Bullet Chatting
+          occupancy in each layer does not overlap.
         </li>
         <li>
-          Deterministic of rendering: If the Bullet Chatting area and the rendered list are fixed, then the position and order of each Bullet Chatting is fixed each time it is rendered.
+          Deterministic of rendering: If the Bullet Chatting area and the rendered list are fixed, then the position and
+          order of each Bullet Chatting is fixed each time it is rendered.
         </li>
         <li>
           Uniformity of modes: The survival time of the Bullet Chatting of each mode remains the same.
@@ -100,16 +111,20 @@
       </p>
       <ul>
         <li>
-          1. Rolling Bullet Chatting: Scrolls the screen from the right to the left at a constant speed, showing the top-down priority.
+          1. Rolling Bullet Chatting: Scrolls the screen from the right to the left at a constant speed, showing the
+          top-down priority.
         </li>
         <li>
-          2. Reverse Barr: Scrolls the screen from the left to the right at a constant speed, showing the top-down priority.
+          2. Reverse Barr: Scrolls the screen from the left to the right at a constant speed, showing the top-down
+          priority.
         </li>
         <li>
-          3. Top Bullet Chatting: A Bullet Chatting that is statically centered from top to bottom, with top-down priority.
+          3. Top Bullet Chatting: A Bullet Chatting that is statically centered from top to bottom, with top-down
+          priority.
         </li>
         <li>
-          4. Bottom Bullet Chatting: A Bullet Chatting that is centered from the bottom up and is displayed with a bottom-up priority.
+          4. Bottom Bullet Chatting: A Bullet Chatting that is centered from the bottom up and is displayed with a
+          bottom-up priority.
         </li>
       </ul>
       <p>
@@ -120,7 +135,9 @@
     <section>
       <h2>Commercial operation of the Bullet Chatting</h2>
       <p>
-        Bullet Chatting has a wide range of applications in China and Japan, and mainstream video sites and their apps have good support and application for Bullet Chatting. The monthly activity of the relevant video website can be referred to as follows (only the statistical video website app month):
+        Bullet Chatting has a wide range of applications in China and Japan, and mainstream video sites and their apps
+        have good support and application for Bullet Chatting. The monthly activity of the relevant video website can be
+        referred to as follows (only the statistical video website app month):
       </p>
       <ul>
         <li>iQiyi: monthly living 5,575.77 million</li>
@@ -147,7 +164,8 @@
           <dfn>WebVTT</dfn> &mdash; A file format used to mark text tracks.[[webvtt1]]
         </li>
         <li>
-          <dfn>TTML</dfn> &mdash; A type of content that represents a time-series text medium that is exchanged between authoring systems.[[ttml1]]
+          <dfn>TTML</dfn> &mdash; A type of content that represents a time-series text medium that is exchanged between
+          authoring systems.[[ttml1]]
         </li>
       </ul>
     </p>
@@ -158,15 +176,24 @@
     <section>
       <h2>On-demand video interaction</h2>
       <p>
-        When watching a video site to provide a video, the viewer will have some ideas or voicing points in the process of watching the video content, and want to publish it to share with more people. At this time, a Bullet Chatting is needed to meet this demand. Through the Bullet Chatting, the viewer's comments at the same time can be displayed in the video area by scrolling in a fixed direction, or statically displayed at the top or bottom of the video area, which can increase the interactive characteristics of the viewer and the video and the viewer. Interaction between the two. The Bullet Chatting sent at the same time basically has the same theme.
+        When watching a video site to provide a video, the viewer will have some ideas or voicing points in the process
+        of watching the video content, and want to publish it to share with more people. At this time, a Bullet Chatting
+        is needed to meet this demand. Through the Bullet Chatting, the viewer's comments at the same time can be
+        displayed in the video area by scrolling in a fixed direction, or statically displayed at the top or bottom of
+        the video area, which can increase the interactive characteristics of the viewer and the video and the viewer.
+        Interaction between the two. The Bullet Chatting sent at the same time basically has the same theme.
       </p>
       <p>
-        In this scenario, the Bullet Chatting data is generally offline data (not real-time), and there is also a small amount of real-time data.
+        In this scenario, the Bullet Chatting data is generally offline data (not real-time), and there is also a small
+        amount of real-time data.
       </p>
     </section>
     <section>
       <h2>Live video interaction</h2>
-      <p>The Bullet Chatting can also be a direct interaction between the anchor and the viewer in the live video scene. Compared with the traditional real-time commentary, the anchor can more intuitively understand the audience's needs and feedback according to the display of the Bullet Chatting on the screen, more convenient to adjust the next action and processing, and can also interact according to the user's input.</p>
+      <p>The Bullet Chatting can also be a direct interaction between the anchor and the viewer in the live video
+        scene. Compared with the traditional real-time commentary, the anchor can more intuitively understand the
+        audience's needs and feedback according to the display of the Bullet Chatting on the screen, more convenient to
+        adjust the next action and processing, and can also interact according to the user's input.</p>
       <p>
         In this scenario, the Bullet Chatting data is generally real-time data.
       </p>
@@ -174,20 +201,29 @@
     <section>
       <h2>Identify video highlights</h2>
       <p>
-        Since the Bullet Chatting will only appear at a specific point in the video, if there is a large number of Bullet Chatting at a certain point in time, it means that the time point has bright spots and high energy. The audience is interested in this time point event and can also be used as video management and Recommended reference data for other functions.
+        Since the Bullet Chatting will only appear at a specific point in the video, if there is a large number of
+        Bullet Chatting at a certain point in time, it means that the time point has bright spots and high energy. The
+        audience is interested in this time point event and can also be used as video management and Recommended
+        reference data for other functions.
       </p>
     </section>
 
     <section>
       <h2>Video content enhancement</h2>
       <p>
-        In the process of video on demand or live broadcast, there are some stages, the user is not concerned with the picture content of the video itself, but the emotions and emotions stimulated by a certain point. At this time, the viewer can enhance the video by superimposing on the video by the Bullet Chatting. The effect at this time is to achieve a better experience. For example, the victory of the game, the climax of the plot to render the atmosphere, or the cover of the horror of the horror to reduce fear.
+        In the process of video on demand or live broadcast, there are some stages, the user is not concerned with the
+        picture content of the video itself, but the emotions and emotions stimulated by a certain point. At this time,
+        the viewer can enhance the video by superimposing on the video by the Bullet Chatting. The effect at this time
+        is to achieve a better experience. For example, the victory of the game, the climax of the plot to render the
+        atmosphere, or the cover of the horror of the horror to reduce fear.
       </p>
     </section>
     <section>
       <h2>Web page interaction</h2>
       <p>
-        Sometimes in order to increase the effect of the page, the product operator hopes to make the relevant content into a visual impact of the Bullet Chatting effect, so that the relevant activities can be promoted in the web page to increase the impact of the page, attracting The attention of young people increases the income.
+        Sometimes in order to increase the effect of the page, the product operator hopes to make the relevant content
+        into a visual impact of the Bullet Chatting effect, so that the relevant activities can be promoted in the web
+        page to increase the impact of the page, attracting The attention of young people increases the income.
       </p>
       <p>
         In this kind of scene, the Bullet Chatting is displayed separately and is not attached to the video.
@@ -196,7 +232,12 @@
     <section>
       <h2>Interactive wall</h2>
       <p>
-        On the wall means that the netizen can display the interactive experience of the offline event or conference by sending the content of the Bullet Chatting to display the display screen prepared offline at the venue. The upper wall can be understood as a purely Bullet Chatting application, which is equivalent to not displaying video on the big screen, or even displaying content. It only shows the discussion content of the event site or the netizen for the offline event, and enhances the offline event or the meeting atmosphere. Participants have a stronger sense of participation.
+        On the wall means that the netizen can display the interactive experience of the offline event or conference by
+        sending the content of the Bullet Chatting to display the display screen prepared offline at the venue. The
+        upper wall can be understood as a purely Bullet Chatting application, which is equivalent to not displaying
+        video on the big screen, or even displaying content. It only shows the discussion content of the event site or
+        the netizen for the offline event, and enhances the offline event or the meeting atmosphere. Participants have a
+        stronger sense of participation.
       </p>
       <p>
         In this kind of scene, the Bullet Chatting is also displayed separately, not attached to the video.
@@ -227,9 +268,12 @@
       <section>
         <h2>Bulletchatlist element</h2>
         <ul>
-          <li><code>area</code>:Defines the percentage of the total height of the bulletchatlist in the scroll bar and the top Bullet Chatting display area, ranging from 0-100, 50 is half screen, 100 is full screen</li>
+          <li><code>area</code>:Defines the percentage of the total height of the bulletchatlist in the scroll bar and
+            the top Bullet Chatting display area, ranging from 0-100, 50 is half screen, 100 is full screen</li>
           <li>
-            <code>allowOverlap</code>:Defines whether the Bullet Chatting beyond the display area allows overlap.<code>false</code>If the display does not show the Bullet Chatting beyond the display area,<code>true</code>it means that the Bullet Chatting will be displayed overlapping the display area.
+            <code>allowOverlap</code>:Defines whether the Bullet Chatting beyond the display area allows
+            overlap.<code>false</code>If the display does not show the Bullet Chatting beyond the display
+            area,<code>true</code>it means that the Bullet Chatting will be displayed overlapping the display area.
           </li>
         </ul>
       </section>
@@ -238,12 +282,18 @@
         <h2>Bulletchat element</h2>
         <ul>
           <li>
-            <code>mode</code>:Defines the type of Bullet Chatting, optional values<code>scroll</code>,<code>top</code>,<code>bottom</code>and <code>reverse</code>.
+            <code>mode</code>:Defines the type of Bullet Chatting, optional
+            values<code>scroll</code>,<code>top</code>,<code>bottom</code>and <code>reverse</code>.
 
-            <p><code>scroll</code> The default value indicates the scroll Bullet Chatting. The Bullet Chatting scrolls from left to right, and the scrolling time is controlled by the CSS property <code>bulletchat-duration</code>. Display time rule: <code>bulletchat</code>the leftmost element into the <code>bulletchatlist</code> element area to the display <code>bulletchat</code> element from the rightmost <code>bulletchatlist</code>  element of the display region disappears time consumed.</p>
+            <p><code>scroll</code> The default value indicates the scroll Bullet Chatting. The Bullet Chatting scrolls
+              from left to right, and the scrolling time is controlled by the CSS
+              property <code>bulletchat-duration</code>. Display time rule: <code>bulletchat</code>the leftmost element
+              into the <code>bulletchatlist</code> element area to the display <code>bulletchat</code> element from the
+              rightmost <code>bulletchatlist</code> element of the display region disappears time consumed.</p>
             <p><code>top</code> Indicates the top Bullet Chatting.</p>
             <p><code>bottom</code> Indicates the bottom Bullet Chatting.</p>
-            <p><code>reverse</code> Represents a reverse scrolling Bullet Chatting. The Bullet Chatting will scroll from right to left, and the scrolling time is <code>scroll</code> similar.</p>
+            <p><code>reverse</code> Represents a reverse scrolling Bullet Chatting. The Bullet Chatting will scroll from
+              right to left, and the scrolling time is <code>scroll</code> similar.</p>
           </li>
         </ul>
       </section>
@@ -256,7 +306,8 @@
         <ul>
           <li><code>bulletchatstart</code>:Triggered when the Bullet Chatting animation starts.</li>
           <li><code>bulletchatend</code>:Triggered when the Bullet Chatting animation ends.</li>
-          <li><code>bulletchatcancel</code>:Trigger when the Bullet Chatting is terminated unexpectedly, such as the Bullet Chatting is removed or hidden, or because the display area is not displayed.</li>
+          <li><code>bulletchatcancel</code>:Trigger when the Bullet Chatting is terminated unexpectedly, such as the
+            Bullet Chatting is removed or hidden, or because the display area is not displayed.</li>
         </ul>
       </section>
     </section>
@@ -267,17 +318,23 @@
       <section>
         <h2>Bulletchatlist element</h2>
         <ul>
-          <li><code>bulletchat-play-state</code>:running | paused, defines the state of the Bullet Chatting as running or paused, and can be inherited.</li>
-          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of the Bullet Chatting, which can be inherited.</li>
+          <li><code>bulletchat-play-state</code>:running | paused, defines the state of the Bullet Chatting as running
+            or paused, and can be inherited.</li>
+          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
+            the Bullet Chatting, which can be inherited.</li>
         </ul>
       </section>
 
       <section>
         <h2>Bulletchat element</h2>
         <ul>
-          <li><code>bulletchat-play-state</code>:running | paused, which defines the state of the Bullet Chatting as running or paused, which can be inherited.</li>
-          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of the Bullet Chatting, which can be inherited.</li>
-          <li><code>bulletchat-delay</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines when the Bullet Chatting animation begins, defining a negative value allows a Bullet Chatting to start moving from the middle.
+          <li><code>bulletchat-play-state</code>:running | paused, which defines the state of the Bullet Chatting as
+            running or paused, which can be inherited.</li>
+          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
+            the Bullet Chatting, which can be inherited.</li>
+          <li><code>bulletchat-delay</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines when the Bullet
+            Chatting animation begins, defining a negative value allows a Bullet Chatting to start moving from the
+            middle.
           </li>
           <li>Font size, color, border, line height, transparency, shadow, etc., same as existing CSS attributes.</li>
         </ul>
