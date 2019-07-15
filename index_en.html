@@ -71,7 +71,7 @@
           Mode: Rolling Bullet Chatting, reverse Bullet Chatting, top Bullet Chatting, bottom Bullet Chatting.
         </li>
         <li>
-          • Basic properties: body, appearance time, duration, font, font size, color, etc.
+          Basic properties: body, appearance time, duration, font, font size, color, etc.
         </li>
         <li>
           Timeline: The on-demand barcorder is a real-time insertion or custom timeline for video playback time, live
@@ -88,7 +88,7 @@
       <p>
         There are three types of Bullet Chatting features:
       </p>
-      <ul>
+      <ol>
         <li>
           Independence of space: Although it is displayed in the same element, each type of Bullet Chatting mode is in
           different layers in spatial calculation, and each mode can have multiple layers, and the Bullet Chatting
@@ -101,7 +101,7 @@
         <li>
           Uniformity of modes: The survival time of the Bullet Chatting of each mode remains the same.
         </li>
-      </ul>
+        </ul>
     </section>
 
     <section>
@@ -109,27 +109,27 @@
       <p>
         There are four basic modes of the Bullet Chatting:
       </p>
-      <ul>
+      <ol>
         <li>
-          1. Rolling Bullet Chatting: Scrolls the screen from the right to the left at a constant speed, showing the
+          Rolling Bullet Chatting: Scrolls the screen from the right to the left at a constant speed, showing the
           top-down priority.
         </li>
         <li>
-          2. Reverse Barr: Scrolls the screen from the left to the right at a constant speed, showing the top-down
+          Reverse Barr: Scrolls the screen from the left to the right at a constant speed, showing the top-down
           priority.
         </li>
         <li>
-          3. Top Bullet Chatting: A Bullet Chatting that is statically centered from top to bottom, with top-down
+          Top Bullet Chatting: A Bullet Chatting that is statically centered from top to bottom, with top-down
           priority.
         </li>
         <li>
-          4. Bottom Bullet Chatting: A Bullet Chatting that is centered from the bottom up and is displayed with a
+          Bottom Bullet Chatting: A Bullet Chatting that is centered from the bottom up and is displayed with a
           bottom-up priority.
         </li>
-      </ul>
-      <p>
-        In addition, the Bullet Chatting has a higher level of customization and is not covered by this standard.
-      </p>
+        </ul>
+        <p>
+          In addition, the Bullet Chatting has a higher level of customization and is not covered by this standard.
+        </p>
     </section>
 
     <section>
@@ -252,13 +252,15 @@
       <aside class="example" title="Bullet Chatting use">
         <pre>
           &lt;bulletchatlist area="100" &gt;
-            &lt;bulletchat mode="scroll" &gt;这里是弹幕内容&lt;/bulletchat&gt;
-            &lt;bulletchat mode="bottom" &gt;固定在底部弹幕&lt;/bulletchat&gt;
+            &lt;bulletchat mode="scroll" &gt;This is Content&lt;/bulletchat&gt;
+            &lt;bulletchat mode="bottom" &gt;Fixed Content&lt;/bulletchat&gt;
           &lt;/bulletchatlist&gt;
           </pre>
       </aside>
       <p class="note">
-        弹幕采用全新的标签元素<code>bulletchatlist</code>和<code>bulletchat</code>，新增的弹幕标签元素不是<code>video</code>或者<code>audio</code>等元素的子元素。从“使用场景”可以看到，弹幕不仅只是和视频等媒体元素有关联，在“Web页面”或者“互动上墙”等场景下弹幕是独立作为页面的一部分存在，不依赖于视频等元素。
+        Bullet Chatting make use of new components like
+        <code>bulletchatlist</code>和<code>bulletchat</code>，and they are not inherited from
+        <code>Video</code>或者<code>Audio</code>.
       </p>
     </section>
 
