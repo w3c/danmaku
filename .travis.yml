@@ -11,7 +11,7 @@ after_script:
     - git config user.name "robot"
     - git config user.email "robot@no_reply.com"
     - git add .
-    - git commit -a -m "docs: update proposal documenation automatically."
+    - git commit -a -m docs: update proposal documenation automatically.
     - git push -u origin master
 
 # E: Build LifeCycle
