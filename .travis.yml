@@ -1,0 +1,21 @@
+language: node_js
+node_js: stable
+
+script:
+    - git clone git@github.com:w3c-proposal-incubation/w3c-proposal-incubation.github.io.git
+
+after_script:
+    - cp index.html danmaku-proposal/index.html
+    - cd w3c-proposal-incubation.github.io.git
+    - git config user.name "robot"
+    - git config user.email "robot@no_reply.com"
+    - git commit -a -m "docs: update proposal documenation automatically."
+    - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+# E: Build LifeCycle
+
+branches:
+    only:
+        - master
+env:
+    global:
+        - GH_REF: github.com/w3c-proposal-incubation/w3c-proposal-incubation.github.io.git
