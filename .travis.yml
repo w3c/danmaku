@@ -7,7 +7,6 @@ script:
 after_script:
     - cp index.html repo/danmaku-proposal/index.html
     - cp index_en.html repo/danmaku-proposal/index_en.html
-    - cp images repo/danmaku-proposal/images
     - cd repo
     - git config user.name "robot"
     - git config user.email "robot@no_reply.com"
