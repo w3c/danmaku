@@ -253,6 +253,12 @@
           &lt;/bulletchatlist&gt;
           </pre>
       </aside>
+      <figure>
+        <img alt="示例示意图" src="images/sample1.png" width="600">
+        <figcaption>
+          图为两条滚动弹幕和一条底部弹幕
+        </figcaption>
+      </figure>
       <p class="note">
         弹幕采用全新的标签元素<code>bulletchatlist</code>和<code>bulletchat</code>，新增的弹幕标签元素不是<code>video</code>或者<code>audio</code>等元素的子元素。从“<a href="#generatedID-5">使用场景</a>”可以看到，弹幕不仅只是和视频等媒体元素有关联，在“<a href="#web">Web页面</a>”或者“<a href="#generatedID-10">互动上墙</a>”等场景下弹幕是独立作为页面的一部分存在，不依赖于视频等元素。
       </p>
@@ -264,11 +270,23 @@
       <section>
         <h2>bulletchatlist 元素</h2>
         <ul>
-          <li><code>area</code>：定义滚动弹幕及顶部弹幕显示区域占 bulletchatlist 总高度的百分比，范围 0-100，50为半屏，100为满屏</li>
+          <li><code>area</code>：定义滚动弹幕及顶部弹幕显示区域占 bulletchatlist 总高度的百分比，范围 0-100，50为半屏，100为满屏。</li>
           <li>
             <code>allowOverlap</code>：定义超出显示区域的弹幕是否允许重叠。<code>false</code>表示不展示超出显示区域弹幕，<code>true</code>则表示超出显示区域弹幕会进行重叠展示。
           </li>
         </ul>
+        <figure>
+          <img alt="area示例示意图" src="images/sample4.png" width="600">
+          <figcaption>
+            图为 area = 70 时，滚动弹幕及顶部弹幕只在 0 - 70% 高度的蓝色区域显示
+          </figcaption>
+        </figure>
+        <figure>
+          <img alt="allowOverlap示例示意图" src="images/sample3.png" width="600">
+          <figcaption>
+            图为 allowOverlap = true; area = 70，弹幕显示区域显示不下时，显示不下的弹幕（使用绿色标识）重叠在正常弹幕上方
+          </figcaption>
+        </figure>
       </section>
 
       <section>
@@ -280,10 +298,35 @@
             <p><code>scroll</code> 为默认值，表示滚动弹幕。弹幕会从左往右进行滚动，滚动时间由CSS
               属性<code>bulletchat-duration</code>控制。显示时间规则为：<code>bulletchat</code>元素的最左侧进入<code>bulletchatlist</code>元素显示区域到
               <code>bulletchat</code>元素最右侧从<code>bulletchatlist</code>元素显示区域消失所消耗的时间。</p>
+            <figure>
+              <img alt="scroll示例示意图" src="images/sample5.png" width="600">
+              <figcaption>
+                图为两条滚动弹幕正在从右往左滚动
+              </figcaption>
+            </figure>
             <p><code>top</code> 表示顶部弹幕。</p>
+            <figure>
+              <img alt="top示例示意图" src="images/sample6.png" width="600">
+              <figcaption>
+                图为两条顶部弹幕
+              </figcaption>
+            </figure>
             <p><code>bottom</code> 表示底部弹幕。</p>
+            <figure>
+              <img alt="bottom示例示意图" src="images/sample7.png" width="600">
+              <figcaption>
+                图为两条底部弹幕
+              </figcaption>
+            </figure>
             <p><code>reverse</code> 表示逆向滚动弹幕。弹幕会从右往左进行滚动，滚动时间与<code>scroll</code>类似。</p>
+            <figure>
+              <img alt="reverse示例示意图" src="images/sample8.png" width="600">
+              <figcaption>
+                图为三条逆向弹幕正在从左往右滚动
+              </figcaption>
+            </figure>
           </li>
+
         </ul>
       </section>
     </section>
