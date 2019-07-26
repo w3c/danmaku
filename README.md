@@ -4,6 +4,10 @@ W3C 弹幕标准弹幕建议文稿，[点此处](https://w3c.github.io/danmaku/)
 
 For English version of the Bullet Chatting proposal, please visit [here](https://w3c.github.io/danmaku/index_en.html).
 
-# Demo
+# Demos
 
-We create a [Demo](https://w3c-proposal-incubation.github.io/bulletchatting-proposal/) based on the proposal, you can visit it and take a look.
+We also have several demos:
+
+* [simple-demo](https://w3c.github.io/danmaku/demos/simple-demo/)
+* [bulletchatting-proposal-demo](https://w3c.github.io/danmaku/demos/bulletchatting-proposal-demo/)
+* [Demo without video](https://w3c.github.io/danmaku/demos/no-media/)
