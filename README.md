@@ -1,8 +1,8 @@
 # Introduction
 
-W3C 弹幕标准弹幕建议文稿，[点此处](https://w3c-proposal-incubation.github.io/danmaku-proposal/)进行访问。
+W3C 弹幕标准弹幕建议文稿，[点此处](https://w3c.github.io/danmaku/)进行访问。
 
-W3C Proposal Documentation(English Version) for Bullet Chatting, Please visit [Here](https://w3c-proposal-incubation.github.io/danmaku-proposal/index_en.html).
+For English version of the Bullet Chatting proposal, please visit [here](https://w3c.github.io/danmaku/index_en.html).
 
 # Demo
 
