@@ -1,0 +1,25 @@
+WEBVDT
+
+00:00:00.100 --> 00:00:10.342
+{"text": "弹幕演示", "mode": "bottom", "color": "#ff0000", "fontSize": 18}
+
+00:00:01.100 --> 00:00:03.342
+{"text": "这是弹幕1", "mode": "scroll", "color": "#ffff00", "fontSize": 20}
+
+00:00:02.100 --> 00:00:03.342
+{"text": "这是弹幕2", "mode": "scroll", "color": "#ff00ff", "fontSize": 18}
+
+00:00:03.100 --> 00:00:10.342
+{"text": "这是弹幕21", "mode": "scroll", "color": "#ff00ff", "fontSize": 18}
+
+00:00:04.100 --> 00:00:13.342
+{"text": "这是弹幕22", "mode": "scroll", "color": "#ff00ff", "fontSize": 18}
+
+00:00:05.100 --> 00:00:13.342
+{"text": "这是弹幕23", "mode": "scroll", "color": "#ff00ff", "fontSize": 18}
+
+00:00:07.810 --> 00:00:09.221
+{"text": "又来了一条弹幕", "mode": "scroll", "color": "#ff0000", "fontSize": 20}
+
+00:00:10.441 --> 00:00:14.441
+{"text": "再来一条弹幕", "mode": "scroll", "color": "#ff0000", "fontSize": 22}

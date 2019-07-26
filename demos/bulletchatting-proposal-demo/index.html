@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Polymer bullet chatting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: 850px;
+            margin: 0 auto 50px;
+        }
+
+        .bulletchatting-video {
+            position: relative;
+            font-size: 0;
+            width: 600px;
+        }
+
+        video {
+            width: 100%;
+        }
+
+        bullet-chatting-list {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            color: #fff;
+            font-size: 25px;
+            pointer-events: none;
+        }
+
+        .area {
+            position: absolute;
+            top: 0;
+            bottom: 70%;
+            left: 0;
+            right: -20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-right: 2px solid #000;
+            font-size: 16px;
+            line-height: 30px;
+            pointer-events: none;
+        }
+
+        .area-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: calc(100% + 20px);
+            width: 250px;
+            pointer-events: all;
+        }
+
+        .area-text p {
+            margin: 0;
+        }
+
+        .area-border {
+            position: absolute;
+            right: 0;
+            width: 18px;
+            height: 2px;
+            background: #000;
+        }
+
+        .area-border-top {
+            top: 0;
+        }
+
+        .area-border-bottom {
+            bottom: 0;
+        }
+
+        .allow-overlap-span {
+            position: absolute;
+            left: calc(100% + 20px);
+            top: 0;
+        }
+
+        .controller {
+            margin-top: 20px;
+            font-size: 12px;
+            display: flex;
+        }
+
+        .select,
+        .code {
+            flex: 1;
+        }
+
+        pre {
+            margin: 0;
+        }
+
+        .line {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bullet chatting Demo</h1>
+    <div class="bulletchatting-video">
+        <video controls src="https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4"></video>
+        <bullet-chatting-list></bullet-chatting-list>
+        <div class="area">
+            <div class="area-text">
+                <p>area: <input value="30" type="number" onchange="document.querySelector('bullet-chatting-list').area = this.value;document.querySelector('.area').style.bottom = `${100 - this.value}%`"></p>
+                <p>allowOverlap: <input type="checkbox" onchange="document.querySelector('bullet-chatting-list').allowOverlap = this.checked"></p>
+            </div>
+            <div class="area-border area-border-top"></div>
+            <div class="area-border area-border-bottom"></div>
+        </div>
+    </div>
+    <h2>&lt;bullet-chatting&gt;</h2>
+    <h3>Add a bullet-chatting:</h3>
+    <div class="controller">
+        <div class="select">
+            <div class="line">
+                <label>innerHTML: </label>
+                <input class="bulletchatting-text" value="bulletchatting" onchange="generateCode()" />
+            </div>
+            <div class="line">
+                <label>style.fontSize: </label>
+                <input class="bulletchatting-fontsize" type="number" value="25" onchange="generateCode()" /> px
+            </div>
+            <div class="line">
+                <label>mode: </label>
+                <select class="bulletchatting-mode" onchange="generateCode()">
+                    <option>scroll</option>
+                    <option>top</option>
+                    <option>bottom</option>
+                    <option>reverse</option>
+                </select>
+            </div>
+            <div class="line">
+                <label>bulletchattingduration: </label>
+                <input class="bulletchatting-duration" type="number" value="4000" onchange="generateCode()" /> ms
+            </div>
+            <div class="line">
+                <label>bulletchattingdelay: </label>
+                <input class="bulletchatting-delay" type="number" value="0" onchange="generateCode()" /> ms
+            </div>
+            <button onclick="window.addbulletchatting(
+                document.querySelector('.bulletchatting-text').value,
+                document.querySelector('.bulletchatting-mode').value,
+                document.querySelector('.bulletchatting-fontsize').value,
+                document.querySelector('.bulletchatting-duration').value,
+                document.querySelector('.bulletchatting-delay').value,
+                )">Send</button>
+        </div>
+        <div class="code">
+            <pre></pre>
+        </div>
+    </div>
+    <h3>Events:</h3>
+    <pre>const bulletchatting = document.createElement('bullet-chatting');
+bulletchatting.innerHTML = 'bulletchatting';
+
+bulletchatting.addEventListener('bulletchattingstart', () => {
+    console.log('bulletchattingstart');
+});
+bulletchatting.addEventListener('bulletchattingend', () => {
+    console.log('bulletchattingend');
+});
+bulletchatting.addEventListener('bulletchattingcancel', () => {
+    console.log('bulletchattingcancel');
+});
+
+document.querySelector('bullet-chatting-list').appendChild(bulletchatting);</pre>
+    <h2>&lt;bullet-chatting-list&gt;</h2>
+    <h3>Set play state:</h3>
+    <pre>// play
+document.querySelector('bullet-chatting-list').bulletchattingplaystate = 'running';
+// pause
+document.querySelector('bullet-chatting-list').bulletchattingplaystate = 'paused';
+    </pre>
+    <h3>Set duration:</h3>
+    <pre>document.querySelector('bullet-chatting-list').bulletchattingduration = 1000;</pre>
+    <h3>Set area:</h3>
+    <pre>document.querySelector('bullet-chatting-list').area = 10;</pre>
+    <h3>Set allowOverlap:</h3>
+    <pre>document.querySelector('bullet-chatting-list').allowOverlap = true;</pre>
+
+    <scirpt src="./dist/webcompoments-loader.js"></scirpt>
+    <script src="./dist/polymer-bulletchatting.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        function generateCode() {
+            document.querySelector('.code pre').innerHTML = `const bulletchatting = document.createElement('bullet-chatting');
+
+bulletchatting.innerHTML = '${document.querySelector('.bulletchatting-text').value}';
+bulletchatting.mode = '${document.querySelector('.bulletchatting-mode').value}';
+bulletchatting.bulletchattingduration = ${document.querySelector('.bulletchatting-duration').value};
+bulletchatting.bulletchattingdelay = ${document.querySelector('.bulletchatting-delay').value};
+bulletchatting.style.fontSize = '${document.querySelector('.bulletchatting-fontsize').value}px';
+
+document.querySelector('bullet-chatting-list').appendChild(bulletchatting);`
+        };
+        generateCode();
+    </script>
+</body>
+
+</html>

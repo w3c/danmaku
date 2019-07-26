@@ -1,0 +1,26 @@
+{
+  "name": "polymer-bulletchatting",
+  "version": "0.0.1",
+  "main": "dist/polymer-bulletchatting.min.js",
+  "scripts": {
+    "start": "npm run dev",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --colors",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/dev.config.js --watch --colors"
+  },
+  "author": "DIYgod",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^5.2.0",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "@polymer/iron-input": "3.0.1",
+    "@polymer/polymer": "3.2.0",
+    "@webcomponents/webcomponentsjs": "2.2.10",
+    "copy-webpack-plugin": "5.0.3"
+  }
+}
