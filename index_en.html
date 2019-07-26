@@ -21,6 +21,23 @@
         company: "China Mobile"
 
       }],
+      authors: [{
+        name: "Fuqiao Xue",
+        companyURL: "http://www.chinaw3c.org/",
+        company: "W3C"
+      }, {
+        name: "Lei Zhao",
+        companyURL: "http://www.migu.cn",
+        company: "China Mobile"
+      }, {
+        name: "Zhaoqin Tan",
+        companyURL: "https://www.bilibili.com/",
+        company: "Bilibili Inc."
+      }, {
+        name: "Yajun Chen",
+        companyURL: 'http://www.migu.cn',
+        company: "China Mobile"
+      }],
       wg: "Chinese Web Interest Group",
       wgURI: "https://www.w3.org/2018/chinese-web-ig/",
       charterDisclosureURI: "https://www.w3.org/2004/01/pp-impl/109611/status",
@@ -36,29 +53,26 @@
 <body>
   <section id='abstract'>
     <p>
-      This document collects use cases and requirements for Bullet Chatting, and makes recommendations for new or
-      changed Web
-      APIs to satisfy these requirements.
+     This document provides use cases and requirements for Danmaku, and propose a few Web APIs to easily enable Danmaku in the Web Browsers.
     </p>
   </section>
-  <section id='sotd'>
+   <section id='sotd'>
     <p>
-      The Chinese Interest Group may update these use cases and requirements over time.
+      This is still a work in progress. The proposal is being incubated in the <a href="https://w3c.github.io/chinese-ig/">W3C Web Chinese Interest Group</a>.
     </p>
   </section>
   <section>
     <h2>Introduction</h2>
     <p>
-      The Bullet Chatting is called a comment (コメント/comment) in Japan. It refers to a comment or comment floating on the
-      video in a certain way at a specific point in time of the video, which can bring interesting and unexpected
-      experiences to the video viewing. Only when a large number of comments appear on the screen at the same time,
-      people call this state a "Bullet Chatting." In China, in order to avoid conflict with the function of the original
-      comment, it was renamed the Bullet Chatting.
+      Bullet Chatting is called comment (コメント/comment) in Japanese. It refers to a comment or a comment floating over the
+      video in certain way at a specific point of time of the video, which can bring interesting and unexpected
+      experiences to the users while watching the video. Only when a large amount of comments shown up on the screen at the same time,
+      people call this state of the player a Danmaku. In China, in order to avoid conflict with the function of the original
+      comment, it was renamed as Bullet Chatting.
     </p>
     <p>
-      The Bullet Chatting first appeared on the Japanese niconico (ニコニコ) Bullet Chatting video site. In China, in
-      addition to the Bullet Chatting video sites such as Bilibili and Acfun, most video sites, such as MiGu video,
-      Tencent video, iQiyi video, Youku video, etc., have a Bullet Chatting function.
+      Bullet Chatting first got popular from the Japanese Video vendor Niconico (ニコニコ). In China, besides those video vendor feature in Bullet Chatting such as Bilibili and Acfun, for most of the other video websites, such as MiGu video,
+      Tencent video, iQiyi video, Youku video, etc., Bullet Chatting is also provided as a function of the player.
 
     </p>
     <section>
@@ -140,15 +154,17 @@
         referred to as follows (only the statistical video website app month):
       </p>
       <ul>
-        <li>iQiyi: monthly living 5,575.77 million</li>
-        <li>Tencent Video: 4,679,100 monthly activities</li>
-        <li>Youku: monthly live 44,429,900</li>
-        <li>Mango TV: monthly live 100.267 million</li>
-        <li>Bilibili animation: monthly living 80.652 million</li>
-        <li>Sohu video: monthly live 36.35 million</li>
-        <li>MiGu video: monthly life 15.625 million</li>
+        <li>iQiyi: 575.1677 million per month</li>
+        <li>Tencent Video: 467.491 million per month</li>
+        <li>Youku: 444.829 million per month</li>
+        <li>Mango TV: 100.267 million per month</li>
+        <li>Bilibili animation: 80.652 million per month</li>
+        <li>Sohu video: 36.35 million per month</li>
+        <li>Niconico: 18.74 million per month [<a
+            href='https://ssl4.eir-parts.net/doc/9468/ir_material_for_fiscal_ym/64532/00.pdf'>source</a>]</li>
+        <li>MiGu video: 15.625 million per month</li>
       </ul>
-      <p>Source:<a href='https://www.analysys.cn/article/detail/20019224'>2019 Latest Mobile App TOP1000</a></p>
+      <p>Source: <a href='https://www.analysys.cn/article/detail/20019224'>2019 Latest Mobile App TOP1000</a></p>
     </section>
 
   </section>
@@ -170,6 +186,51 @@
       </ul>
     </p>
   </section>
+
+  <section>
+    <h2>Background</h2>
+    <section>
+      <h2>Analysis from the perspective of user experience</h2>
+      <p>During streaming broadcasting, we often see these two text chatting features to encourage user interaction: Chatroom and Bullet Chatting.</p>
+      <figure>
+        <img alt="an example of chatroom" src="images/why1.png" width="600">
+        <figcaption>
+          a figure of Chatroom: with the input of text, the context list will be scrolling to the top at a constant speed. 
+        </figcaption>
+      </figure>
+      <figure>
+        <img alt="an example of Bullet Chatting" src="images/why2.png" width="600">
+        <figcaption>
+          a figure of Bullet Chatting: with the input of text, a single line of text will show up on the right side of the video, moving to the left in an independent path.
+        </figcaption>
+      </figure>
+      <section>
+        <h2>Advantage of the display of Bullet Chatting</h2>
+        <p>We can see from the below figure that when many people are chatting in the same room during streaming broadcasting, messages will be scrolling quickly, the display time of each message is highly affectly by the chatroom's activity, the more active the users are, the less time the message will be displayed.</p>
+        <figure>
+          <img alt="the display time of a single message in a chatroom" src="images/why3.png" width="600">
+          <figcaption>
+            a figure of the display time of a single message in a chatroom
+          </figcaption>
+        </figure>
+        <p>Bullet Chatting tries to provide a better way to display each message when many people are chatting online in the same time,</p>
+        <ul>
+          <li>
+            <p>the density of the messages</p>
+            <p>Compared to the chatroom, Bullet Chatting has a wider display area, which provides better user experience of reading for a message with the same font size.</p>
+            <figure>
+              <img alt="the display time of a single message in Bullet Chatting" src="images/why4.png" width="600">
+              <figcaption>
+                a figure of the display time of a single message in Bullet Chatting
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </section>
+
+
   <section data-dfn-for="Foo" data-link-for="Foo">
     <h2>Scenarios</h2>
     This section mainly describes the specific use scenarios of the Bullet Chatting.
