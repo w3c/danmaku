@@ -60,7 +60,7 @@
       这是一份进行中的提案草稿。欢迎参加 <a href="https://w3c.github.io/chinese-ig/">W3C Web 中文兴趣组</a>关于弹幕的相关讨论。
     </p>
   </section>
-  <section>
+  <section id='introduction'>
     <h2>引言</h2>
     <p>
       弹幕（dàn mù）在日本被称呼为评论（コメント/comment），指代的是在视频的特定时间点以某种规律漂浮在视频上的评论或注释，可为视频观赏带来趣味性和意想不到的体验，
@@ -165,7 +165,7 @@
 
   </section>
 
-  <section>
+  <section id="terminology">
     <h2>术语</h2>
     <p>
       <p>
@@ -270,7 +270,7 @@
     </section>
   </section>
 
-  <section>
+  <section id="scenarios">
     <h2>使用场景</h2>
     本节主要描述弹幕的具体使用场景。
     <section>
@@ -355,7 +355,7 @@
         观看视频的时候，可能会因为观众对于内容的喜爱或者吐槽而有大量的弹幕在同时出现在画面上，此时就会把视频本身的内容覆盖的严严实实，影响大家对于视频内容的观看，比如学习舞蹈的时候被弹幕覆盖看不清舞蹈的动作等。这种情况下，就可以借助计算机视觉和AI的能力，对视频内容进行分析，并将之前已经定义好的“视频主体内容”进行识别，生成蒙版并分发给客户端后，客户端利用CSS3的特性进行渲染从而达成弹幕不会覆盖定义的“视频主体内容”的效果，这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。
       </p>
       <figure>
-        <img alt="示例示意图" src="images/bulletchat-Anti-block.png" width="600">
+        <img alt="蒙版弹幕" src="images/bulletchat-Anti-block.png" width="600">
         <figcaption>
           图为防挡弹幕中没有被弹幕遮挡的舞者
         </figcaption>
@@ -367,7 +367,7 @@
         弹幕内容可以包含emoji表情和图片等非文字内容，更加形象丰富的表达观看者的想法和观点。
       </p>
       <figure>
-        <img alt="示例示意图" src="images/bulletchat-fig.jpg" width="600">
+        <img alt="非文字弹幕" src="images/bulletchat-fig.jpg" width="600">
         <figcaption>
           图为弹幕内容中包含图片的内容
         </figcaption>
