@@ -339,7 +339,7 @@
       <h2>Masking</h2>
       <p>
         <p>
-          When watching a video, there may be a large number of bullet chatting appearing on the screen at the same time, causing the content of the video itself to be covered, which will affect watching the media content. For example, when the user is learning to dance, they may not see the movement of the dancer. [To be translated part: 这种情况下，就可以借助计算机视觉和AI的能力，对视频内容进行分析，并将之前已经定义好的“视频主体内容”进行识别，生成蒙版并分发给客户端后，客户端利用CSS3的特性进行渲染从而达成弹幕不会覆盖定义的“视频主体内容”的效果，这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。]
+          When watching a video, there may be a large number of bullet chatting appearing on the screen at the same time, which may unexpectedly cover the video itself, and disrupt users from watching the media content. For example, when the user is learning to dance, they may not see the movement of the dancer. [To be translated part: 这种情况下，就可以借助计算机视觉和AI的能力，对视频内容进行分析，并将之前已经定义好的“视频主体内容”进行识别，生成蒙版并分发给客户端后，客户端利用CSS3的特性进行渲染从而达成弹幕不会覆盖定义的“视频主体内容”的效果，这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。]
         </p>
         <figure>
           <img alt="Masking" src="images/bulletchat-Anti-block.png" width="600">
@@ -377,7 +377,7 @@
       </aside>
       <p class="note">
         Bullet Chatting uses new elements such as
-        <code>bulletchatlist</code> and <code>bulletchat</code>. These elements are not used as children of the media elements <code>audio</code> and <code>video</code>. From the Scenarios section, we can see that bullet chatting is not only related to media elements such as video. In scenes like Web page interaction or interactive wall, bullet chatting is independent to any media element.
+        <code>bulletchatlist</code> and <code>bulletchat</code>. These elements are not used as children of the media elements <code>audio</code> and <code>video</code>. From the Scenarios section, we can see that the usage of bullet chatting is not limited to those media elements like video. In scenes like Web page interaction or interactive wall, bullet chatting is independent to any media element.
       </p>
       <p class="note">
         This specification describes how the bullet chatting itself is rendered, not including the external bullet chatting list. 由于弹幕不依赖于<code>video</code>，因此不要求有弹幕列表。在常见的点播视频弹幕场景中，往往有一个类似[[webvtt1]]这样同步视频时间轴的弹幕列表，
