@@ -72,8 +72,13 @@
     <p>
       Bullet Chatting first got popular from the Japanese video-sharing website Niconico (ニコニコ). In China, besides the video-sharing websites that feature Bullet Chatting such as Bilibili and AcFun, for most of the other video websites, such as MiGu video,
       Tencent video, iQiyi video, Youku video, etc., Bullet Chatting is also provided as a function of the player.
-
     </p>
+    <figure>
+      <img alt="Example of bullet chatting" src="images/danmaku.png" width="600">
+      <figcaption>
+        An example of bullet chatting
+      </figcaption>
+    </figure>
     <section>
       <h2>Bullet Chatting attributes</h2>
       <p>
@@ -169,7 +174,7 @@
   </section>
 
   <section>
-    <h2>Terms</h2>
+    <h2>Terminology</h2>
     <p>
       <p>
         This document uses the following terms:
@@ -259,6 +264,12 @@
         the video area, which can increase the interactive characteristics of the viewer and the video and the viewer.
         Interaction between the two. The Bullet Chatting sent at the same time basically has the same theme.
       </p>
+      <figure>
+        <img alt="To be translated" src="images/video-on-demand.png" width="600">
+        <figcaption>
+          To be translated
+        </figcaption>
+      </figure>
       <p>
         In this scenario, the Bullet Chatting data is generally offline data (not real-time), and there is also a small
         amount of real-time data.
@@ -269,6 +280,12 @@
       <p>Bullet Chatting can also be a direct interaction between the anchor and the viewers in the live streaming
         scene. Compared with the traditional real-time comments, the anchor can understand the
         audience's needs and feedback more intuitively according to the display of the Bullet Chatting on the screen, adjust the next action and processing more conveniently, and can also interact according to the viewers' input.</p>
+        <figure>
+          <img alt="Live streaming interactions" src="images/video-live.jpeg" width="600">
+          <figcaption>
+            To be translated
+          </figcaption>
+        </figure>
       <p>
         In this scenario, the Bullet Chatting data is generally real-time data.
       </p>
@@ -318,6 +335,32 @@
         In this kind of scene, the Bullet Chatting is also displayed separately, not attached to the video.
       </p>
     </section>
+    <section>
+      <h2>Masking</h2>
+      <p>
+        <p>
+          When watching a video, there may be a large number of bullet chatting appearing on the screen at the same time, which may unexpectedly cover the video itself, and disrupt users from watching the media content. For example, when the user is learning to dance, they may not see the movement of the dancer. [To be translated part: 这种情况下，就可以借助计算机视觉和AI的能力，对视频内容进行分析，并将之前已经定义好的“视频主体内容”进行识别，生成蒙版并分发给客户端后，客户端利用CSS3的特性进行渲染从而达成弹幕不会覆盖定义的“视频主体内容”的效果，这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。]
+        </p>
+        <figure>
+          <img alt="Masking" src="images/bulletchat-Anti-block.png" width="600">
+          <figcaption>
+            [To be translated]
+          </figcaption>
+        </figure>
+      </p>
+    </section>
+    <section>
+      <h2>Non-text bullet chatting</h2>
+      <p>
+        Bullet chatting can contain non-text content such as emoji and images, to express the viewer's thoughts and opinions more vividly.
+      </p>
+      <figure>
+        <img alt="Non-text bullet chatting" src="images/bulletchat-fig.jpg" width="600">
+        <figcaption>
+          Bullet chatting containing images
+        </figcaption>
+      </figure>
+    </section>
   </section>
 
   <section>
@@ -333,9 +376,12 @@
           </pre>
       </aside>
       <p class="note">
-        Bullet Chatting make use of new components like
-        <code>bulletchatlist</code>和<code>bulletchat</code>，and they are not inherited from
-        <code>video</code> or <code>audio</code>.
+        Bullet Chatting uses new elements such as
+        <code>bulletchatlist</code> and <code>bulletchat</code>. These elements are not used as children of the media elements <code>audio</code> and <code>video</code>. From the Scenarios section, we can see that the usage of bullet chatting is not limited to those media elements like video. In scenes like Web page interaction or interactive wall, bullet chatting is independent to any media element.
+      </p>
+      <p class="note">
+        This specification describes how the bullet chatting itself is rendered, not including the external bullet chatting list. 由于弹幕不依赖于<code>video</code>，因此不要求有弹幕列表。在常见的点播视频弹幕场景中，往往有一个类似[[webvtt1]]这样同步视频时间轴的弹幕列表，
+        这种情况需要由开发者根据视频时间添加<code>bulletchat</code>。
       </p>
     </section>
 
@@ -353,6 +399,18 @@
             area; <code>true</code> if the Bullet Chatting will be displayed overlapping the display area.
           </li>
         </ul>
+        <figure>
+          <img alt="Example of the area attribute" src="images/sample4.png" width="600">
+          <figcaption>
+            To be translated
+          </figcaption>
+        </figure>
+        <figure>
+          <img alt="Example of the allowOverlap attribute" src="images/sample3.png" width="600">
+          <figcaption>
+            To be translated
+          </figcaption>
+        </figure>
       </section>
 
       <section>
