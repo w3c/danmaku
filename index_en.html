@@ -52,7 +52,7 @@
 <body>
   <section id='abstract'>
     <p>
-      This document provides use cases and requirements for Danmaku, and proposes Web APIs to easily enable Danmaku in Web browsers.
+      This document describes use cases and requirements for Danmaku, and proposes a Web API to easily enable Danmaku in Web browsers.
     </p>
   </section>
    <section id='sotd'>
@@ -181,7 +181,7 @@
       </p>
       <ul>
         <li>
-          <dfn>WebVTT</dfn> &mdash; A file format used to mark text tracks. [[webvtt1]]
+          <dfn>WebVTT</dfn> &mdash; A file format for marking text tracks. [[webvtt1]]
         </li>
         <li>
           <dfn>TTML</dfn> &mdash; A type of content that represents a time-series text medium that is exchanged between
@@ -195,33 +195,33 @@
     <h2>Background</h2>
     <section>
       <h2>Analysis from the perspective of user experience</h2>
-      <p>During live streaming, we often see two kinds of text chatting features to encourage user interaction: Chatroom and Bullet Chatting.</p>
+      <p>During live streaming, two popular text chatting features are often provided to encourage user interaction: Chatroom and Bullet Chatting.</p>
       <figure>
         <img alt="an example of chatroom" src="images/why1.png" width="600">
         <figcaption>
-          Chatroom: with the input of text, the context list will be scrolling to the top at a constant speed. 
+          Chatroom: with the input of text, the content list will be scrolling from the bottom to the top at a constant speed. 
         </figcaption>
       </figure>
       <figure>
         <img alt="an example of Bullet Chatting" src="images/why2.png" width="600">
         <figcaption>
-          Bullet Chatting: with the input of text, a single line of text will show up on the right side of the video, moving to the left in an independent path.
+          Bullet Chatting: with the input of text, a single line of text will show up from the right side of the video, moving right-to-left in an independent path.
         </figcaption>
       </figure>
       <section>
-        <h2>Advantage of the display of Bullet Chatting</h2>
-        <p>We can see from the below figure that when many people are chatting in the same room during live streaming, messages will be scrolling quickly, the display time of each message is highly affectly by the chatroom's activity, the more active the users are, the less time the message will be displayed.</p>
+        <h2>Advantage of displaying with Bullet Chatting</h2>
+        <p>We can see from the below figure that when many people are chatting in the same room during live streaming, messages will be scrolling quickly, the display time of each message is highly affected by the chatroom's activity, the more active the users are, the less time each message will be displayed.</p>
         <figure>
           <img alt="the display time of a single message in a chatroom" src="images/why3.png" width="600">
           <figcaption>
             The display time of a single message in a chatroom
           </figcaption>
         </figure>
-        <p>Bullet Chatting tries to provide a better way to display each message when many people are chatting online in the same time,</p>
+        <p>Bullet Chatting tries to provide a better way to display each message when many people are chatting online at the same time.</p>
         <ul>
           <li>
-            <p>Information density</p>
-            <p>Compared to the chatroom, Bullet Chatting has a wider display area, which provides better user experience of reading for a message with the same font size.</p>
+            <p>Density of the Information </p>
+            <p>Compared to the chatroom, Bullet Chatting has a wider display area, which provides better user experience reading a message even with the same font size.</p>
             <figure>
               <img alt="the display time of a single message in Bullet Chatting" src="images/why4.png" width="600">
               <figcaption>
@@ -230,23 +230,51 @@
             </figure>
           </li>
           <li>
-            <p>Information update frequency</p>
-            <p>[To be translated]</p>
+            <p>Update Frequency of the Information</p>
+            <p>In the Chatroom display mode, each message is scrolling up at the same speed as the others, so it's very difficult to do some special handling. While in the Bullet Chatting mode, each message is moving along their own path, and rarely affected by the update frequency of all the other messages, so it's possible and encouraged to ensure a proper display time for each message by algorithms.</p>
           </li>
           <li>
-            <p>Sight movement</p>
-            <p>[To be translated]</p>
+            <p>Movement of Users' Sight</p>
+            <p>In the Chatroom display mode, it's difficult for a user to concentrate on both the video content and the text comments. While in the Bullet Chatting mode, video content is actually covered by the text comments, the user's sight doesn't need to move back and forth across the video and the text messages, so it can provide better immersive experience.
+            </p>
+            <figure>
+              <img alt="Movement of Users' Sight in Chatroom" src="images/why5.png" width="600">
+              <figcaption>
+                a figure of the movement of users' sight in the Chatroom display mode
+              </figcaption>
+            </figure>
+            <figure>
+              <img alt="Movement of Users' Sight in Chatroom in Bullet Chatting" src="images/why6.png" width="600">
+              <figcaption>
+                a figure of the movement of users' sight in the Bullet Chatting display mode
+              </figcaption>
+            </figure>
           </li>
           <li>
-            <p>Reading habit</p>
-            <p>[To be translated]</p>
+            <p>Reading Habit</p>
+            <p>In a lot of languages, text is read from left to right and from top to bottom, so many people are used to read a single-line message horizontally. In the Bullet Chatting mode, text is mostly moving right-to-left, which allows people to read from left to right, so the user can get the meaning of such message very quickly.
+            </p>
+            <figure>
+              <img alt="direction of reading in Bullet Chatting" src="images/why7.png" width="600">
+              <figcaption>
+                a figure of the direction of reading in the Bullet Chatting display mode
+              </figcaption>
+            </figure>
+            <p>While in the Chatroom display mode, even the user would like to read from left to right, the text messages are actually moving from bottom to top, which leads a mismatching bevel angle and increases the difficulty for the user to easily scan the comments.</p>
+            <figure>
+              <img alt="direction of reading in chatroom" src="images/why8.png" width="600">
+              <figcaption>
+                a figure of the direction of reading in the chatroom display mode
+              </figcaption>
+            </figure>
           </li>
         </ul>
       </section>
     </section>
     <section>
-      <h2>Psychological factors analysis</h2>
-      <p>[To be translated]</p>
+      <h2>Analysis of the Psychological Factors</h2>
+      <p>From the perspective of social psychology, compared to watching a video alone, the feeling of participating in a group activity will make the user more cheerful. Bullet Chatting, by showing the text comments and the video content together in a comfortable way, can create a sense of participation in a group activity to the user. Without leaving his sight from the video content, the user is able to read others' comments on the on-going video clip or the up-coming clip, this helps to increase everyone's social presence.
+      </p>
     </section>
   </section>
 
@@ -276,12 +304,12 @@
       </p>
     </section>
     <section>
-      <h2>Live streaming interactions</h2>
+      <h2>Live streaming interaction</h2>
       <p>Bullet Chatting can also be a direct interaction between the anchor and the viewers in the live streaming
         scene. Compared with the traditional real-time comments, the anchor can understand the
         audience's needs and feedback more intuitively according to the display of the Bullet Chatting on the screen, adjust the next action and processing more conveniently, and can also interact according to the viewers' input.</p>
         <figure>
-          <img alt="Live streaming interactions" src="images/video-live.jpeg" width="600">
+          <img alt="Live streaming interaction" src="images/video-live.jpeg" width="600">
           <figcaption>
             To be translated
           </figcaption>
@@ -311,11 +339,10 @@
       </p>
     </section>
     <section>
-      <h2>Web page interaction</h2>
+      <h2>Interaction within a webpage</h2>
       <p>
-        Sometimes in order to increase the effect of the page, the product operator hopes to make the relevant content
-        into a visual impact of the Bullet Chatting effect, so that the relevant activities can be promoted in the web
-        page to increase the impact of the page, attracting The attention of young people increases the income.
+        Sometimes in order to increase the effect of a webpage, the product operator hopes to make the relevant content
+        into a visual impact of the Bullet Chatting effect, so that the relevant activities can be promoted in the webpage to increase the impact of the page, attracting The attention of young people increases the income.
       </p>
       <p>
         In this kind of scene, the Bullet Chatting is displayed separately and is not attached to the video.
@@ -477,7 +504,13 @@
 
 
   </section>
-
+<section>
+      <h2>A Gap Analysis of Bullet Chatting and WebVTT</h2>
+      <p>[[webvtt1]] is a file format intended for marking up external text track resources, one of its typical usages is to provide captions or subtitles for video content. Bullet Chatting is also often intended for providing text descriptions of video content, so it was once considered as a subset of WebVTT, and a special format of subtitles.
+      <p>However, in the section of <a href="#generatedID-9">Scenarios</a>, we can see that the usage of Bullet Chatting is not limited to videos, for example, it's also widely used on <a href="#web">webpage interaction</a> and <a href="#generatedID-14">the interactive wall</a>, running independently as a part of the webpage instead of a part of the video player.</p>
+      <p>If Bullet Chatting is designed as a subset of [[webvtt1]], then it has to follow all the rules of [[webvtt1]], and to cue the Bullet Chatting messages as a <code>vtt</code> file in the <code>track</code> element of a <code>video</code> element. However, in the <a href="#generatedID-11">live streaming interaction</a> scenario, the Bullet Chatting messages come from comments submitted by users in real-time, it's impossible to prepare a <code>vtt</code> file which contains all the Bullet Chatting messages in advance. This real-time requirement also applies to the <a href="#generatedID-10">on-demand video interaction</a> scenario. </p>
+      <p>Therefore, we would like to propose a new bulletchat element instead of making it a subset of WebVTT.</p>
+  </section>
 </body>
 
 </html>
