@@ -4,6 +4,7 @@
 <head>
   <title>Bullet Chatting Proposal</title>
   <meta charset='utf-8'>
+  <link rel="stylesheet" href="./local.css" />
   <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
   <script class='remove'>
     var respecConfig = {
@@ -330,12 +331,24 @@
     <section>
       <h2>Video content enhancement</h2>
       <p>
-        In the process of video on demand or live broadcast, there are some stages, the user is not concerned with the
+        In the process of video on demand or live streaming, there are some stages, the user is not concerned with the
         picture content of the video itself, but the emotions and emotions stimulated by a certain point. At this time,
         the viewer can enhance the video by superimposing on the video by the Bullet Chatting. The effect at this time
         is to achieve a better experience. For example, the victory of the game, the climax of the plot to render the
         atmosphere, or the cover of the horror of the horror to reduce fear.
       </p>
+      <figure>
+        <img alt="Example of video content enhancement" src="images/content-no-bulletchat.png" width="600">
+        <figcaption>
+          Example of video content enhancement: screenshot for the horror scene of a horror movie, without bullet chatting
+        </figcaption>
+      </figure>
+      <figure>
+        <img alt="Example of video content enhancement" src="images/content.png" width="600">
+        <figcaption>
+          Example of video content enhancement: screenshot for the horror scene of a horror movie, with bullet chatting
+        </figcaption>
+      </figure>
     </section>
     <section>
       <h2>Interaction within a webpage</h2>
@@ -381,9 +394,9 @@
         Bullet chatting can contain non-text content such as emoji and images, to express the viewer's thoughts and opinions more vividly.
       </p>
       <figure>
-        <img alt="Non-text bullet chatting" src="images/bulletchat-fig.jpg" width="600">
+        <img alt="Non-text bullet chatting" src="images/bulletchat-fig.png" width="600">
         <figcaption>
-          Bullet chatting containing images
+          Bullet chatting containing images and emoji
         </figcaption>
       </figure>
     </section>
@@ -508,7 +521,9 @@
       <p>[[webvtt1]] is a file format intended for marking up external text track resources, one of its typical usages is to provide captions or subtitles for video content. Bullet Chatting is also often intended for providing text descriptions of video content, so it was once considered as a subset of WebVTT, and a special format of subtitles.
       <p>However, in the section of <a href="#generatedID-9">Scenarios</a>, we can see that the usage of Bullet Chatting is not limited to videos, for example, it's also widely used on <a href="#web">webpage interaction</a> and <a href="#generatedID-14">the interactive wall</a>, running independently as a part of the webpage instead of a part of the video player.</p>
       <p>If Bullet Chatting is designed as a subset of [[webvtt1]], then it has to follow all the rules of [[webvtt1]], and to cue the Bullet Chatting messages as a <code>vtt</code> file in the <code>track</code> element of a <code>video</code> element. However, in the <a href="#generatedID-11">live streaming interaction</a> scenario, the Bullet Chatting messages come from comments submitted by users in real-time, it's impossible to prepare a <code>vtt</code> file which contains all the Bullet Chatting messages in advance. This real-time requirement also applies to the <a href="#generatedID-10">on-demand video interaction</a> scenario. </p>
-      <p>Therefore, we would like to propose a new bulletchat element instead of making it a subset of WebVTT.</p>
+      <p class="translateme">从弹幕和[[webvtt1]]的场景上来看，两者有着不同的交互方式。[[webvtt1]]是字幕，基本没有特殊的交互，只是展示视频时间轴上固定时间段内的内容的文本表达形式；而弹幕所承载的内容不是视频中内容的文本表达，而是对于视频内容的一种观看者主观理解的表达，有的弹幕是需要有交互的，比如观看者想看清楚某一条快速滚动的弹幕，他就可以鼠标悬停来实现弹幕不滚动，或者点击某一条弹幕查看更多的信息等，所以在交互方式上弹幕和[[webvtt1]]存在着明显的差别。</p>
+      <p class="translateme">除此之外，弹幕的展现方式和[[webvtt1]]的字幕也有着很大的区别，[[webvtt1]]的字幕只能在视频的固定位置展示，同一时间只能展示一条。而弹幕是灵活的展现形式，可以固定的展示，但更多的是滚动的展现方式。一条[[webvtt1]]字幕展示的内容长度是有限制的，而弹幕可以同时展示数倍于[[webvtt1]]字幕的数量的内容，所以对于承载的内容规模，[[webvtt1]]也无法满足弹幕的需求，大规模的弹幕内容展示是弹幕的典型的用户场景，因此和[[webvtt1]]存在着明显的区别。</p>
+      <p class="translateme">所以，综上所述：弹幕和WebVTT从典型使用场景上看有些类似，但是从背后的实现功能和实现原理上又有很大区别，所以在考虑弹幕标准化的时候没有作为WebVTT的一个子集的方向的原因就是如此。</p>
   </section>
 </body>
 
