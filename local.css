@@ -1,0 +1,9 @@
+.translateme::before {
+    content: ' Translate this: ';
+    color: coral;
+}
+
+.translateme {
+    background-color: #F3F3C3;
+    background-clip: content-box;
+}
