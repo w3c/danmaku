@@ -106,16 +106,11 @@
     <div class="bulletchatting-video">
         <video controls src="https://storage.googleapis.com/media-session/caminandes/short.mp4"></video>
         <bullet-chatting-list></bullet-chatting-list>
-        <div class="area">
-            <div class="area-text">
-                <p>area: <input value="30" type="number" onchange="document.querySelector('bullet-chatting-list').area = this.value;document.querySelector('.area').style.bottom = `${100 - this.value}%`"></p>
-                <p>allowOverlap: <input type="checkbox" onchange="document.querySelector('bullet-chatting-list').allowOverlap = this.checked"></p>
-            </div>
-            <div class="area-border area-border-top"></div>
-            <div class="area-border area-border-bottom"></div>
-        </div>
     </div>
     <h2>&lt;bullet-chatting&gt;</h2>
+    <h3>Attributes:</h3>
+    <p>area: <input value="40" type="number" onchange="document.querySelector('bullet-chatting-list').area = this.value"></p>
+    <p>allowOverlap: <input type="checkbox" onchange="document.querySelector('bullet-chatting-list').allowOverlap = this.checked"></p>
     <h3>Add a bullet-chatting:</h3>
     <div class="controller">
         <div class="select">

@@ -160,7 +160,7 @@ class DemoCustomElements extends PolymerElement {
 
     _check (top, index, mode) {
         const thisBoundingClientRect = this.getBoundingClientRect();
-        if (top + thisBoundingClientRect.height > this.parentElement.getBoundingClientRect().height * ((mode === 'scroll' || mode === 'reverse') ? (this.parentElement.area / 100) : 1)) {
+        if (top + thisBoundingClientRect.height > this.parentElement.getBoundingClientRect().height * this.parentElement.area / 100) {
             return false;
         }
         const overlapBrothers = this._brothers.filter((item) => item.overlapIndex === index);
