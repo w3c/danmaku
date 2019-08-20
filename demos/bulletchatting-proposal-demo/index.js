@@ -14,14 +14,14 @@ for (let i = 0; i < duration * 7; i++) {
         mode: 'scroll',
     });
 }
-for (let i = 0; i < duration * 1; i++) {
+for (let i = 0; i < duration * 0.5; i++) {
     bulletchattings.push({
         text: texts[parseInt(Math.random() * texts.length)],
         time: Math.random() * duration,
         mode: 'top',
     });
 }
-for (let i = 0; i < duration * 1; i++) {
+for (let i = 0; i < duration * 0.5; i++) {
     bulletchattings.push({
         text: texts[parseInt(Math.random() * texts.length)],
         time: Math.random() * duration,
