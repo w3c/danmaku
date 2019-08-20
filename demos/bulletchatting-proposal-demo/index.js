@@ -2,28 +2,29 @@ const list = document.querySelector('bullet-chatting-list');
 const video = document.querySelector('video');
 list.bulletchattingplaystate = 'paused';
 list.area = 30;
+const texts = ['He sits no sure that sits too high 🤧', 'He that respects not is not respected', 'So said, so done', 'Haste makes waste 🥵', 'Better be envied than pitied', 'So the world wags', 'One can not be in two places at once', 'No weal without woe']
 
 // generate bulletchattings
-const duration = 269;
+const duration = 146;
 const bulletchattings = [];
 for (let i = 0; i < duration * 7; i++) {
     bulletchattings.push({
-        text: '0123456789'.slice(parseInt(Math.random() * 10)),
-        time: Math.random() * 269,
+        text: texts[parseInt(Math.random() * texts.length)],
+        time: Math.random() * duration,
         mode: 'scroll',
     });
 }
 for (let i = 0; i < duration * 0.5; i++) {
     bulletchattings.push({
-        text: '0123456789'.slice(parseInt(Math.random() * 10)),
-        time: Math.random() * 269,
+        text: texts[parseInt(Math.random() * texts.length)],
+        time: Math.random() * duration,
         mode: 'top',
     });
 }
 for (let i = 0; i < duration * 0.5; i++) {
     bulletchattings.push({
-        text: '0123456789'.slice(parseInt(Math.random() * 10)),
-        time: Math.random() * 269,
+        text: texts[parseInt(Math.random() * texts.length)],
+        time: Math.random() * duration,
         mode: 'bottom',
     });
 }
