@@ -2,6 +2,7 @@ const list = document.querySelector('bullet-chatting-list');
 const video = document.querySelector('video');
 list.bulletchattingplaystate = 'paused';
 list.area = 40;
+list.bulletchattingduration = 6000;
 const texts = ['He sits no sure that sits too high 🤧', 'He that respects not is not respected', 'So said, so done', 'Haste makes waste 🥵', 'Better be envied than pitied', 'So the world wags', 'One can not be in two places at once', 'No weal without woe']
 
 // generate bulletchattings
