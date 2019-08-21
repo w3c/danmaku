@@ -3,7 +3,7 @@ const video = document.querySelector('video');
 list.bulletchattingplaystate = 'paused';
 list.area = 40;
 list.bulletchattingduration = 6000;
-const texts = ['He sits no sure that sits too high 🤧', 'He that respects not is not respected', 'So said, so done', 'Haste makes waste 🥵', 'Better be envied than pitied', 'So the world wags', 'One can not be in two places at once', 'No weal without woe'];
+const texts = ['This alpaca is so cute 😋', 'Perfect in workmanship 🥳', 'High-energy alarm 😱', 'What\'s this alpaca\'s name?', 'Short legs', 'Is alpaca delicious?', 'The alpaca is eating grass', 'LOOOOOL', 'Has anyone noticed his eyes?', 'I love his smile', 'He find the treasure', 'Does alpaca like to eat berries? 🍇'];
 
 window.addbulletchatting = (text, mode, fontSize, duration, delay) => {
     const bulletchatting = document.createElement('bullet-chatting');
