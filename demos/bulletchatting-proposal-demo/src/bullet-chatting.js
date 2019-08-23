@@ -42,10 +42,11 @@ class DemoCustomElements extends PolymerElement {
                 :host {
                     display: inline-block;
                     font-size: 25px;
-                    line-height: 1;
+                    line-height: 1.125;
                     position: absolute;
                     text-align: center;
                     word-break: keep-all;
+                    white-space: nowrap;
                 }
             </style>
             <slot></slot>
@@ -159,7 +160,7 @@ class DemoCustomElements extends PolymerElement {
 
     _check (top, index, mode) {
         const thisBoundingClientRect = this.getBoundingClientRect();
-        if (top + thisBoundingClientRect.height > this.parentElement.getBoundingClientRect().height * ((mode === 'scroll' || mode === 'reverse') ? (this.parentElement.area / 100) : 1)) {
+        if (top + thisBoundingClientRect.height > this.parentElement.getBoundingClientRect().height * this.parentElement.area / 100) {
             return false;
         }
         const overlapBrothers = this._brothers.filter((item) => item.overlapIndex === index);

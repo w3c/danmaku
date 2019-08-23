@@ -419,7 +419,7 @@
       <section>
         <h2>bulletchatlist 元素</h2>
         <ul>
-          <li><code>area</code>：定义滚动弹幕及顶部弹幕显示区域占 bulletchatlist 总高度的百分比，范围 0-100，50为半屏，100为满屏。</li>
+          <li><code>area</code>：定义弹幕显示区域占 bulletchatlist 总高度的百分比，范围 0-100，50为半屏，100为满屏。滚动弹幕、顶部弹幕、逆向滚动显示区域从 bulletchatlist 顶部开始计算，底部弹幕显示区域从 bulletchatlist 底部开始计算。</li>
           <li>
             <code>allowOverlap</code>：定义超出显示区域的弹幕是否允许重叠。<code>false</code>表示不展示超出显示区域弹幕，<code>true</code>则表示超出显示区域弹幕会进行重叠展示。
           </li>
@@ -427,7 +427,7 @@
         <figure>
           <img alt="area示例示意图" src="images/sample4.png" width="600">
           <figcaption>
-            图为 area = 70 时，滚动弹幕及顶部弹幕只在 0 - 70% 高度的蓝色区域显示
+            图为 area = 70 时，滚动弹幕只在 0 - 70% 高度的蓝色区域显示
           </figcaption>
         </figure>
         <figure>

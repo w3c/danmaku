@@ -1,33 +1,9 @@
 const list = document.querySelector('bullet-chatting-list');
 const video = document.querySelector('video');
 list.bulletchattingplaystate = 'paused';
-list.area = 30;
-
-// generate bulletchattings
-const duration = 269;
-const bulletchattings = [];
-for (let i = 0; i < duration * 7; i++) {
-    bulletchattings.push({
-        text: '0123456789'.slice(parseInt(Math.random() * 10)),
-        time: Math.random() * 269,
-        mode: 'scroll',
-    });
-}
-for (let i = 0; i < duration * 0.5; i++) {
-    bulletchattings.push({
-        text: '0123456789'.slice(parseInt(Math.random() * 10)),
-        time: Math.random() * 269,
-        mode: 'top',
-    });
-}
-for (let i = 0; i < duration * 0.5; i++) {
-    bulletchattings.push({
-        text: '0123456789'.slice(parseInt(Math.random() * 10)),
-        time: Math.random() * 269,
-        mode: 'bottom',
-    });
-}
-bulletchattings.sort((a, b) => a.time - b.time);
+list.area = 40;
+list.bulletchattingduration = 6000;
+const texts = ['This alpaca is so cute 😋', 'Perfect in workmanship 🥳', 'High-energy alarm 😱', 'What\'s this alpaca\'s name?', 'Short legs', 'Is alpaca delicious?', 'The alpaca is eating grass', 'LOOOOOL', 'Has anyone noticed his eyes?', 'I love his smile', 'He find the treasure', 'Does alpaca like to eat berries? 🍇'];
 
 window.addbulletchatting = (text, mode, fontSize, duration, delay) => {
     const bulletchatting = document.createElement('bullet-chatting');
@@ -80,3 +56,29 @@ video.addEventListener('seeking', () => {
         }
     }
 });
+
+// generate bulletchattings
+const duration = 146;
+const bulletchattings = [];
+for (let i = 0; i < duration * 7; i++) {
+    bulletchattings.push({
+        text: texts[parseInt(Math.random() * texts.length)],
+        time: Math.random() * duration,
+        mode: 'scroll',
+    });
+}
+for (let i = 0; i < duration * 0.5; i++) {
+    bulletchattings.push({
+        text: texts[parseInt(Math.random() * texts.length)],
+        time: Math.random() * duration,
+        mode: 'top',
+    });
+}
+for (let i = 0; i < duration * 0.5; i++) {
+    bulletchattings.push({
+        text: texts[parseInt(Math.random() * texts.length)],
+        time: Math.random() * duration,
+        mode: 'bottom',
+    });
+}
+bulletchattings.sort((a, b) => a.time - b.time);

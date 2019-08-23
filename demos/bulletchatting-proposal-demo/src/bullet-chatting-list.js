@@ -25,6 +25,7 @@ class DemoCustomElements extends PolymerElement {
                 :host {
                     display: block;
                     position: relative;
+                    overflow: hidden;
                 }
             </style>
             <slot></slot>

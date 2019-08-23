@@ -21,7 +21,7 @@ bullet-chatting-list 和 bulletchatting
 
 ### bullet-chatting-list 元素
 
-- area：定义滚动弹幕及顶部弹幕显示区域占 bullet-chatting-list 总高度的百分比，范围 0-100，50为半屏，100为满屏
+- area：定义弹幕显示区域占 bullet-chatting-list 总高度的百分比，范围 0-100，50为半屏，100为满屏。滚动弹幕、顶部弹幕、逆向滚动显示区域从 bulletchatlist 顶部开始计算，底部弹幕显示区域从 bulletchatlist 底部开始计算
 - allowOverlap：定义超出显示区域的弹幕是否允许重叠，false 不展示超出显示区域弹幕，true 把超出显示区域弹幕重叠展示
 
 ### bulletchatting 元素
