@@ -107,7 +107,7 @@
       <p>
         Bullet Chatting has three characteristics:
       </p>
-      <ol>
+      <ul>
         <li>
           Independence of space: Although it is displayed in the same element, each type of Bullet Chatting mode is in
           different layers in spatial calculation, and each mode can have multiple layers, and the Bullet Chatting
@@ -120,7 +120,7 @@
         <li>
           Uniformity of modes: The survival time of the Bullet Chatting of each mode remains the same.
         </li>
-        </ul>
+      </ul>
     </section>
 
     <section>
@@ -175,7 +175,6 @@
 
   <section>
     <h2>Terminology</h2>
-    <p>
       <p>
         This document uses the following terms:
       </p>
@@ -188,7 +187,6 @@
           authoring systems. [[ttml1]]
         </li>
       </ul>
-    </p>
   </section>
 
   <section>
@@ -293,9 +291,9 @@
         Interaction between the two. The Bullet Chatting sent at the same time basically has the same theme.
       </p>
       <figure>
-        <img alt="To be translated" src="images/video-on-demand.png" width="600">
+        <img alt="Screenshot of on-demand video interaction" src="images/video-on-demand.png" width="600">
         <figcaption>
-          To be translated
+          Example of on-demand video interaction
         </figcaption>
       </figure>
       <p>
@@ -311,7 +309,7 @@
         <figure>
           <img alt="Live streaming interaction" src="images/video-live.png" width="600">
           <figcaption>
-            To be translated
+            Example of live streaming interaction: control the game being live streamed by sending bullet chatting commands to vote
           </figcaption>
         </figure>
       <p>
@@ -359,6 +357,12 @@
       <p>
         In this kind of scene, the Bullet Chatting is displayed separately and is not attached to the video.
       </p>
+      <figure>
+        <img alt="Interaction within a webpage" src="images/web_bulletchat.png" width="600">
+        <figcaption>
+          [To be translated]
+        </figcaption>
+      </figure>
     </section>
     <section>
       <h2>Interactive wall</h2>
@@ -373,12 +377,17 @@
       <p>
         In this kind of scene, the Bullet Chatting is also displayed separately, not attached to the video.
       </p>
+      <figure>
+        <img alt="Interactive wall" src="images/bulletchat-wall.png" width="600">
+        <figcaption>
+          Example of interactive wall: in an event, the audience participates in the event by sending bullet chatting to the big screen.
+        </figcaption>
+      </figure>
     </section>
     <section>
       <h2>Masking</h2>
-      <p>
         <p>
-          When watching a video, there may be a large number of bullet chatting appearing on the screen at the same time, which may unexpectedly cover the video itself, and disrupt users from watching the media content. For example, when the user is learning to dance, they may not see the movement of the dancer. [To be translated part: 这种情况下，就可以借助计算机视觉和AI的能力，对视频内容进行分析，并将之前已经定义好的“视频主体内容”进行识别，生成蒙版并分发给客户端后，客户端利用CSS3的特性进行渲染从而达成弹幕不会覆盖定义的“视频主体内容”的效果，这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。]
+          In this case, computer vision and AI technologies can be used to analyze the video content and identify the previously defined "main content" of the video, generate a mask and distribute it to the client side. The browser uses CSS to render the bullet chatting without covering the defined "video body content". [To be translated part: 这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。]
         </p>
         <figure>
           <img alt="Masking" src="images/bulletchat-Anti-block.png" width="600">
@@ -386,7 +395,6 @@
             [To be translated]
           </figcaption>
         </figure>
-      </p>
     </section>
     <section>
       <h2>Non-text bullet chatting</h2>
@@ -451,13 +459,13 @@
         <figure>
           <img alt="Example of the area attribute" src="images/sample4.png" width="600">
           <figcaption>
-            To be translated
+            When area = 70, the scroll bullet chatting only display in 0-70% height (the blue area)
           </figcaption>
         </figure>
         <figure>
           <img alt="Example of the allowOverlap attribute" src="images/sample3.png" width="600">
           <figcaption>
-            To be translated
+            In the case of <code>allowOverlap = true; area = 70</code>, when the display area of bullet chatting is not enough, the excess bullet chatting (in green) overlaps the normal ones
           </figcaption>
         </figure>
       </section>
@@ -468,15 +476,39 @@
           <li>
             <code>mode</code>: Defines the type of Bullet Chatting, value is one of the folloing: <code>scroll</code>, <code>top</code>,<code>bottom</code> and <code>reverse</code>.
 
-            <p><code>scroll</code> The default value indicates the scroll Bullet Chatting. The Bullet Chatting scrolls
+            <p><code>scroll</code> The default value indicates a scroll bullet chat. The bullet chatting scrolls
               from left to right, and the scrolling time is controlled by the CSS
               property <code>bulletchat-duration</code>. Display time rule: <code>bulletchat</code>the leftmost element
               into the <code>bulletchatlist</code> element area to the display <code>bulletchat</code> element from the
               rightmost <code>bulletchatlist</code> element of the display region disappears time consumed.</p>
-            <p><code>top</code> Indicates the top Bullet Chatting.</p>
-            <p><code>bottom</code> Indicates the bottom Bullet Chatting.</p>
-            <p><code>reverse</code> Represents a reverse scrolling Bullet Chatting. The Bullet Chatting will scroll from
+              <figure>
+                <img alt="Scroll bullet chatting" src="images/sample5.png" width="600">
+                <figcaption>
+                  Bullet chatting scrolling from right to left
+                </figcaption>
+              </figure>
+            <p><code>top</code> indicates the top bullet chatting.</p>
+            <figure>
+              <img alt="Top bullet chatting" src="images/sample6.png" width="600">
+              <figcaption>
+                Top bullet chatting
+              </figcaption>
+            </figure>
+            <p><code>bottom</code> indicates the bottom bullet chatting.</p>
+            <figure>
+              <img alt="Bottom bullet chatting" src="images/sample7.png" width="600">
+              <figcaption>
+                Bottom bullet chatting
+              </figcaption>
+            </figure>
+            <p><code>reverse</code> represents a reverse scrolling bullet chatting. The bullet chatting will scroll from
               right to left, and the scrolling time is <code>scroll</code> similar.</p>
+              <figure>
+                <img alt="Reverse bullet chatting" src="images/sample8.png" width="600">
+                <figcaption>
+                  Reverse bullet chatting scrolling from left to right
+                </figcaption>
+              </figure>
           </li>
         </ul>
       </section>
@@ -529,10 +561,10 @@
 <section>
       <h2>A Gap Analysis of Bullet Chatting and WebVTT</h2>
       <p>[[webvtt1]] is a file format intended for marking up external text track resources, one of its typical usages is to provide captions or subtitles for video content. Bullet Chatting is also often intended for providing text descriptions of video content, so it was once considered as a subset of WebVTT, and a special format of subtitles.
-      <p>However, in the section of <a href="#generatedID-9">Scenarios</a>, we can see that the usage of Bullet Chatting is not limited to videos, for example, it's also widely used on <a href="#web">webpage interaction</a> and <a href="#generatedID-14">the interactive wall</a>, running independently as a part of the webpage instead of a part of the video player.</p>
-      <p>If Bullet Chatting is designed as a subset of [[webvtt1]], then it has to follow all the rules of [[webvtt1]], and to cue the Bullet Chatting messages as a <code>vtt</code> file in the <code>track</code> element of a <code>video</code> element. However, in the <a href="#generatedID-11">live streaming interaction</a> scenario, the Bullet Chatting messages come from comments submitted by users in real-time, it's impossible to prepare a <code>vtt</code> file which contains all the Bullet Chatting messages in advance. This real-time requirement also applies to the <a href="#generatedID-10">on-demand video interaction</a> scenario. </p>
-      <p class="translateme">从弹幕和[[webvtt1]]的场景上来看，两者有着不同的交互方式。[[webvtt1]]是字幕，基本没有特殊的交互，只是展示视频时间轴上固定时间段内的内容的文本表达形式；而弹幕所承载的内容不是视频中内容的文本表达，而是对于视频内容的一种观看者主观理解的表达，有的弹幕是需要有交互的，比如观看者想看清楚某一条快速滚动的弹幕，他就可以鼠标悬停来实现弹幕不滚动，或者点击某一条弹幕查看更多的信息等，所以在交互方式上弹幕和[[webvtt1]]存在着明显的差别。</p>
-      <p class="translateme">除此之外，弹幕的展现方式和[[webvtt1]]的字幕也有着很大的区别，[[webvtt1]]的字幕只能在视频的固定位置展示，同一时间只能展示一条。而弹幕是灵活的展现形式，可以固定的展示，但更多的是滚动的展现方式。一条[[webvtt1]]字幕展示的内容长度是有限制的，而弹幕可以同时展示数倍于[[webvtt1]]字幕的数量的内容，所以对于承载的内容规模，[[webvtt1]]也无法满足弹幕的需求，大规模的弹幕内容展示是弹幕的典型的用户场景，因此和[[webvtt1]]存在着明显的区别。</p>
+      <p>However, in the <a href="#scenarios">Scenarios</a> section, we can see that the usage of Bullet Chatting is not limited to videos. For example, it's also widely used on <a href="#interaction-within-a-webpage">web page interaction</a> and <a href="#interactive-wall">interactive wall</a>, running independently as a part of the web page instead of a part of the video player.</p>
+      <p>If Bullet Chatting is designed as a subset of WebVTT, then it has to follow all the rules of WebVTT, and to cue the Bullet Chatting messages as a <code>vtt</code> file in the <code>track</code> element of a <code>video</code> element. However, in the <a href="#live-streaming-interaction">live streaming interaction</a> scenario, the Bullet Chatting messages come from comments submitted by users in real-time, it's impossible to prepare a <code>vtt</code> file which contains all the Bullet Chatting messages in advance. This real-time requirement also applies to the <a href="#on-demand-video-interaction">on-demand video interaction</a> scenario. </p>
+      <p>From the perspective of usage scenarios of bullet chatting and WebVTT, the two have different ways of interaction. WebVTT is used for captions or subtitles. There's basically no special interactions. The browser only displays the textual expression of the content in a fixed time period on the video timeline. The content carried by the bullet chatting is not only the textual expression of the content in the video, but also the viewer's subjective understanding of the video content. Some bullet chatting needs to have interaction, for example, the viewer might want to look at a fast scrolling bullet chatting carefully, they can hover over it to make bullet chatting stop scrolling, or click on the bullet chatting to see more information, etc. Therefore, there is a clear difference between bullet chatting and WebVTT when used interactively.</p>
+      <p>In addition, the presentation of bullet chatting and the WebVTT subtitles are also very different. The subtitles of WebVTT can only be displayed in a fixed position of the video, and only one cue can be displayed at a specific time point. Bullet chatting is more flexible. It can be displayed fixedly, but is more often scrolling. The length of a WebVTT cue display is limited, but bullet chatting often has much more content than WebVTT subtitles. Therefore, for the size of the content carried, WebVTT can not meet the requirements of bullet chatting, and this is also a clear difference from WebVTT.</p>
       <p class="translateme">所以，综上所述：弹幕和WebVTT从典型使用场景上看有些类似，但是从背后的实现功能和实现原理上又有很大区别，所以在考虑弹幕标准化的时候没有作为WebVTT的一个子集的方向的原因就是如此。</p>
   </section>
 </body>
