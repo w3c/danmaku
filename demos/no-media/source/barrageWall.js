@@ -32,7 +32,7 @@ var barrageWall={
         var elem = $('<div></div>')//创建元素
             .addClass('list')//添加样式
             .css("top",this.lastElem*38+"px")//定位
-            .html("<img src='"+img+"' alt=''/>"+user+"："+txt)//添加内容
+            .html("<img src='"+img+"' alt=''/>"+user+" "+txt)//添加内容
             .appendTo(this.container);//追加在父元素后面
 
         this.barrage[this.lastElem].push(elem);//追加在数组中
