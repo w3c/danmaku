@@ -2,6 +2,8 @@
 
 #### 2019-9
 
+2019-09-27：[会议纪要-弹幕标准化小组周例会（第十八次）](https://docs.qq.com/doc/DUmJmUlNHWVZhSkhm)
+
 2019-09-06：[会议纪要-弹幕标准化小组周例会（第十七次）](https://docs.qq.com/doc/DUmxkS1ZqVUVwSGlo)
 
 #### 2019-8
