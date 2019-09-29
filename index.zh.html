@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+  <title>弹幕规范</title>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="./local.css" />
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "CG-DRAFT",
+      edDraftURI: "https://w3c.github.io/danmaku/",
+      shortName: "danmaku",
+      editors: [{
+        name: "黄之昊",
+        companyURL: "https://www.bilibili.com/",
+        company: "哔哩哔哩"
+
+      }, {
+        name: "徐嵩",
+        companyURL: 'http://www.migu.cn',
+        company: "中国移动咪咕"
+
+      }],
+      authors: [{
+        name: "薛富侨",
+        companyURL: "http://www.chinaw3c.org/",
+        company: "W3C"
+      }, {
+        name: "赵磊",
+        companyURL: "http://www.migu.cn",
+        company: "中国移动咪咕"
+      }, {
+        name: "谭兆歆",
+        companyURL: "https://www.bilibili.com/",
+        company: "哔哩哔哩"
+      }, {
+        name: "陈亚军",
+        companyURL: 'http://www.migu.cn',
+        company: "中国移动咪咕"
+      }],
+      wg: "Bullet Chatting Community Group",
+      wgURI: "https://www.w3.org/community/bullet-chatting/",
+      github: {
+        repoURL: "https://github.com/w3c/danmaku",
+        branch: "master"
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <section id='abstract'>
+    <p>
+      此文档描述了弹幕的一系列用例与需求，并且提出一个新的 Web 接口以在浏览器中更轻便地实现弹幕功能。
+    </p>
+  </section>
+  <section id='sotd'>
+    <p>
+      这是一份进行中的提案草稿。欢迎参加 <a href="https://www.w3.org/community/bullet-chatting/">W3C 弹幕社区组</a>关于弹幕的相关讨论。
+    </p>
+  </section>
+  <section id='introduction'>
+    <h2>引言</h2>
+    <p>
+      弹幕（dàn mù）在日本被称呼为评论（コメント/comment），指代的是在视频的特定时间点以某种规律漂浮在视频上的评论或注释，可为视频观赏带来趣味性和意想不到的体验，
+      只有当大量评论同时出现在屏幕上时，人们才把这种状态称为“弹幕”。在中国，为了避免和原有评论的功能所冲突，改名为弹幕。
+    </p>
+    <p>
+      弹幕最早在日本 niconico (ニコニコ) 弹幕视频网站出现。在中国除了 bilibili、AcFun 这样的弹幕视频网站外，大部分视频网站，如咪咕视频、腾讯视频、爱奇艺视频、优酷视频等都具有弹幕功能。
+    </p>
+    <figure>
+      <img alt="示例示意图" src="images/danmaku.png" width="600">
+      <figcaption>
+        图为弹幕样例截图
+      </figcaption>
+    </figure>
+    <!-- <p>
+      传统的播放器评论系统是独立于播放器之外的，因此评论的内容大多围绕在整个视频上。
+      但是弹幕但是其只会在视频中特定的一个时间点出现，因此在相同时刻发送的弹幕基本上也具有相同的主题。
+      弹幕的喜爱者多以80后、90、00后年轻人为主，这和中国计划生育的国情也有关。这代年轻人大多是独生子女，看视频本身是孤独的娱乐项目，在参与评论时就会有与其他观众同时评论的感觉，找到更多的共鸣感。
+    </p> -->
+
+    <section>
+      <h2>弹幕的属性</h2>
+      <p>
+        弹幕具有以下四种属性：
+      </p>
+      <ul>
+        <li>
+          模式：滚动弹幕、逆向弹幕、顶部弹幕、底部弹幕。
+        </li>
+        <li>
+          基本属性：正文、出现时间、持续时间、字体、字号、颜色等样式。
+        </li>
+        <li>
+          时间轴：点播弹幕为视频播放时间、直播和其他场景为实时插入或自定义时间轴。
+        </li>
+        <li>
+          容器：块级元素，一般是与视频大小相同的层。
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>弹幕的特性</h2>
+      <p>
+        弹幕特性有三种：
+      </p>
+      <ul>
+        <li>
+          空间的独立性：虽然在同一个元素内展现，但空间计算上每种弹幕模式处于不同层，每种模式也可以有多层，每层内的弹幕占位不会重叠。
+        </li>
+        <li>
+          渲染的确定性：如果弹幕区域和渲染的列表固定不变，那么每次渲染每条弹幕所出现的位置和顺序都是固定的。
+        </li>
+        <li>
+          各模式的统一性：每种模式的弹幕的生存时间保持一致。
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>弹幕的基本模式</h2>
+      <p>
+        弹幕的基本模式有四种：
+      </p>
+      <ol>
+        <li>
+          滚动弹幕：自右向左匀速滚动过屏幕的弹幕，以自上而下的优先度展示。
+        </li>
+        <li>
+          逆向弹幕：自左向右匀速滚动过屏幕的弹幕，以自上而下的优先度展示。
+        </li>
+        <li>
+          顶部弹幕：自上而下静止居中的弹幕、以自上而下的优先度展示。
+        </li>
+        <li>
+          底部弹幕：自下而上静止居中的弹幕、以自下而上的优先度展示。
+        </li>
+      </ol>
+      <p>
+        此外，弹幕还具有定制程度更高的高级模式，并不在本标准的描述范围。
+      </p>
+    </section>
+
+    <section>
+      <h2>弹幕的商业化运作</h2>
+      <p>
+        弹幕在中国及日本有着广泛的应用，主流的视频网站及其 app 都对弹幕有着较好的支持和应用。相关视频网站的月活可以参考如下（仅仅统计视频网站 app 月活）：
+      </p>
+      <ul>
+        <li>爱奇艺：月活57516.77万</li>
+        <li>腾讯视频：月活46749.1万</li>
+        <li>优酷：月活44482.9万</li>
+        <li>芒果TV：月活10026.7万</li>
+        <li>哔哩哔哩动画：月活8065.2万</li>
+        <li>搜狐视频：月活3635.0万</li>
+        <li>Niconico（日本）：月活1874万 [<a
+            href='https://ssl4.eir-parts.net/doc/9468/ir_material_for_fiscal_ym/64532/00.pdf'>数据来源</a>]</li>
+      </ul>
+      <p>数据来源：<a href='https://www.analysys.cn/article/detail/20019224'>2019年最新移动APP TOP1000</a></p>
+    </section>
+
+  </section>
+
+  <section id="terminology">
+    <h2>术语</h2>
+      <p>
+        本文档使用了如下术语:
+      </p>
+      <ul>
+        <li>
+          <dfn>WebVTT</dfn> &mdash; 一种用于标记文本轨道的文件格式。[[webvtt1]]
+        </li>
+        <li>
+          <dfn>TTML</dfn> &mdash; 一种内容类型，它代表了在编写系统之间进行交换的时序文本媒体。[[ttml1]]
+        </li>
+      </ul>
+  </section>
+
+  <section>
+    <h2>为什么需要弹幕？</h2>
+    <section>
+      <h2>用户体验因素分析</h2>
+      <p>在直播文字互动的场景中常见的交互方式有：聊天室和弹幕两种方式。如下图示意图所示：</p>
+      <figure>
+        <img alt="聊天室示例示意图" src="images/why1.png" width="600">
+        <figcaption>
+          图为聊天室方式：输入文本内容后，内容列表将整体匀速的从下方向上滚动
+        </figcaption>
+      </figure>
+      <figure>
+        <img alt="弹幕示例示意图" src="images/why2.png" width="600">
+        <figcaption>
+          图为弹幕方式：输入文本内容后，单行文本将出现在视频右侧，在独立的通道中从右到左移动
+        </figcaption>
+      </figure>
+      <section>
+        <h2>弹幕展示的优势</h2>
+        <p>从下图中我们不难看出，当直播房间有海量用户时左侧聊天室的内容将会快速滚动，单条信息的驻留时间受整个聊天室的活跃度影响，用户越是活跃单条信息的停留时间越短。</p>
+        <figure>
+          <img alt="示例示意图" src="images/why3.png" width="600">
+          <figcaption>
+            图为聊天室单条信息的驻留时间示意图
+          </figcaption>
+        </figure>
+        <p>而弹幕模式则从以下几个方面改善了海量信息的展示问题：</p>
+        <ul>
+          <li>
+            <p>信息密度</p>
+            <p>从下图可以看出，与聊天室模式相比，弹幕模式有更宽的展示区域，在相同的信息以相同字号进行展示时弹幕模式有更好的阅读体验。</p>
+            <figure>
+              <img alt="示例示意图" src="images/why4.png" width="600">
+              <figcaption>
+                图为弹幕单条信息的驻留时间示意图
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>信息更新频率</p>
+            <p>在聊天模式中，单条信息与全体信息以同样的频率整体向上滚动无法分离，而弹幕模式每条信息都在独立的通道中移动，并不受其他信息的更新频率所影响，可以通过算法较好的保障每条信息在屏幕内的展示时长。</p>
+          </li>
+          <li>
+            <p>视线移动</p>
+            <p>在聊天模式中，用户如果关注视频内容则无法阅读文字，反之亦然。而弹幕模式通过把文字覆盖于画面之上让用户可以同时阅读文字与视频内容，无需视线在两个区域间往返移动，有更好的沉浸体验。具体如下面两图对比不难看出。
+            </p>
+            <figure>
+              <img alt="示例示意图" src="images/why5.png" width="600">
+              <figcaption>
+                图为聊天室模式的视线移动示意图
+              </figcaption>
+            </figure>
+            <figure>
+              <img alt="示例示意图" src="images/why6.png" width="600">
+              <figcaption>
+                图为弹幕模式的视线移动示意图
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>阅读习惯</p>
+            <p>在大多数语言中文字的阅读习惯是从左到右、从上到下，因此人们养成了横向阅读单行信息的习惯，弹幕模式下文字从右向左移动，人从左向右阅读，形成从左向右的合力，在这种模式下我们可以用较短时间理解文字的含义。如下图所示：
+            </p>
+            <figure>
+              <img alt="示例示意图" src="images/why7.png" width="600">
+              <figcaption>
+                图为弹幕的阅读方向示意图
+              </figcaption>
+            </figure>
+            <p>在聊天室模式下人从左到右阅读，而阅读中的文字则在不停的向上移动，形成一个倾斜向上的合力，这会对快速阅读产生了障碍。如下图所示：</p>
+            <figure>
+              <img alt="示例示意图" src="images/why8.png" width="600">
+              <figcaption>
+                图为聊天室的阅读方向示意图
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>心理因素分析</h2>
+      <p>
+        从广泛的社会活动层面上来说，独自进行一项活动与和一群人一起进行一项活动相比，群体活动能够时刻影响人们对当前活动的评价以及对其的事后评价，一种“凝聚”的感觉会让人们对活动的评价更加积极。弹幕本质上来讲也是一种社会活动，相比传统视频，弹幕可以将视频和文字结合在一起，不仅可以更加吸引用户的注意力，同时可以可以提升用户的参与感。在不离开视频画面的前提下，通过与他人交流，还可以增加用户的社会存在感。
+      </p>
+    </section>
+  </section>
+
+  <section id="scenarios">
+    <h2>使用场景</h2>
+    本节主要描述弹幕的具体使用场景。
+    <section>
+      <h2>点播视频互动</h2>
+      <p>
+        在观看视频网站提供视频时，观看者在观看视频内容过程中根据内容启发会有一些想法或者吐槽点，就想要发表出来和更多的人分享，这时就需要弹幕来满足这个需求。通过弹幕，可以把同一时间观看者的评论通过固定方向滚动的方式显示在视频区域中，或者静止的显示在视频区域的顶部或底部，这样可以增加观看者和视频的互动特性以及观看者之间的互动。在相同时刻发送的弹幕基本上也具有相同的主题。
+      </p>
+      <figure>
+        <img alt="点播视频互动案例截图" src="images/video-on-demand.png" width="600">
+        <figcaption>
+          点播视频弹幕案例
+        </figcaption>
+      </figure>
+      <p>
+        此种场景，弹幕数据一般是离线数据（非实时），也存在少部分实时数据。
+      </p>
+    </section>
+    <section>
+      <h2>直播视频互动</h2>
+      <p>弹幕在视频直播场景中也能够成为主播与观众直接互动的方式。比起传统的实时评论，主播能够根据屏幕上弹幕的展现更直观了解观众的需求和反馈，更方便地调整接下来的行动和处理，也能够根据用户的输入进行交互操作。</p>
+      <figure>
+        <img alt="直播视频互动案例截图" src="images/video-live.png" width="600">
+        <figcaption>
+          直播视频弹幕案例-直播中通过发送弹幕指令投票来控制直播游戏
+        </figcaption>
+      </figure>
+      <p>
+        此种场景，弹幕数据一般是实时数据。
+      </p>
+    </section>
+    <section>
+      <h2>标识视频亮点</h2>
+      <p>
+        由于弹幕只会在视频中特定的一个时间点出现，如果某个时间点出现大量弹幕，说明该时间点具有亮点和高能，观众对此时间点事件异常感兴趣，也能够作为视频打点和推荐等功能的参考数据。
+      </p>
+    </section>
+    <section>
+      <h2>视频内容增强</h2>
+      <p>
+        在视频点播或直播过程中，存在一些阶段，用户关注的不再是视频本身的画面内容，而是某个点所激发的情绪、情感，此时观看者通过弹幕叠加在视频上能够增强视频此时的效果，达到更好的体验。比如比赛胜利、剧情高潮时用以渲染气氛、或对惊悚恐怖部分的遮盖处理以降低恐惧感等。
+      </p>
+      <figure>
+        <img alt="视频内容增强案例截图" src="images/content-no-bulletchat.png" width="600">
+        <figcaption>
+          视频内容增强弹幕案例-截图为恐怖片的恐怖场景下，没有弹幕遮盖
+        </figcaption>
+      </figure>
+      <figure>
+        <img alt="视频内容增强案例截图" src="images/content.png" width="600">
+        <figcaption>
+          视频内容增强弹幕案例-截图为恐怖片的恐怖场景下，有弹幕的遮盖降低了恐怖的气氛
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>Web页面互动</h2>
+      <p>
+        有时为了增加页面的效果，产品运营人员希望把相关内容做成有视觉冲击力的弹幕效果，这样可以在Web页面中对相关活动进行宣传重点，以此来增加页面的冲击力趣味性，吸引年轻人的关注，增加收益。
+      </p>
+      <p>
+        此种场景，弹幕是单独展现的，不依附于视频。
+      </p>
+      <figure>
+        <img alt="Web页面弹幕案例截图" src="images/web_bulletchat.png" width="600">
+        <figcaption>
+          Web页面弹幕案例-关于某一个活动专题的讨论
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>互动上墙</h2>
+      <p>
+        上墙是指网友通过发送弹幕内容，展示在线下会场准备好的显示屏上，增加线下活动或者会议的交互体验。上墙可以理解为是纯弹幕的应用，相当于大屏上不展示视频，甚至不展示内容，只展示活动现场或者网友对于线下活动的讨论内容，增强线下活动或者会议气氛，让参会者的参与感更强。
+      </p>
+      <p>
+        此种场景，弹幕也是单独展现的，不依附于视频。
+      </p>
+      <figure>
+        <img alt="弹幕互动上墙案例截图" src="images/bulletchat-wall.png" width="600">
+        <figcaption>
+          弹幕互动上墙案例-某活动现场，观众通过发送弹幕到大屏上参与活动
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>蒙版弹幕</h2>
+      <p>
+        观看视频的时候，可能会因为观众对于内容的喜爱或者吐槽而有大量的弹幕在同时出现在画面上，此时就会把视频本身的内容覆盖的严严实实，影响大家对于视频内容的观看，比如学习舞蹈的时候被弹幕覆盖看不清舞蹈的动作等。这种情况下，就可以借助计算机视觉和AI的能力，对视频内容进行分析，并将之前已经定义好的“视频主体内容”进行识别，生成蒙版并分发给客户端后，客户端利用CSS3的特性进行渲染从而达成弹幕不会覆盖定义的“视频主体内容”的效果，这种弹幕被称为“蒙版弹幕”，也被称为“防挡弹幕”。
+      </p>
+      <figure>
+        <img alt="蒙版弹幕" src="images/bulletchat-Anti-block.png" width="600">
+        <figcaption>
+          图为防挡弹幕中没有被弹幕遮挡的舞者
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>非文字弹幕</h2>
+      <p>
+        弹幕内容可以包含emoji表情和图片等非文字内容，更加形象丰富的表达观看者的想法和观点。
+      </p>
+      <figure>
+        <img alt="非文字弹幕" src="images/bulletchat-fig.png" width="600">
+        <figcaption>
+          图为弹幕内容中包含图片和emoji表情内容
+        </figcaption>
+      </figure>
+    </section>
+  </section>
+
+  <section>
+    <h2>建议接口与属性</h2>
+    <section>
+      <h2>样例</h2>
+      <aside class="example" title="弹幕使用">
+        <pre>
+          &lt;bulletchatlist area="100" &gt;
+            &lt;bulletchat mode="scroll" &gt;这里是弹幕内容&lt;/bulletchat&gt;
+            &lt;bulletchat mode="bottom" &gt;固定在底部弹幕&lt;/bulletchat&gt;
+          &lt;/bulletchatlist&gt;
+          </pre>
+      </aside>
+      <figure>
+        <img alt="示例示意图" src="images/sample1.png" width="600">
+        <figcaption>
+          图为两条滚动弹幕和一条底部弹幕
+        </figcaption>
+      </figure>
+      <p class="note">
+        弹幕采用全新的标签元素<code>bulletchatlist</code>和<code>bulletchat</code>，新增的弹幕标签元素不是<code>video</code>或者<code>audio</code>等元素的子元素。从“<a
+          href="#scenarios">使用场景</a>”可以看到，弹幕不仅只是和视频等媒体元素有关联，在“<a href="#web">Web页面</a>”或者“<a
+          href="#generatedID-11">互动上墙</a>”等场景下弹幕是独立作为页面的一部分存在，不依赖于视频等元素。
+      </p>
+      <p class="note">
+        弹幕规范描述了弹幕绘制方式，不包括外部列表。由于弹幕不依赖于<code>video</code>，因此不要求有弹幕列表。在常见的点播视频弹幕场景中，往往有一个类似[[webvtt1]]这样同步视频时间轴的弹幕列表，
+        这种情况需要由开发者根据视频时间添加<code>bulletchat</code>。
+      </p>
+    </section>
+    <section>
+      <h2>元素</h2>
+      <p><code>bulletchatlist</code> 为块元素，<code>bulletchat</code> 为行内元素。<code>bulletchat</code> 元素允许嵌套内容内容包括：文本、图片、超链接。</p>
+    </section>
+    <section>
+      <h2>属性</h2>
+
+      <section>
+        <h2>bulletchatlist 元素</h2>
+        <ul>
+          <li><code>area</code>：定义弹幕显示区域占 bulletchatlist 总高度的百分比，范围 0-100，50为半屏，100为满屏。滚动弹幕、顶部弹幕、逆向滚动显示区域从 bulletchatlist 顶部开始计算，底部弹幕显示区域从 bulletchatlist 底部开始计算。</li>
+          <li>
+            <code>allowOverlap</code>：定义超出显示区域的弹幕是否允许重叠。<code>false</code>表示不展示超出显示区域弹幕，<code>true</code>则表示超出显示区域弹幕会进行重叠展示。
+          </li>
+        </ul>
+        <figure>
+          <img alt="area示例示意图" src="images/sample4.png" width="600">
+          <figcaption>
+            图为 area = 70 时，滚动弹幕只在 0 - 70% 高度的蓝色区域显示
+          </figcaption>
+        </figure>
+        <figure>
+          <img alt="allowOverlap示例示意图" src="images/sample3.png" width="600">
+          <figcaption>
+            图为 allowOverlap = true; area = 70，弹幕显示区域显示不下时，显示不下的弹幕（使用绿色标识）重叠在正常弹幕上方
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>bulletchat 元素</h2>
+        <ul>
+          <li>
+            <code>mode</code>：定义弹幕类型，可选值为<code>scroll</code>、<code>top</code>、<code>bottom</code>以及<code>reverse</code>。
+
+            <p><code>scroll</code> 为默认值，表示滚动弹幕。弹幕会从左往右进行滚动，滚动时间由CSS
+              属性<code>bulletchat-duration</code>控制。显示时间规则为：<code>bulletchat</code>元素的最左侧进入<code>bulletchatlist</code>元素显示区域到
+              <code>bulletchat</code>元素最右侧从<code>bulletchatlist</code>元素显示区域消失所消耗的时间。</p>
+            <figure>
+              <img alt="scroll示例示意图" src="images/sample5.png" width="600">
+              <figcaption>
+                图为两条滚动弹幕正在从右往左滚动
+              </figcaption>
+            </figure>
+            <p><code>top</code> 表示顶部弹幕。</p>
+            <figure>
+              <img alt="top示例示意图" src="images/sample6.png" width="600">
+              <figcaption>
+                图为两条顶部弹幕
+              </figcaption>
+            </figure>
+            <p><code>bottom</code> 表示底部弹幕。</p>
+            <figure>
+              <img alt="bottom示例示意图" src="images/sample7.png" width="600">
+              <figcaption>
+                图为两条底部弹幕
+              </figcaption>
+            </figure>
+            <p><code>reverse</code> 表示逆向滚动弹幕。弹幕会从右往左进行滚动，滚动时间与<code>scroll</code>类似。</p>
+            <figure>
+              <img alt="reverse示例示意图" src="images/sample8.png" width="600">
+              <figcaption>
+                图为三条逆向弹幕正在从左往右滚动
+              </figcaption>
+            </figure>
+          </li>
+
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <h2>事件</h2>
+      <section>
+        <h2>bulletchat 元素</h2>
+        <ul>
+          <li><code>bulletchatstart</code>：弹幕动画开始时触发。</li>
+          <li><code>bulletchatend</code>：弹幕动画结束时触发。</li>
+          <li><code>bulletchatcancel</code>：弹幕意外终止时触发，如弹幕被移除或被隐藏，或因为超出显示区域不被展示。</li>
+        </ul>
+      </section>
+    </section>
+
+
+    <section>
+      <h2>样式</h2>
+      <section>
+        <h2>bulletchatlist 元素</h2>
+        <ul>
+          <li><code>bulletchat-play-state</code>：running | paused，定义弹幕状态为运行或暂停，可继承。</li>
+          <li><code>bulletchat-duration</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕播放速度，可继承。</li>
+          <li>字号、颜色、边框、行高、透明度、阴影等，同现有 CSS 属性。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>bulletchat 元素</h2>
+        <ul>
+          <li><code>bulletchat-play-state</code>：running | paused，定义弹幕状态为运行或者暂停，可继承。</li>
+          <li><code>bulletchat-duration</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕播放速度，可继承。</li>
+          <li><code>bulletchat-delay</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕动画于何时开始，定义一个负值可以实现一个弹幕从中间开始运动。
+          </li>
+          <li>字号、颜色、边框、行高、透明度、阴影等，同现有 CSS 属性。</li>
+        </ul>
+      </section>
+    </section>
+
+  </section>
+  <section>
+      <h2>弹幕和WebVTT的差别</h2>
+      <p>[[webvtt1]]是一种用于标记文本轨道的文件格式，[[webvtt1]]的典型应用场景为视频字幕。而目前弹幕的典型应用场景也都是和视频关联的，弹幕一度被称为是字幕的一个子集，是一种特殊的字幕形式。</p>
+      <p>其实，并不是这样。从“<a href="#scenarios">使用场景</a>”可以看到，弹幕使用场景包含和视频关联的场景，也包括不和视频相关联的场景，如：“<a href="#web">Web页面</a>”和“<a href="#generatedID-11">互动上墙</a>”等场景，都是独立作为页面的一部分，而不依赖于视频等媒体元素。</p>
+      <p>弹幕如果作为WebVTT的一个子集，在使用形式上可能需要按照WebVTT的方式，在<code>video</code>元素中使用<code>track</code>元素引用<code>.vtt</code>文件的方式来引用弹幕文件。在“<a href="#scenarios">使用场景</a>”中的“<a href="#generatedID-8">直播视频互动</a>”场景中，因为直播中的弹幕数据是实时用户发布的数据，而没有一个弹幕文件预先被<code>track</code>引用。即使在“<a href="#generatedID-7">点播视频互动</a>”场景中也是存在实时发送弹幕数据的场景的，所以预先被<code>track</code>弹幕文件是不现实的。</p>
+      <p>从弹幕和WebVTT的场景上来看，两者有着不同的交互方式。WebVTT是字幕，基本没有特殊的交互，只是展示视频时间轴上固定时间段内的内容的文本表达形式；而弹幕所承载的内容不是视频中内容的文本表达，而是对于视频内容的一种观看者主观理解的表达，有的弹幕是需要有交互的，比如观看者想看清楚某一条快速滚动的弹幕，他就可以鼠标悬停来实现弹幕不滚动，或者点击某一条弹幕查看更多的信息等，所以在交互方式上弹幕和WebVTT存在着明显的差别。</p>
+      <p>除此之外，弹幕的展现方式和WebVTT的字幕也有着很大的区别，WebVTT的字幕只能在视频的固定位置展示，同一时间只能展示一条。而弹幕是灵活的展现形式，可以固定的展示，但更多的是滚动的展现方式。一条WebVTT字幕展示的内容长度是有限制的，而弹幕可以同时展示数倍于WebVTT字幕的数量的内容，所以对于承载的内容规模，WebVTT也无法满足弹幕的需求，大规模的弹幕内容展示是弹幕的典型的用户场景，因此和WebVTT存在着明显的区别。</p>
+      <p>综上所述，弹幕和WebVTT从典型使用场景上看有些类似，但是从背后的实现功能和实现原理上又有很大区别，这也是在考虑弹幕标准化时没有作为WebVTT的子集或扩展的原因。</p>
+  </section>
+</body>
+
+</html>
