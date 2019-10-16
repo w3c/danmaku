@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bullet Chatting API Proposal</title>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="./local.css" />
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "CG-DRAFT",
+      edDraftURI: "https://w3c.github.io/danmaku/",
+      shortName: "danmaku",
+      editors: [{
+        name: "Zhihao Huang",
+        companyURL: "https://www.bilibili.com/",
+        company: "‎Bilibili Inc."
+
+      }, {
+        name: "Song Xu",
+        companyURL: 'http://www.migu.cn',
+        company: "China Mobile"
+
+      },{
+        name: "Fuqiao Xue",
+        companyURL: "http://www.chinaw3c.org/",
+        company: "W3C"
+      }, {
+        name: "Lei Zhao",
+        companyURL: "http://www.migu.cn",
+        company: "China Mobile"
+      }, {
+        name: "Zhaoqin Tan",
+        companyURL: "https://www.bilibili.com/",
+        company: "Bilibili Inc."
+      }, {
+        name: "Yajun Chen",
+        companyURL: 'http://www.migu.cn',
+        company: "China Mobile"
+      }],
+      wg: "Bullet Chatting Community Group",
+      wgURI: "https://www.w3.org/community/bullet-chatting/",
+      github: {
+        repoURL: "https://github.com/w3c/danmaku",
+        branch: "master"
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <section id='abstract'>
+    <p>
+      This document describes current technicals for implementing Danmaku by developers, and proposes a Web API to easily enable Danmaku in Web browsers.
+    </p>
+  </section>
+   <section id='sotd'>
+    <p>
+      This is still a work in progress. The proposal is being incubated in the <a href="https://www.w3.org/community/bullet-chatting/">W3C Bullet Chatting Community Group</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Terminology</h2>
+      <p>
+        This document uses the following terms:
+      </p>
+      <ul>
+        <li>
+            <dfn>Canvas</dfn> &mdash; An element used to draw graphics on a web page. [[2dcontext]]
+          </li>
+        <li>
+          <dfn>WebVTT</dfn> &mdash; A file format for marking text tracks. [[webvtt1]]
+        </li>
+      </ul>
+  </section>
+
+  <section>
+      <h2>当前弹幕实现方式</h2>
+      <p>当前开发者实现弹幕主要有如下两种方式：</p>
+      <ul>
+        <li>Canvas 动态绘制弹幕</li>
+        <li>CSS3 动态绘制弹幕</li>
+      </ul>
+  
+      <section>
+        <h2>Canvas 动态绘制弹幕</h2>
+        <div class="note">
+          TODO: 描述Canvas 绘制弹幕的技术实现
+        </div>
+      </section>
+      <section>
+        <h2>CSS3 动态绘制弹幕</h2>
+        <div class="note">
+          TODO: 描述CSS3 绘制弹幕的技术实现
+        </div>
+      </section>
+    </section>
+
+  <section>
+    <h2>Recommended API</h2>
+    <section>
+      <h2>Examples</h2>
+      <aside class="example" title="Bullet Chatting usage">
+        <pre>
+          &lt;bulletchatlist area="100" &gt;
+            &lt;bulletchat mode="scroll" &gt;This is Content&lt;/bulletchat&gt;
+            &lt;bulletchat mode="bottom" &gt;Fixed Content&lt;/bulletchat&gt;
+          &lt;/bulletchatlist&gt;
+          </pre>
+      </aside>
+      <p class="note">
+        Bullet Chatting uses new elements such as
+        <code>bulletchatlist</code> and <code>bulletchat</code>. These elements are not used as children of the media elements <code>audio</code> and <code>video</code>. From the Scenarios section, we can see that the usage of bullet chatting is not limited to those media elements like video. In scenes like Web page interaction or interactive wall, bullet chatting is independent to any media element.
+      </p>
+      <p class="note">
+        This specification describes how the bullet chatting itself is rendered, not including the external bullet chatting list. Since bullet chatting does not depend on <code>video</code>, there is no requirement for a bullet chatting list with timestamps. In a common on-demand video bullet chatting scenario, there is often a list of bullet chatting similar to the time-aligned data in [[webvtt1]], which requires the developer to add <code>bulletchat</code> based on the time offset of the video.
+      </p>
+    </section>
+
+    <section>
+      <h2>Elements</h2>
+      <p>
+        <code>bulletchatlist</code> is a block-level element, and <code>bulletchat</code> is an inline element. The content permitted as children and descendants of the <code>bulletchat</code> element include: text, images, and hyperlinks.
+      </p>
+    </section>
+
+    <section>
+      <h2>Attributes</h2>
+
+      <section>
+        <h2>bulletchatlist element</h2>
+        <ul>
+          <li><dfn>area</dfn>: Defines the percentage of the total height of the bulletchatlist in
+            Bullet Chatting display area, ranging from 0-100, 50 is half screen, 100 is full screen.
+            The <code>scroll</code> <code>reverse</code> and <code>top</code> Bullet Chatting display
+            area is calculated from the top of bulletchatlist, the <code>bottom</code> Bullet Chatting
+            display area is calculated from the bottom of bulletchatlist</li>
+          <li>
+            <dfn>allowOverlap</dfn>: Defines whether the Bullet Chatting beyond the display area allows
+            overlap. <code>false</code> if the display does not show the Bullet Chatting beyond the display
+            area; <code>true</code> if the Bullet Chatting will be displayed overlapping the display area.
+          </li>
+        </ul>
+        <figure>
+          <img alt="Example of the area attribute" src="images/sample4.png" width="600">
+          <figcaption>
+            When area = 70, the scroll bullet chatting only display in 0-70% height (the blue area)
+          </figcaption>
+        </figure>
+        <figure>
+          <img alt="Example of the allowOverlap attribute" src="images/sample3.png" width="600">
+          <figcaption>
+            In the case of <code>allowOverlap = true; area = 70</code>, when the display area of bullet chatting is not enough, the excess bullet chatting (in green) overlaps the normal ones
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>bulletchat element</h2>
+        <ul>
+          <li>
+            <code>mode</code>: Defines the type of Bullet Chatting, value is one of the folloing: <code>scroll</code>, <code>top</code>,<code>bottom</code> and <code>reverse</code>.
+
+            <p><code>scroll</code> The default value indicates a scroll bullet chat. The bullet chatting scrolls
+              from left to right, and the scrolling time is controlled by the CSS
+              property <code>bulletchat-duration</code>. Display time rule: <code>bulletchat</code>the leftmost element
+              into the <code>bulletchatlist</code> element area to the display <code>bulletchat</code> element from the
+              rightmost <code>bulletchatlist</code> element of the display region disappears time consumed.</p>
+              <figure>
+                <img alt="Scroll bullet chatting" src="images/sample5.png" width="600">
+                <figcaption>
+                  Bullet chatting scrolling from right to left
+                </figcaption>
+              </figure>
+            <p><code>top</code> indicates the top bullet chatting.</p>
+            <figure>
+              <img alt="Top bullet chatting" src="images/sample6.png" width="600">
+              <figcaption>
+                Top bullet chatting
+              </figcaption>
+            </figure>
+            <p><code>bottom</code> indicates the bottom bullet chatting.</p>
+            <figure>
+              <img alt="Bottom bullet chatting" src="images/sample7.png" width="600">
+              <figcaption>
+                Bottom bullet chatting
+              </figcaption>
+            </figure>
+            <p><code>reverse</code> represents a reverse scrolling bullet chatting. The bullet chatting will scroll from
+              right to left, and the scrolling time is <code>scroll</code> similar.</p>
+              <figure>
+                <img alt="Reverse bullet chatting" src="images/sample8.png" width="600">
+                <figcaption>
+                  Reverse bullet chatting scrolling from left to right
+                </figcaption>
+              </figure>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <h2>Events</h2>
+      <section>
+        <h2>bulletchat element</h2>
+        <ul>
+          <li><code>bulletchatstart</code>: Triggered when the Bullet Chatting animation starts.</li>
+          <li><code>bulletchatend</code>: Triggered when the Bullet Chatting animation ends.</li>
+          <li><code>bulletchatcancel</code>: Trigger when the Bullet Chatting is terminated unexpectedly, such as the
+            Bullet Chatting is removed or hidden, or because the display area is not displayed.</li>
+        </ul>
+      </section>
+    </section>
+
+
+    <section>
+      <h2>Style</h2>
+      <section>
+        <h2>bulletchatlist element</h2>
+        <ul>
+          <li><code>bulletchat-play-state</code>:running | paused, defines the state of the Bullet Chatting as running
+            or paused, and can be inherited.</li>
+          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
+            the Bullet Chatting, which can be inherited.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>bulletchat element</h2>
+        <ul>
+          <li><code>bulletchat-play-state</code>:running | paused, which defines the state of the Bullet Chatting as
+            running or paused, which can be inherited.</li>
+          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
+            the Bullet Chatting, which can be inherited.</li>
+          <li><code>bulletchat-delay</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines when the Bullet
+            Chatting animation begins, defining a negative value allows a Bullet Chatting to start moving from the
+            middle.
+          </li>
+          <li>Font size, color, border, line height, transparency, shadow, etc., same as existing CSS attributes.</li>
+        </ul>
+      </section>
+    </section>
+
+  </section>
+
+</body>
+
+</html>

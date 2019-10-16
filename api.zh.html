@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+  <title>弹幕建议接口规范</title>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="./local.css" />
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "CG-DRAFT",
+      edDraftURI: "https://w3c.github.io/danmaku/",
+      shortName: "danmaku",
+      editors: [{
+        name: "黄之昊",
+        companyURL: "https://www.bilibili.com/",
+        company: "哔哩哔哩"
+
+      }, {
+        name: "徐嵩",
+        companyURL: 'http://www.migu.cn',
+        company: "中国移动咪咕"
+
+      },{
+        name: "薛富侨",
+        companyURL: "http://www.chinaw3c.org/",
+        company: "W3C"
+      }, {
+        name: "赵磊",
+        companyURL: "http://www.migu.cn",
+        company: "中国移动咪咕"
+      }, {
+        name: "谭兆歆",
+        companyURL: "https://www.bilibili.com/",
+        company: "哔哩哔哩"
+      }, {
+        name: "陈亚军",
+        companyURL: 'http://www.migu.cn',
+        company: "中国移动咪咕"
+      }],
+      wg: "Bullet Chatting Community Group",
+      wgURI: "https://www.w3.org/community/bullet-chatting/",
+      github: {
+        repoURL: "https://github.com/w3c/danmaku",
+        branch: "master"
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <section id='abstract'>
+    <p>
+      此文档描述了当前开发者实现弹幕的方式，并且提出一个新的 Web 接口以在浏览器中更轻便地实现弹幕功能。
+    </p>
+  </section>
+  <section id='sotd'>
+    <p>
+      这是一份进行中的提案草稿。欢迎参加 <a href="https://www.w3.org/community/bullet-chatting/">W3C 弹幕社区组</a>关于弹幕的相关讨论。
+    </p>
+  </section>
+
+  <section id="terminology">
+    <h2>术语</h2>
+      <p>
+        本文档使用了如下术语:
+      </p>
+      <ul>
+        <li>
+          <dfn>Canvas</dfn> &mdash; 用于在网页中绘制图形或者动画。[[2dcontext]]
+        </li>
+        <li>
+            <dfn>WebVTT</dfn> &mdash; 一种用于标记文本轨道的文件格式。[[webvtt1]]
+          </li>
+      </ul>
+  </section>
+
+  <section>
+    <h2>当前弹幕实现方式</h2>
+    <p>当前开发者实现弹幕主要有如下两种方式：</p>
+    <ul>
+      <li>Canvas 动态绘制弹幕</li>
+      <li>CSS3 动态绘制弹幕</li>
+    </ul>
+
+    <section>
+      <h2>Canvas 动态绘制弹幕</h2>
+      <div class="note">
+        TODO: 描述Canvas 绘制弹幕的技术实现
+      </div>
+    </section>
+    <section>
+      <h2>CSS3 动态绘制弹幕</h2>
+      <div class="note">
+        TODO: 描述CSS3 绘制弹幕的技术实现
+      </div>
+    </section>
+  </section>
+
+  <section>
+    <h2>建议接口与属性</h2>
+    <section>
+      <h2>样例</h2>
+      <aside class="example" title="弹幕使用">
+        <pre>
+          &lt;bulletchatlist area="100" &gt;
+            &lt;bulletchat mode="scroll" &gt;这里是弹幕内容&lt;/bulletchat&gt;
+            &lt;bulletchat mode="bottom" &gt;固定在底部弹幕&lt;/bulletchat&gt;
+          &lt;/bulletchatlist&gt;
+          </pre>
+      </aside>
+      <figure>
+        <img alt="示例示意图" src="images/sample1.png" width="600">
+        <figcaption>
+          图为两条滚动弹幕和一条底部弹幕
+        </figcaption>
+      </figure>
+      <p class="note">
+        弹幕采用全新的标签元素<code>bulletchatlist</code>和<code>bulletchat</code>，新增的弹幕标签元素不是<code>video</code>或者<code>audio</code>等元素的子元素。从“<a
+          href="index.zh.html#scenarios">使用场景</a>”可以看到，弹幕不仅只是和视频等媒体元素有关联，在“<a href="index.zh.html#web">Web页面</a>”或者“<a
+          href="index.zh.html#generatedID-11">互动上墙</a>”等场景下弹幕是独立作为页面的一部分存在，不依赖于视频等元素。
+      </p>
+      <p class="note">
+        弹幕规范描述了弹幕绘制方式，不包括外部列表。由于弹幕不依赖于<code>video</code>，因此不要求有弹幕列表。在常见的点播视频弹幕场景中，往往有一个类似[[webvtt1]]这样同步视频时间轴的弹幕列表，
+        这种情况需要由开发者根据视频时间添加<code>bulletchat</code>。
+      </p>
+    </section>
+    <section>
+      <h2>元素</h2>
+      <p><code>bulletchatlist</code> 为块元素，<code>bulletchat</code> 为行内元素。<code>bulletchat</code> 元素允许嵌套内容内容包括：文本、图片、超链接。</p>
+    </section>
+    <section>
+      <h2>属性</h2>
+
+      <section>
+        <h2>bulletchatlist 元素</h2>
+        <ul>
+          <li><code>area</code>：定义弹幕显示区域占 bulletchatlist 总高度的百分比，范围 0-100，50为半屏，100为满屏。滚动弹幕、顶部弹幕、逆向滚动显示区域从 bulletchatlist 顶部开始计算，底部弹幕显示区域从 bulletchatlist 底部开始计算。</li>
+          <li>
+            <code>allowOverlap</code>：定义超出显示区域的弹幕是否允许重叠。<code>false</code>表示不展示超出显示区域弹幕，<code>true</code>则表示超出显示区域弹幕会进行重叠展示。
+          </li>
+        </ul>
+        <figure>
+          <img alt="area示例示意图" src="images/sample4.png" width="600">
+          <figcaption>
+            图为 area = 70 时，滚动弹幕只在 0 - 70% 高度的蓝色区域显示
+          </figcaption>
+        </figure>
+        <figure>
+          <img alt="allowOverlap示例示意图" src="images/sample3.png" width="600">
+          <figcaption>
+            图为 allowOverlap = true; area = 70，弹幕显示区域显示不下时，显示不下的弹幕（使用绿色标识）重叠在正常弹幕上方
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>bulletchat 元素</h2>
+        <ul>
+          <li>
+            <code>mode</code>：定义弹幕类型，可选值为<code>scroll</code>、<code>top</code>、<code>bottom</code>以及<code>reverse</code>。
+
+            <p><code>scroll</code> 为默认值，表示滚动弹幕。弹幕会从左往右进行滚动，滚动时间由CSS
+              属性<code>bulletchat-duration</code>控制。显示时间规则为：<code>bulletchat</code>元素的最左侧进入<code>bulletchatlist</code>元素显示区域到
+              <code>bulletchat</code>元素最右侧从<code>bulletchatlist</code>元素显示区域消失所消耗的时间。</p>
+            <figure>
+              <img alt="scroll示例示意图" src="images/sample5.png" width="600">
+              <figcaption>
+                图为两条滚动弹幕正在从右往左滚动
+              </figcaption>
+            </figure>
+            <p><code>top</code> 表示顶部弹幕。</p>
+            <figure>
+              <img alt="top示例示意图" src="images/sample6.png" width="600">
+              <figcaption>
+                图为两条顶部弹幕
+              </figcaption>
+            </figure>
+            <p><code>bottom</code> 表示底部弹幕。</p>
+            <figure>
+              <img alt="bottom示例示意图" src="images/sample7.png" width="600">
+              <figcaption>
+                图为两条底部弹幕
+              </figcaption>
+            </figure>
+            <p><code>reverse</code> 表示逆向滚动弹幕。弹幕会从右往左进行滚动，滚动时间与<code>scroll</code>类似。</p>
+            <figure>
+              <img alt="reverse示例示意图" src="images/sample8.png" width="600">
+              <figcaption>
+                图为三条逆向弹幕正在从左往右滚动
+              </figcaption>
+            </figure>
+          </li>
+
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <h2>事件</h2>
+      <section>
+        <h2>bulletchat 元素</h2>
+        <ul>
+          <li><code>bulletchatstart</code>：弹幕动画开始时触发。</li>
+          <li><code>bulletchatend</code>：弹幕动画结束时触发。</li>
+          <li><code>bulletchatcancel</code>：弹幕意外终止时触发，如弹幕被移除或被隐藏，或因为超出显示区域不被展示。</li>
+        </ul>
+      </section>
+    </section>
+
+
+    <section>
+      <h2>样式</h2>
+      <section>
+        <h2>bulletchatlist 元素</h2>
+        <ul>
+          <li><code>bulletchat-play-state</code>：running | paused，定义弹幕状态为运行或暂停，可继承。</li>
+          <li><code>bulletchat-duration</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕播放速度，可继承。</li>
+          <li>字号、颜色、边框、行高、透明度、阴影等，同现有 CSS 属性。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>bulletchat 元素</h2>
+        <ul>
+          <li><code>bulletchat-play-state</code>：running | paused，定义弹幕状态为运行或者暂停，可继承。</li>
+          <li><code>bulletchat-duration</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕播放速度，可继承。</li>
+          <li><code>bulletchat-delay</code>：&lt;time&gt;，单位为秒(s)或者毫秒(ms)，定义弹幕动画于何时开始，定义一个负值可以实现一个弹幕从中间开始运动。
+          </li>
+          <li>字号、颜色、边框、行高、透明度、阴影等，同现有 CSS 属性。</li>
+        </ul>
+      </section>
+    </section>
+
+  </section>
+
+</body>
+
+</html>
