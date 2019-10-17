@@ -9,7 +9,7 @@
   <script class='remove'>
     var respecConfig = {
       specStatus: "CG-DRAFT",
-      edDraftURI: "https://w3c.github.io/danmaku/",
+      edDraftURI: "https://w3c.github.io/danmaku/usecase.zh.html",
       shortName: "danmaku",
       editors: [{
         name: "黄之昊",
@@ -385,7 +385,7 @@
   <section>
       <h2>弹幕和字幕的差别</h2>
       <section>
-        <h2>弹幕 vs [[webvtt1]] </h2>
+        <h2>弹幕 vs WebVTT</h2>
         <p>[[webvtt1]]是一种用于标记文本轨道的文件格式，[[webvtt1]]的典型应用场景为视频字幕。而目前弹幕的典型应用场景也都是和视频关联的，弹幕一度被称为是字幕的一个子集，是一种特殊的字幕形式。</p>
         <p>其实，并不是这样。从“<a href="#scenarios">使用场景</a>”可以看到，弹幕使用场景包含和视频关联的场景，也包括不和视频相关联的场景，如：“<a href="#web">Web页面</a>”和“<a href="#generatedID-11">互动上墙</a>”等场景，都是独立作为页面的一部分，而不依赖于视频等媒体元素。</p>
         <p>弹幕如果作为WebVTT的一个子集，在使用形式上可能需要按照WebVTT的方式，在<code>video</code>元素中使用<code>track</code>元素引用<code>.vtt</code>文件的方式来引用弹幕文件。在“<a href="#scenarios">使用场景</a>”中的“<a href="#generatedID-8">直播视频互动</a>”场景中，因为直播中的弹幕数据是实时用户发布的数据，而没有一个弹幕文件预先被<code>track</code>引用。即使在“<a href="#generatedID-7">点播视频互动</a>”场景中也是存在实时发送弹幕数据的场景的，所以预先被<code>track</code>弹幕文件是不现实的。</p>
@@ -395,9 +395,9 @@
       </section>
 
       <section>
-        <h2>弹幕 vs [[ttml1]]</h2>
+        <h2>弹幕 vs TTML</h2>
         <p>
-          [[ttml1]] 和 [[webvtt1]] 都是一种字幕格式，上文已经做了详细的对比。[[ttml1]]主要用于视频，而弹幕是一种动态的、可交互的字幕形式，两者区别较大。[[ttml1]]通过XML来描述字幕，虽然可读性较好，但是对Web开发者来说，他们更习惯使用JSON来描述弹幕等数据结构。
+          与 WebVTT 相同，[[ttml1]] 也是一种字幕格式，上文已经做了详细的对比。TTML主要用于视频，而弹幕是一种动态的、可交互的字幕形式，两者区别较大。TTML通过XML来描述字幕，虽然可读性较好，但是对Web开发者来说，他们更习惯使用JSON来描述弹幕等数据结构。
         </p>
       </section>
   </section>
