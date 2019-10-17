@@ -9,7 +9,7 @@
   <script class='remove'>
     var respecConfig = {
       specStatus: "CG-DRAFT",
-      edDraftURI: "https://w3c.github.io/danmaku/",
+      edDraftURI: "https://w3c.github.io/danmaku/usecase.html",
       shortName: "danmaku",
       editors: [{
         name: "Zhihao Huang",
@@ -412,7 +412,7 @@
   <section>
       <h2>A Gap Analysis of Bullet Chatting and Subtitles</h2>
       <section>
-        <h3>Bullet Chatting vs [[webvtt1]]</h3>
+        <h3>Bullet Chatting vs WebVTT</h3>
         <p>[[webvtt1]] is a file format intended for marking up external text track resources, one of its typical usages is to provide captions or subtitles for video content. Bullet Chatting is also often intended for providing text descriptions of video content, so it was once considered as a subset of WebVTT, and a special format of subtitles.
         <p>However, in the <a href="index.html#scenarios">Scenarios</a> section, we can see that the usage of Bullet Chatting is not limited to videos. For example, it's also widely used on <a href="index.html#interaction-within-a-webpage">web page interaction</a> and <a href="index.html#interactive-wall">interactive wall</a>, running independently as a part of the web page instead of a part of the video player.</p>
         <p>If Bullet Chatting is designed as a subset of WebVTT, then it has to follow all the rules of WebVTT, and to cue the Bullet Chatting messages as a <code>vtt</code> file in the <code>track</code> element of a <code>video</code> element. However, in the <a href="index.html#live-streaming-interaction">live streaming interaction</a> scenario, the Bullet Chatting messages come from comments submitted by users in real-time, it's impossible to prepare a <code>vtt</code> file which contains all the Bullet Chatting messages in advance. This real-time requirement also applies to the <a href="index.html#on-demand-video-interaction">on-demand video interaction</a> scenario. </p>
@@ -422,9 +422,9 @@
       </section>
 
       <section>
-        <h2>Bullet Chatting vs [[ttml1]]</h2></h2>
+        <h2>Bullet Chatting vs TTML</h2></h2>
         <p>
-          [[ttml1]] 和 [[webvtt1]] 都是一种字幕格式，上文已经做了详细的对比。[[ttml1]]主要用于视频，而弹幕是一种动态的、可交互的字幕形式，两者区别较大。[[ttml1]]通过XML来描述字幕，虽然可读性较好，但是对Web开发者来说，他们更习惯使用JSON来描述弹幕等数据结构。
+          As with WebVTT, [[ttml1]] is also a format for subtitling and captioning. A detailed comparison has been made in the above section. TTML is mainly used for video content, while Bullet Chatting is a kind of dynamic, interactive presentation for comments, which is quite different. TTML describes timed text via XML. Although it is more readable, for web developers, they are more accustomed to using JSON to describe data structures in Bullet Chatting.
         </p>
       </section>
   </section>

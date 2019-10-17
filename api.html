@@ -9,7 +9,7 @@
   <script class='remove'>
     var respecConfig = {
       specStatus: "CG-DRAFT",
-      edDraftURI: "https://w3c.github.io/danmaku/",
+      edDraftURI: "https://w3c.github.io/danmaku/api.html",
       shortName: "danmaku",
       editors: [{
         name: "Zhihao Huang",
@@ -51,7 +51,7 @@
 <body>
   <section id='abstract'>
     <p>
-      This document describes current technicals for implementing Danmaku by developers, and proposes a Web API to easily enable Danmaku in Web browsers.
+      This document describes current methods of implementing Danmaku on the Web, and proposes a Web API to easily enable Danmaku in Web browsers.
     </p>
   </section>
    <section id='sotd'>
@@ -76,23 +76,19 @@
   </section>
 
   <section>
-      <h2>当前弹幕实现方式</h2>
-      <p>当前开发者实现弹幕主要有如下两种方式：</p>
-      <ul>
-        <li>Canvas 动态绘制弹幕</li>
-        <li>CSS3 动态绘制弹幕</li>
-      </ul>
+      <h2>Current methods of implementing Bullet Chatting</h2>
+      <p>Currently, Web developers mainly use Canvas or CSS to implement Bullet Chatting.</p>
   
       <section>
-        <h2>Canvas 动态绘制弹幕</h2>
+        <h2>The Canvas Way</h2>
         <div class="note">
           TODO: 描述Canvas 绘制弹幕的技术实现
         </div>
       </section>
       <section>
-        <h2>CSS3 动态绘制弹幕</h2>
+        <h2>The CSS Way</h2>
         <div class="note">
-          TODO: 描述CSS3 绘制弹幕的技术实现
+          TODO: 描述CSS 绘制弹幕的技术实现
         </div>
       </section>
     </section>
@@ -219,9 +215,9 @@
       <section>
         <h2>bulletchatlist element</h2>
         <ul>
-          <li><code>bulletchat-play-state</code>:running | paused, defines the state of the Bullet Chatting as running
+          <li><code>bulletchat-play-state</code>: running | paused, defines the state of the Bullet Chatting as running
             or paused, and can be inherited.</li>
-          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
+          <li><code>bulletchat-duration</code>: &lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
             the Bullet Chatting, which can be inherited.</li>
         </ul>
       </section>
@@ -229,11 +225,11 @@
       <section>
         <h2>bulletchat element</h2>
         <ul>
-          <li><code>bulletchat-play-state</code>:running | paused, which defines the state of the Bullet Chatting as
+          <li><code>bulletchat-play-state</code>: running | paused, which defines the state of the Bullet Chatting as
             running or paused, which can be inherited.</li>
-          <li><code>bulletchat-duration</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
+          <li><code>bulletchat-duration</code>: &lt;time&gt;, in seconds (s) or milliseconds (ms), defines the speed of
             the Bullet Chatting, which can be inherited.</li>
-          <li><code>bulletchat-delay</code>:&lt;time&gt;, in seconds (s) or milliseconds (ms), defines when the Bullet
+          <li><code>bulletchat-delay</code>: &lt;time&gt;, in seconds (s) or milliseconds (ms), defines when the Bullet
             Chatting animation begins, defining a negative value allows a Bullet Chatting to start moving from the
             middle.
           </li>
