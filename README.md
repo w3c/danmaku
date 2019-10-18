@@ -1,8 +1,9 @@
 # Introduction
 
-For English version of the Bullet Chatting proposal, please visit [here](https://w3c.github.io/danmaku/).
+This repository contains the use cases and proposed API for Bullet Chatting.
 
-W3C 弹幕标准弹幕建议文稿，[点此处](https://w3c.github.io/danmaku/index.zh.html)进行访问。
+* [Bullet Chatting Use Cases](https://w3c.github.io/danmaku/usecase.html) ([中文版](https://w3c.github.io/danmaku/usecase.zh.html))
+* [Bullet Chatting API Proposal](https://w3c.github.io/danmaku/api.html) ([中文版](https://w3c.github.io/danmaku/api.zh.html))
 
 # Demos
 
