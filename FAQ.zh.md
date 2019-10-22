@@ -82,10 +82,10 @@
 
 **Q12:如果定义弹幕元素，有多大的WebAPP规模会使用他呢？**
 
-**A12**:就像规范文档中[弹幕规模](https://w3c.github.io/danmaku/#commercial-operation-of-bullet-chatting)列举的已经支持弹幕的厂商的用户规模，并且在中国新兴的小程序中也有弹幕的使用案例，在某些支持评论的社交平台上也支持弹幕的方式来发送评论，所以如[弹幕的优势分析](https://w3c.github.io/danmaku/#analysis-of-the-psychological-factors)中描述，未来年轻人会接受和喜欢使用弹幕，弹幕会越来越广泛，相信会有大规模的开发者会使用。
+**A12**:就像规范文档中[弹幕规模](https://w3c.github.io/danmaku/usecase.html#commercial-operation-of-bullet-chatting)列举的已经支持弹幕的厂商的用户规模，并且在中国新兴的小程序中也有弹幕的使用案例，在某些支持评论的社交平台上也支持弹幕的方式来发送评论，所以如[弹幕的优势分析](https://w3c.github.io/danmaku/usecase.html#analysis-of-the-psychological-factors)中描述，未来年轻人会接受和喜欢使用弹幕，弹幕会越来越广泛，相信会有大规模的开发者会使用。
 
 
 
 **Q13:弹幕想要在W3C中标准化的内容是什么或方向是什么？**
 
-**A13**:弹幕的规范，[推荐的API](https://w3c.github.io/danmaku/#recommended-api)中所述，弹幕想要标准化的是规范弹幕的实现方式，是一种HTML元素，元素包含：弹幕展示的样式、位置、时间、内容格式等属性和事件。
+**A13**:弹幕的规范，[推荐的API](https://w3c.github.io/danmaku/api.html#recommended-api)中所述，弹幕想要标准化的是规范弹幕的实现方式，是一种HTML元素，元素包含：弹幕展示的样式、位置、时间、内容格式等属性和事件。
