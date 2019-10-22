@@ -113,7 +113,7 @@
         <div>每一帧都需要对所有弹幕进行重绘。每次改变之前需要先使用<code>clearRect</code>方法清空画布、计算弹幕在下一帧的位置、在新位置绘制弹幕。如：</div>
         <aside class="example" title="弹幕运动定时刷新">
           <pre>
-            let colorArr=_this.getColor(color);  // 弹幕数组多对应的颜色数组 
+            let colorArr=_this.getColor(color);  // 弹幕数组所对应的颜色数组 
             let numArrL=_this.getLeft();  // 弹幕数组所对应的x坐标位置数组 
             let numArrT=_this.getTop();  // 弹幕数组所对应的y坐标位置数组 
             let speedArr=_this.getSpeed(); // 弹幕数组所对应的弹幕移动速度数组
@@ -138,6 +138,32 @@
       <div class="note">
         TODO: 描述CSS 绘制弹幕的技术实现
       </div>
+      <section>
+        <h2>元素</h2>
+        <div>每个弹幕都是一个 div 元素，即 <code>&lt;div&gt;danmaku&lt;/div&gt;</code></div>
+      </section>
+      <section>
+        <h2>样式</h2>
+        <div>通过给弹幕赋予 CSS 样式：字号（font-size）、颜色（color）、透明度（opacity）等实现样式。</div>
+      </section>
+      <section>
+        <h2>运动</h2>
+        <div>滚动及逆向滚动弹幕有水平方向的运动。以滚动弹幕（从右往左滚动方向）为例：</div>
+        <div>运行：弹幕初始状态定位在最右侧，在 <code>transform</code> 和 <code>transition</code> 两个 CSS 属性的作用下向左运动。如：</div>
+        <aside class="example" title="">
+          <pre>
+            transform: translateX(-最左侧px) translateY(0) translateZ(0)
+            transition: transform 运动时间s linear
+          </pre>
+        </aside>
+        <div>暂停：把弹幕元素的 <code>transform</code> 属性设为当前位置，同时把 <code>transition</code> 属性时间设为 0，就实现了把弹幕固定在当前位置。如：</div>
+        <aside class="example" title="">
+          <pre>
+            transform: translateX(-当前位置px) translateY(0) translateZ(0)
+            transition: transform 0s linear
+          </pre>
+        </aside>
+      </section>
     </section>
     <section>
       <h2>现有弹幕实现方式优缺点分析</h2>
