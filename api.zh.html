@@ -88,6 +88,50 @@
       <div class="note">
         TODO: 描述Canvas 绘制弹幕的技术实现
       </div>
+      <section>
+        <h2>元素</h2>
+        <div>每个弹幕都是一个 Canvas 渲染上下文。如：</div>
+        <aside class="example" title="弹幕元素">
+          <pre>
+            const bulletchat = canvas.getContext('2d');
+            bulletchat.fillText('bulletchat', x, y); // 其中x表示横方向的坐标，y表示纵方向的坐标
+          </pre>
+        </aside>
+      </section>
+      <section>
+        <h2>样式</h2>
+        <div>通过给弹幕赋予 Canvas 属性：字号（font）、颜色（fillStyle）、透明度（globalAlpha）等实现样式。如：</div>
+        <aside class="example" title="弹幕样式设置">
+          <pre>
+            bulletchat.font = '20px Microsoft YaHei';               
+            bulletchat.fillStyle = '#000000';
+          </pre>
+        </aside>
+      </section>
+      <section>
+        <h2>运动</h2>
+        <div>每一帧都需要对所有弹幕进行重绘。每次改变之前需要先使用<code>clearRect</code>方法清空画布、计算弹幕在下一帧的位置、在新位置绘制弹幕。如：</div>
+        <aside class="example" title="弹幕样式设置">
+          <pre>
+            let colorArr=_this.getColor(color);  // 弹幕数组多对应的颜色数组 
+            let numArrL=_this.getLeft();  // 弹幕数组所对应的x坐标位置数组 
+            let numArrT=_this.getTop();  // 弹幕数组所对应的y坐标位置数组 
+            let speedArr=_this.getSpeed(); // 弹幕数组所对应的弹幕移动速度数组
+
+            // 重绘弹幕的定时函数:
+            _this.timer=setInterval(function(){
+              ctx.clearRect(0,0,canvas.width,canvas.height);
+              ctx.save();
+              for(let j=0;j&lt;barrageList.length;j++){
+                numArrL[j]-=speedArr[j];
+                ctx.fillStyle = colorArr[j]
+                ctx.fillText(barrageList[j],numArrL[j],numArrT[j]);
+                ctx.restore();
+              },
+            16.7); 
+          </pre>
+        </aside>
+      </section>
     </section>
     <section>
       <h2>CSS 动态绘制弹幕</h2>
