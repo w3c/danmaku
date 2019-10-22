@@ -101,7 +101,7 @@
         <div>通过给弹幕赋予 Canvas 属性：字号（font）、颜色（fillStyle）、透明度（globalAlpha）等实现样式。如：</div>
         <aside class="example" title="弹幕样式设置">
           <pre>
-            bulletchat.font = '20px Microsoft YaHei';               
+            bulletchat.font = '20px Arail';               
             bulletchat.fillStyle = '#000000';
           </pre>
         </aside>
@@ -117,16 +117,16 @@
             let speedArr=_this.getSpeed(); // 弹幕数组所对应的弹幕移动速度数组
 
             // 重绘弹幕的定时函数:
-            _this.timer=setInterval(function(){
+            window.requestAnimationFrame(function(){
               bulletchat.clearRect(0,0,canvas.width,canvas.height);
               bulletchat.save();
-              for(let j=0;j&lt;bulletchatList.length;j++){
-                numArrL[j]-=speedArr[j];
-                bulletchat.fillStyle = colorArr[j]
-                bulletchat.fillText(bulletchatList[j],numArrL[j],numArrT[j]);
+              bulletchatList.forEach((item, index) => {
+                numArrL[index]-=speedArr[index];
+                bulletchat.fillStyle = colorArr[index]
+                bulletchat.fillText(item,numArrL[index],numArrT[index]);
                 bulletchat.restore();
-              },
-            16.7); 
+              }); 
+            }, _this);
           </pre>
         </aside>
       </section>
