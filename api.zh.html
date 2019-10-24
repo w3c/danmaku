@@ -117,7 +117,7 @@
             let speedArr=_this.getSpeed(); // 弹幕数组所对应的弹幕移动速度数组
 
             // 重绘弹幕的定时函数:
-            _this.timer = window.requestAnimationFrame(function(){
+            window.requestAnimationFrame(function(){
               bulletchat.clearRect(0,0,canvas.width,canvas.height);
               bulletchat.save();
               bulletchatList.forEach((item, index) => {
