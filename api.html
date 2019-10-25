@@ -81,17 +81,107 @@
   
       <section>
         <h2>The Canvas Way</h2>
-        <div class="note">
-          TODO: 描述Canvas 绘制弹幕的技术实现
-        </div>
+
+        <section>
+          <h2>Element</h2>
+          <div>Every bullet chat is a canvas rendering context. For example:</div>
+          <aside class="example" title="Bullet chat element">
+            <pre>
+              const bulletchat = canvas.getContext('2d');
+              bulletchat.fillText('bulletchat', x, y); // x is the x-axis coordinate, and y is the y-axis coordinate
+            </pre>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Style</h2>
+          <div>Style font (<code>font</code>), color (<code>fillStyle</code>), alpha (<code>globalAlpha</code>) and so on using the properties. For example:</div>
+          <aside class="example" title="Styling the bullet chat">
+            <pre>
+              bulletchat.font = '20px Arial';               
+              bulletchat.fillStyle = '#000000';
+            </pre>
+          </aside>
+        </section>
+
+        <section>
+            <h2>Movement</h2>
+            <div>Every bullet chat needs to be repainted in every frame. Before each change, the developer uses the <code>clearRect</code> method to erase the canvas, calculate the position of the bullet chat in the next frame, and draw the bullet chat in the new position. For example:</div>
+            <aside class="example" title="弹幕运动定时刷新">
+              <pre>
+                let colorArr=_this.getColor(color);  // Color array corresponding to the bullet chat array
+                let numArrL=_this.getLeft();  // x-axis coordinate array corresponding to the bullet chat array
+                let numArrT=_this.getTop();  // y-axis coordinate array corresponding to the bullet chat array
+                let speedArr=_this.getSpeed(); // Movement speed array corresponding to the bullet chat array
+    
+                // Function to repaint the bullet chat
+                window.requestAnimationFrame(function(){
+                  bulletchat.clearRect(0,0,canvas.width,canvas.height);
+                  bulletchat.save();
+                  bulletchatList.forEach((item, index) => {
+                    numArrL[index]-=speedArr[index];
+                    bulletchat.fillStyle = colorArr[index]
+                    bulletchat.fillText(item,numArrL[index],numArrT[index]);
+                    bulletchat.restore();
+                  }); 
+                });
+              </pre>
+            </aside>
+          </section>
+
       </section>
       <section>
         <h2>The CSS Way</h2>
-        <div class="note">
-          TODO: 描述CSS 绘制弹幕的技术实现
-        </div>
-      </section>
+        <section>
+            <h2>Element</h2>
+            <div>Every bullet chat is a <code>div</code> element, i.e., <code>&lt;div&gt;danmaku&lt;/div&gt;</code>.</div>
+        </section>
+
+        <section>
+            <h2>Style</h2>
+            <div>Style font (<code>font</code>), color (<code>color</code>), opacity (<code>opacity</code>) and so on using the properties.</div>
+        </section>
+
+      <section>
+          <h2>Movement</h2>
+          <div>[To be translated from Chinese]</div>
+        </section>
     </section>
+
+    <section>
+      <h2>Advantages and disadvantages of existing implementation methods</h2>
+      <section>
+          <h2>The Canvas Way</h2>
+          <section>
+            <h2>Advantages</h2>
+            <div class="note">
+              TODO: 当前弹幕实现方式优缺点分析
+            </div>
+          </section>
+          <section>
+            <h2>Disadvantages</h2>
+            <div class="note">
+              TODO: 当前弹幕实现方式优缺点分析
+            </div>
+          </section>
+        </section>
+        <section>
+          <h2>The CSS Way</h2>
+          <section>
+            <h2>Advantages</h2>
+            <div class="note">
+              TODO: 当前弹幕实现方式优缺点分析
+            </div>
+          </section>
+          <section>
+            <h2>Disadvantages</h2>
+            <div class="note">
+              TODO: 当前弹幕实现方式优缺点分析
+            </div>
+          </section>
+        </section>
+      </section>
+  </section>
 
   <section>
     <h2>Recommended API</h2>
