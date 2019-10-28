@@ -87,8 +87,8 @@
           <div>Every bullet chat is a canvas rendering context. For example:</div>
           <aside class="example" title="Bullet chat element">
             <pre>
-              const bulletchat = canvas.getContext('2d');
-              bulletchat.fillText('bulletchat', x, y); // x is the x-axis coordinate, and y is the y-axis coordinate
+              const ctx = canvas.getContext('2d');
+              ctx.fillText('bulletchat', x, y); // x is the x-axis coordinate, and y is the y-axis coordinate
             </pre>
           </aside>
         </section>
@@ -98,8 +98,8 @@
           <div>Style font (<code>font</code>), color (<code>fillStyle</code>), alpha (<code>globalAlpha</code>) and so on using the properties. For example:</div>
           <aside class="example" title="Styling the bullet chat">
             <pre>
-              bulletchat.font = '20px Arial';               
-              bulletchat.fillStyle = '#000000';
+              ctx.font = '20px Arial';               
+              ctx.fillStyle = '#000000';
             </pre>
           </aside>
         </section>
@@ -107,24 +107,35 @@
         <section>
             <h2>Movement</h2>
             <div>Every bullet chat needs to be repainted in every frame. Before each change, the developer uses the <code>clearRect</code> method to erase the canvas, calculate the position of the bullet chat in the next frame, and draw the bullet chat in the new position. For example:</div>
-            <aside class="example" title="弹幕运动定时刷新">
+            <aside class="example" title="Repaint the bullet chat">
               <pre>
-                let colorArr=_this.getColor(color);  // Color array corresponding to the bullet chat array
-                let numArrL=_this.getLeft();  // x-axis coordinate array corresponding to the bullet chat array
-                let numArrT=_this.getTop();  // y-axis coordinate array corresponding to the bullet chat array
-                let speedArr=_this.getSpeed(); // Movement speed array corresponding to the bullet chat array
+                const text = 'bulletchat'
+                const bulletList = [{
+                  text,
+                  color: '#ccc',
+                  left: canvas.offsetWidth, // 用于标识弹幕x轴坐标
+                  top: getRandomTop(), // 用于标识弹幕y轴坐标
+                  offset: getBulletOffset(), // 弹幕移动速度，由canvas实际宽度和移动时间来算出
+                  width: Math.ceil(ctx.measureText(text).width) // 文字像素宽度
+                }]
+                function drawBullets() {
+                  for(let index = 0, l = bulletList.length; index < l; i++) {
+                    let bullet = bulletList[index];
+                    let {left, width, top, offset, color, text} = bullet
+                    // 检测弹幕是否超出屏幕
+                    if (left + width <= 0 ) {
+                      bulletList.splice(index, 1);
+                      index--;
+                      continue;
+                    }
+                    // 不停修改弹幕x轴坐标
+                    bullet.left -= bullet.offset
+                    ctx.fillStyle = color;
+                    ctx.fillText(text, left, top);
     
-                // Function to repaint the bullet chat
-                window.requestAnimationFrame(function(){
-                  bulletchat.clearRect(0,0,canvas.width,canvas.height);
-                  bulletchat.save();
-                  bulletchatList.forEach((item, index) => {
-                    numArrL[index]-=speedArr[index];
-                    bulletchat.fillStyle = colorArr[index]
-                    bulletchat.fillText(item,numArrL[index],numArrT[index]);
-                    bulletchat.restore();
-                  }); 
-                });
+                  }
+                  requestAnimationFrame(drawBullets);
+                }
               </pre>
             </aside>
           </section>
@@ -154,30 +165,30 @@
           <h2>The Canvas Way</h2>
           <section>
             <h2>Advantages</h2>
-            <div class="note">
-              TODO: 当前弹幕实现方式优缺点分析
-            </div>
+            <p>
+              The performance is better. Hardware acceleration is supported when used with WebGL and a large number of bullet chatting text can be displayed at the same time.
+            </p>
           </section>
           <section>
             <h2>Disadvantages</h2>
-            <div class="note">
-              TODO: 当前弹幕实现方式优缺点分析
-            </div>
+            <p>
+              Not flexible. It is cumbersome to display bullet chat that contains both text and images, and to pause the animation of one of the moving bullet chats. Moreover, resolution issue needs to be addressed on mobile devices.
+            </p>
           </section>
         </section>
         <section>
           <h2>The CSS Way</h2>
           <section>
             <h2>Advantages</h2>
-            <div class="note">
-              TODO: 当前弹幕实现方式优缺点分析
-            </div>
+            <p>
+              Simple and flexible. Developers can style the bullet chat through the DOM, and supports the combination of images and text. The user can pause a particular bullet chat of interest.
+            </p>
           </section>
           <section>
             <h2>Disadvantages</h2>
-            <div class="note">
-              TODO: 当前弹幕实现方式优缺点分析
-            </div>
+            <p>
+              Huge collections of DOM nodes will be generated when the there are many bullet chats. It will consume more memory and make the page unresponsive. Moreover, to manipulate the bullet chatting such as making the bullet chat disappear, the corresponding DOM node needs to be removed.
+            </p>
           </section>
         </section>
       </section>
