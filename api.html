@@ -78,7 +78,7 @@
   <section>
       <h2>Current methods of implementing Bullet Chatting</h2>
       <p>Currently, Web developers mainly use Canvas or CSS to implement Bullet Chatting.</p>
-  
+
       <section>
         <h2>The Canvas Way</h2>
 
@@ -98,7 +98,7 @@
           <div>Style font (<code>font</code>), color (<code>fillStyle</code>), alpha (<code>globalAlpha</code>) and so on using the properties. For example:</div>
           <aside class="example" title="Styling the bullet chat">
             <pre>
-              ctx.font = '20px Arial';               
+              ctx.font = '20px Arial';
               ctx.fillStyle = '#000000';
             </pre>
           </aside>
@@ -113,8 +113,8 @@
                 const bulletList = [{
                   text,
                   color: '#ccc',
-                  left: canvas.offsetWidth, // 用于标识弹幕x轴坐标
-                  top: getRandomTop(), // 用于标识弹幕y轴坐标
+                  left: canvas.offsetWidth, // x-axis coordinate
+                  top: getRandomTop(), // y-axis coordinate
                   offset: getBulletOffset(), // 弹幕移动速度，由canvas实际宽度和移动时间来算出
                   width: Math.ceil(ctx.measureText(text).width) // 文字像素宽度
                 }]
@@ -128,11 +128,11 @@
                       index--;
                       continue;
                     }
-                    // 不停修改弹幕x轴坐标
+                    // Modify the x-axis coordinate
                     bullet.left -= bullet.offset
                     ctx.fillStyle = color;
                     ctx.fillText(text, left, top);
-    
+
                   }
                   requestAnimationFrame(drawBullets);
                 }
@@ -155,7 +155,21 @@
 
       <section>
           <h2>Movement</h2>
-          <div>[To be translated from Chinese]</div>
+          <div>Take <a href="https://w3c.github.io/danmaku/usecase.html#basic-modes">Rolling Bullet Chatting</a> as an example. The initial position of the bullet chat is in the rightmost, and it moves from right to left under the influence of the two CSS properties, <code>transform</code> and <code>transition</code>:
+          </div>
+          <aside class="example" title="">
+            <pre>
+              transform: translateX(-最左侧px) translateY(0) translateZ(0);
+              transition: transform 运动时间s linear;
+            </pre>
+          </aside>
+        <div>Pause: set the <code>transform</code> property of the bullet chatting element to the current position and set the <code>transition</code> duration to 0 to fix the bullet chatting at the current position. For example:</div>
+        <aside class="example" title="">
+          <pre>
+            transform: translateX(-当前位置px) translateY(0) translateZ(0);
+            transition: transform 0s linear;
+          </pre>
+        </aside>
         </section>
     </section>
 

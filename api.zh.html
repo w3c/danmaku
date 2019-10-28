@@ -85,7 +85,7 @@
 
     <section>
       <h2>Canvas 动态绘制弹幕</h2>
-      
+
       <section>
         <h2>元素</h2>
         <div>每个弹幕都是一个 Canvas 渲染上下文。如：</div>
@@ -101,7 +101,7 @@
         <div>通过给弹幕赋予 Canvas 属性：字体（font）、颜色（fillStyle）、透明度（globalAlpha）等实现样式。如：</div>
         <aside class="example" title="弹幕样式设置">
           <pre>
-            ctx.font = '20px Arial';               
+            ctx.font = '20px Arial';
             ctx.fillStyle = '#000000';
           </pre>
         </aside>
@@ -144,7 +144,7 @@
     </section>
     <section>
       <h2>CSS 动态绘制弹幕</h2>
-      
+
       <section>
         <h2>元素</h2>
         <div>每个弹幕都是一个 div 元素，即 <code>&lt;div&gt;danmaku&lt;/div&gt;</code></div>
@@ -159,15 +159,15 @@
         <div>运行：弹幕初始状态定位在最右侧，在 <code>transform</code> 和 <code>transition</code> 两个 CSS 属性的作用下向左运动。如：</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-最左侧px) translateY(0) translateZ(0)
-            transition: transform 运动时间s linear
+            transform: translateX(-最左侧px) translateY(0) translateZ(0);
+            transition: transform 运动时间s linear;
           </pre>
         </aside>
         <div>暂停：把弹幕元素的 <code>transform</code> 属性设为当前位置，同时把 <code>transition</code> 属性时间设为 0，就实现了把弹幕固定在当前位置。如：</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-当前位置px) translateY(0) translateZ(0)
-            transition: transform 0s linear
+            transform: translateX(-当前位置px) translateY(0) translateZ(0);
+            transition: transform 0s linear;
           </pre>
         </aside>
       </section>
