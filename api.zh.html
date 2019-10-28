@@ -126,7 +126,7 @@
                 let {left, width, top, offset, color, text} = bullet
                 // 检测弹幕是否超出屏幕
                 if (left + width <= 0 ) {
-                  this.bulletList.splice(index, 1);
+                  bulletList.splice(index, 1);
                   index--;
                   continue;
                 }
