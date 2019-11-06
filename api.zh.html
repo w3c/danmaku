@@ -159,14 +159,14 @@
         <div>运行：弹幕初始状态定位在最右侧，在 <code>transform</code> 和 <code>transition</code> 两个 CSS 属性的作用下向左运动。如：</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-最左侧px) translateY(0) translateZ(0);
-            transition: transform 运动时间s linear;
+            transform: translateX(-1000px) translateY(0) translateZ(0);
+            transition: transform 5s linear;
           </pre>
         </aside>
         <div>暂停：把弹幕元素的 <code>transform</code> 属性设为当前位置，同时把 <code>transition</code> 属性时间设为 0，就实现了把弹幕固定在当前位置。如：</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-当前位置px) translateY(0) translateZ(0);
+            transform: translateX(-100px) translateY(0) translateZ(0);
             transition: transform 0s linear;
           </pre>
         </aside>
@@ -179,7 +179,7 @@
         <section>
           <h2>优点</h2>
           <p>
-            性能较好，配合WebGL可以开启硬件加速，同时可以同时显示大量的弹幕文字。
+            性能较好，配合WebGL可以提升应用性能，同时可以同时显示大量的弹幕文字。
           </p>
         </section>
         <section>
