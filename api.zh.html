@@ -159,14 +159,17 @@
         <div>运行：弹幕初始状态定位在最右侧，在 <code>transform</code> 和 <code>transition</code> 两个 CSS 属性的作用下向左运动。如：</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-1000px) translateY(0) translateZ(0);
+            position: absolute;
+            top: 0;
+            left: 980px;
+            transform: translateX(0) translateY(0) translateZ(0);
             transition: transform 5s linear;
           </pre>
         </aside>
         <div>暂停：把弹幕元素的 <code>transform</code> 属性设为当前位置，同时把 <code>transition</code> 属性时间设为 0，就实现了把弹幕固定在当前位置。如：</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-100px) translateY(0) translateZ(0);
+            transform: translateX(-980px) translateY(0) translateZ(0);
             transition: transform 0s linear;
           </pre>
         </aside>

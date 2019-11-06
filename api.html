@@ -159,14 +159,17 @@
           </div>
           <aside class="example" title="">
             <pre>
-              transform: translateX(-1000px) translateY(0) translateZ(0);
+              position: absolute;
+              top: 0;
+              left: 980px;
+              transform: translateX(0) translateY(0) translateZ(0);
               transition: transform 5s linear;
             </pre>
           </aside>
         <div>Pause: set the <code>transform</code> property of the bullet chatting element to the current position and set the <code>transition</code> duration to 0 to fix the bullet chatting at the current position. For example:</div>
         <aside class="example" title="">
           <pre>
-            transform: translateX(-100px) translateY(0) translateZ(0);
+            transform: translateX(-980px) translateY(0) translateZ(0);
             transition: transform 0s linear;
           </pre>
         </aside>
