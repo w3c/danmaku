@@ -1,5 +1,9 @@
 ### w3c中文兴趣组-弹幕标准化小组 会议记录
 
+#### 2019-11
+
+2019-11-01：[会议纪要-弹幕标准化小组周例会（第二十一次）](https://docs.qq.com/doc/DVUV4VlB1YmtPa3VZ)
+
 #### 2019-10
 
 2019-10-18：[会议纪要-弹幕标准化小组周例会（第二十次）](https://docs.qq.com/doc/DUkpDaVlCcmpYRU1V)
