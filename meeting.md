@@ -2,7 +2,11 @@
 
 #### 2019-11
 
+2019-11-15：[会议纪要-弹幕标准化小组周例会（第二十三次）](https://docs.qq.com/doc/DUmhGSmFMbnVBaUtr)
+
 2019-11-08：[Bullet Chatting CG Call (20191108)](https://www.w3.org/2019/11/08-bullet-chatting-minutes.html)
+
+2019-11-08：[会议纪要-弹幕标准化小组周例会（第二十二次）](https://docs.qq.com/doc/DUnFlWk5Zd0ZyYk9I)
 
 2019-11-01：[会议纪要-弹幕标准化小组周例会（第二十一次）](https://docs.qq.com/doc/DVUV4VlB1YmtPa3VZ)
 
