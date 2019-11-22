@@ -294,6 +294,16 @@
         In this scenario, the Bullet Chatting data is generally offline data (not real-time), and there is also a small
         amount of real-time data.
       </p>
+      <div>
+        <p><b>Requirement</b></p>
+        <ul>
+          <li>
+            <b>From the user's point of view:</b> the user needs to input the content of the bullet chat, set the presentation of the bullet chat (including the font size, font color, whether it contains images, the area for displaying it etc.), and the bullet chat should be displayed on the screen in real time after it is being sent.</li>
+          <li>
+            <b>From the service provider's point of view:</b> the bullet chat sent by the user needs to be displayed over the video. The bullet chat may be sent by a user at a certain time, or in real time. For real-time bullet chatting, it is necessary to associate the data sent in real time with the timeline of the video; it is necessary to save the bullet chat data sent by the user to the server and saved in a database; the bullet chat should be synchronized to other users viewing the video at this moment. For bullet chats saved on the server, the developer needs to get the data of the bullet chat from the server and render it in the specified area. The bullet chat displayed on the web page and on the native app need to be consistent in terms of content and timing.
+          </li>
+        </ul>
+      </div>
     </section>
     <section>
       <h2>Live streaming interaction</h2>
@@ -309,6 +319,17 @@
       <p>
         In this scenario, the Bullet Chatting data is generally real-time data.
       </p>
+      <div>
+        <p><b>Requirement</b></p>
+        <ul>
+          <li>
+            <b>From the user's point of view:</b> the content of the bullet chat sent by the user should be displayed on the screen in real time.
+          </li>
+          <li>
+            <b>From the service provider's point of view:</b> the bullet chat sent by the user needs to be displayed in real time on both the anchor's and the viewers' screen.
+          </li>
+        </ul>
+      </div>
     </section>
     <section>
       <h2>Identify video highlights</h2>
