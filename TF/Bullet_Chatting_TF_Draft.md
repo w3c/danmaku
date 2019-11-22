@@ -10,9 +10,7 @@ The Bullet Chatting Task Force is part of the Media & Entertainment Interest Gro
 * End Date: TBD
 * Confidentiality: Public
 * Initial Moderator(s): Song Xu (China Mobile)
-* Meeting Schedule: TBD
-
-(xfq: re meeting schedule, besides the monthly MEIG call, we can have: 1/ monthly/periodically TF meetings, or 2/ topic-specific meetings when needed. What do you think?)
+* Meeting Schedule: monthly (discuss the date and time of the next meeting at the end of each meeting)
 
 ## Success Criteria
 
@@ -31,18 +29,16 @@ The Bullet Chatting Task Force will work with the following W3C groups.
 * Chinese Web IG
 * Bullet Chatting CG
 
-(xfq: we might want to think about the collaboration model between the Bullet Chatting TF and the CG, and/or is the CG really needed. Our current focus may be use cases, but we need a CG/WG to incubate the technical proposal(s) to fill the gaps we identified, if any.)
-
 ## Communication
 
-* This Task Force primarily conducts its technical work on the public mailing list at public-web-and-tv@w3.org (archive).
+* This Task Force primarily conducts its technical work on the public mailing list at public-web-and-tv@w3.org ([archive](https://lists.w3.org/Archives/Public/public-web-and-tv/)).
 * TF emails should be labelled accordingly, by prefixing the email subject with the TF identifier "[Bullet Chatting]". See W3C mailing list and archive usage guidelines.
-* There is also a member-only list to be used for administrative purposes at member-web-and-tv@w3.org (archive).
+* There is also a member-only list to be used for administrative purposes at member-web-and-tv@w3.org ([archive](https://lists.w3.org/Archives/Member/member-web-and-tv/)).
 * The moderator maintains the Task Force page on the public Wiki, with the help of the Task Force participants if needed.
 
 ### Conference call
 
-TBD
+The TF holds teleconferences every month.
 
 ### Minutes
 
