@@ -2,6 +2,9 @@
 
 #### 2019-11
 
+
+2019-11-29：[会议纪要-弹幕标准化小组周例会（第二十五次）](https://docs.qq.com/doc/DUmhwWmxLQXdCbk1x)
+
 2019-11-22：[会议纪要-弹幕标准化小组周例会（第二十四次）](https://docs.qq.com/doc/DUlNTV3ZLQmNObFNE)
 
 2019-11-15：[会议纪要-弹幕标准化小组周例会（第二十三次）](https://docs.qq.com/doc/DUmhGSmFMbnVBaUtr)
