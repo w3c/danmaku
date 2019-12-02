@@ -339,6 +339,22 @@
         audience is interested in this time point event and can also be used as video management and Recommended
         reference data for other functions.
       </p>
+      <figure>
+        <img alt="Identify video highlights" src="images/video-highlights.jpeg" width="600">
+        <figcaption>
+          Example of identifying video highlights: visualize the density or time distriibution of bullet chatting, to identify the highlights of the video
+        </figcaption>
+      </figure>
+      <div>
+        <p><b>Requirement</b></p>
+        <ul>
+          <li>
+            <b>From the user's point of view:</b> users can enter the content of the bullet chat at any time, set the presentation style, and display it on the screen in real time after sending it.</li>
+          <li>
+            <b>From the service provider's point of view:</b> when bullet chatting is enabled, a bullet chatting list needs to be provided to the user. The bullet chat sent by the user needs to be displayed on the video, and the number of bullet chat corresponding to the video timeline needs be visualized and displayed to the user.
+          </li>
+        </ul>
+      </div>
     </section>
 
     <section>
@@ -362,6 +378,16 @@
           Example of video content enhancement: screenshot for the horror scene of a horror movie, with bullet chatting
         </figcaption>
       </figure>
+      <div>
+        <p><b>Requirement</b></p>
+        <ul>
+          <li>
+            <b>From the user's point of view:</b> the user should be able to turn on or off the bullet chatting function.</li>
+          <li>
+            <b>From the service provider's point of view:</b> when bullet chatting is enabled, a bullet chatting list needs to be provided to the user. Display the bullet chat when the video reaches the time corresponding to the time the bullet chat was sent.
+          </li>
+        </ul>
+      </div>
     </section>
     <section>
       <h2>Interaction within a webpage</h2>
@@ -378,19 +404,23 @@
           Example of interaction within a webpage: discussion on specific content in the webpage
         </figcaption>
       </figure>
+
+      <div>
+        <p><b>Requirement</b></p>
+        <ul>
+          <li>
+            <b>From the user's point of view:</b> the user needs to input the content of the bullet chat, set the presentation of the bullet chat (including the font size, font color, whether it contains images, the area for displaying it etc.), and the bullet chat should be displayed on the screen in real time after it is being sent.
+          </li>
+          <li>
+            <b>From the service provider's point of view:</b> the bullet chat may be sent by a user at a certain time, or in real time. For real-time bullet chatting, it is necessary to display the bullet chat in real time; it is necessary to save the bullet chat data sent by the user to the server and saved in a database; the bullet chat should be synchronized to other users viewing this page at this moment. For bullet chats saved on the server, the developer needs to get the data of the bullet chat from the server and render it in the specified area.
+          </li>
+        </ul>
+      </div>
     </section>
     <section>
       <h2>Interactive wall</h2>
       <p>
-        <i>On the wall</i> means that the netizen can display the interactive experience of the offline event or conference by
-        sending the content of the Bullet Chatting to display the display screen prepared offline at the venue. The
-        upper wall can be understood as a purely Bullet Chatting application, which is equivalent to not displaying
-        video on the big screen, or even displaying content. It only shows the discussion content of the event site or
-        the netizen for the offline event, and enhances the offline event or the meeting atmosphere. Participants have a
-        stronger sense of participation.
-      </p>
-      <p>
-        In this kind of scene, the Bullet Chatting is also displayed separately, not attached to the video.
+        In this scenario, the user can send the content of the Bullet Chatting to the display <i>wall</i> in an offline event. The wall can be a pure Bullet Chatting application, without any video or other content on the big screen. The wall only shows the discussions at the venue or online, and enhances the event atmosphere to make participants have a stronger sense of participation.
       </p>
       <figure>
         <img alt="Interactive wall" src="images/bulletchat-wall.png" width="600">
@@ -398,6 +428,17 @@
           Example of interactive wall: in an event, the audience participates in the event by sending bullet chatting to the big screen.
         </figcaption>
       </figure>
+      <div>
+        <p><b>Requirement</b></p>
+        <ul>
+          <li>
+            <b>From the user's point of view:</b> enter the content and presentation style of the bullet chat at the event venue through a device that can access the web page, and display it on the big screen in real time.
+          </li>
+          <li>
+            <b>From the service provider's point of view:</b> provide a page for sending bullet chat and display the received content on the big screen in the event in real time.
+          </li>
+        </ul>
+      </div>
     </section>
     <section>
       <h2>Masking</h2>
@@ -410,6 +451,17 @@
             [To be translated]
           </figcaption>
         </figure>
+        <div>
+          <p><b>Requirement</b></p>
+          <ul>
+            <li>
+              <b>From the user's point of view:</b> the user should be able to turn on or off the masking function.
+            </li>
+            <li>
+              <b>From the service provider's point of view:</b> computer vision and AI capabilities are needed to identify the "main content" and calculate the mask area, then return it to the client side to achieve the masking effect.
+            </li>
+          </ul>
+        </div>
     </section>
     <section>
       <h2>Non-text bullet chatting</h2>
