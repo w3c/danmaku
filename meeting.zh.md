@@ -7,7 +7,7 @@
 
 2019-12-06：[会议纪要-弹幕标准化小组周例会（第二十六次）](https://docs.qq.com/doc/DUnlKT2diWFVjeFNJ)
 
-2019-12-03：[Media and Entertainment IG Call(20191203)](https://www.w3.org/2019/12/03-me-minutes.html#item02)
+2019-12-03：[Media and Entertainment IG Call (20191203)](https://www.w3.org/2019/12/03-me-minutes.html#item02)
 
 
 #### 2019-11
