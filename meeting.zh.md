@@ -3,6 +3,8 @@
 
 #### 2020-01
 
+2020-1-10：[会议纪要-弹幕标准化小组周例会（第三十一次）](https://docs.qq.com/doc/DUmNGb0t2U2JnYmVt)
+
 2020-1-7：[Media and Entertainment IG Call (20200107)](https://www.w3.org/2020/01/07-me-minutes.html)
 
 2020-1-3：[会议纪要-弹幕标准化小组周例会（第三十次）](https://docs.qq.com/doc/DUlRQcWp5TFl4bE51)
