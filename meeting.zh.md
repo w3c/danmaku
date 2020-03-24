@@ -3,6 +3,9 @@
 
 
 #### 2020-03
+
+2020-3-24：[Media and Entertainment IG - Bullet Chatting TF Call (20200324)](https://www.w3.org/2020/03/24-me-minutes.html)
+
 2020-3-20：[会议纪要-弹幕标准化小组周例会（第三十六次）](https://docs.qq.com/doc/DUnVBbWpLaUJYbXFv)
 
 2020-3-13：[会议纪要-弹幕标准化小组周例会（第三十五次）](https://docs.qq.com/doc/DUkZNdkVmeVpHcUZ4)
