@@ -2,6 +2,8 @@
 
 #### 2020-04
 
+2020-4-10：[会议纪要-弹幕标准化小组周例会（第三十九次）](https://docs.qq.com/doc/DUlprSXJ1ZnVDa2V1)
+
 2020-4-3：[会议纪要-弹幕标准化小组周例会（第三十八次）](https://docs.qq.com/doc/DUndkTkdGYkJwRE1X)
 
 
