@@ -39,8 +39,8 @@ There are some details covered in this use case
 - The bullet chatting can be statically displayed at the top or bottom of the video area.
 - The bullet chatting can be displayed in the video area by scrolling in a fixed direction, such as scrolling from right to left.
 - If the user pause the video, and the bullet chatting is also paused.
-- The bulelt chatting is in sync with the video timeline. Just like WebVTT, When the video imeline chang, the bullet chatting will change as well.
-- When the user hover on a specified bullet chatting, the bullet chatting may stop scrolling, and other bullet chatting is display as usual. This behavior is not a standard way, but the ability should be provided.
+- The bulelt chatting is in sync with the video timeline. Just like WebVTT, when the video timeline changes, the bullet chatting will change simultaneously as well.
+- When the user hover on a specified bullet chatting, the bullet chatting may stop scrolling, and other bullet chatting is display as usual. This behavior may be not a default way, but the ability to control this behaviour should be provided.
 - The bullet chatting can be overlaped.
 
 #### Variants:
