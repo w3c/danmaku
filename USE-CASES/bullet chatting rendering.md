@@ -27,7 +27,7 @@ When watching a video, the viewers may see the bullet chatting scrolling or bein
 
 ### Expected Data:
 
-Bullet chatting data structure to render a bullet chatting, such as color, fontSize, animating duration, image. 
+Data structure to render a bullet chatting, such as color, fontSize, animating duration, image. 
 
 ### Dependencies - Affected Bullet Chatting deliverables and/or work items:
 
