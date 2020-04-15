@@ -2,6 +2,9 @@
 
 #### 2020-04
 
+
+2020-4-15：[MEIG - Bullet Chatting TF Call (20200415)](https://www.w3.org/2020/04/15-bullet-minutes.html)
+
 2020-4-10：[会议纪要-弹幕标准化小组周例会（第三十九次）](https://docs.qq.com/doc/DUlprSXJ1ZnVDa2V1)
 
 2020-4-3：[会议纪要-弹幕标准化小组周例会（第三十八次）](https://docs.qq.com/doc/DUndkTkdGYkJwRE1X)
