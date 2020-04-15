@@ -42,7 +42,7 @@ There are some details covered in this use case
 - If the user pauses the video, and the bullet chatting is also paused.
 - The bulelt chatting is in sync with the video timeline. Just like WebVTT, when the video timeline changes, the bullet chatting will change simultaneously as well.
 - When the user hover on a specified bullet chatting, the bullet chatting may stop scrolling, and other bullet chats are rendered as usual. This behavior may not be the default, but the ability to control this behavior should be provided.
-- The bullet chatting can be overlapping behavior can be controlled.
+- The bullet chatting overlapping behavior can be controlled.
 
 #### Variants:
 
