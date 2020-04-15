@@ -40,20 +40,20 @@ There are some details covered in this use case
 - The bullet chatting can be statically displayed at the top or bottom of the video area.
 - The bullet chatting can be displayed in the video area by scrolling in a fixed direction, such as scrolling from right to left.
 - If the user pauses the video, and the bullet chatting is also paused.
-- The bulelt chatting is in sync with the video timeline. Just like WebVTT, when the video timeline changes, the bullet chatting will change simultaneously as well.
+- The bullet chatting is in sync with the video timeline. Just like WebVTT, when the video timeline changes, the bullet chatting will change simultaneously as well.
 - When the user hover on a specified bullet chatting, the bullet chatting may stop scrolling, and other bullet chats are rendered as usual. This behavior may not be the default, but the ability to control this behavior should be provided.
 - The bullet chatting overlapping behavior can be controlled.
 
 #### Variants:
 
-### Snapshot:
-![Snapshot of on-demand video interaction](https://w3c.github.io/danmaku/images/video-on-demand.png "video-on-demand")
-> Snapshot of on-demand video interaction
+### Screenshot:
+![Screenshot of on-demand video interaction](https://w3c.github.io/danmaku/images/video-on-demand.png "video-on-demand")
+> Screenshot of on-demand video interaction
 
 
 ### Gaps:
 
-When syncing with the video timeline, service provider need to know current video time, but since [timeupdate](https://html.spec.whatwg.org/multipage/media.html#event-media-timeupdate) DOM event is triggered every 250 millisecond, a more accurate time need to be provided. [requestAnimationFrame()](https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html#animation-frames) may be good option, but it can be more better when considering to use [video.requestVideoFrameCallback()](https://github.com/WICG/video-rvfc/blob/gh-pages/explainer.md).
+When syncing with the video timeline, service provider needs to know the current video time, but since [timeupdate](https://html.spec.whatwg.org/multipage/media.html#event-media-timeupdate) DOM events are triggered every 250 milliseconds, a more accurate time needs to be provided. [requestAnimationFrame()](https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html#animation-frames) may be good option, but it can be more better when considering to use [video.requestVideoFrameCallback()](https://github.com/WICG/video-rvfc/blob/gh-pages/explainer.md).
 
 ### Existing standards:
 
