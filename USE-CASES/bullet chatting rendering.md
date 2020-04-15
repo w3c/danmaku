@@ -46,6 +46,10 @@ There are some details covered in this use case
 
 #### Variants:
 
+### Snapshot:
+![Snapshot of on-demand video interaction](https://w3c.github.io/danmaku/images/video-on-demand.png "video-on-demand")
+> Snapshot of on-demand video interaction
+
 
 ### Gaps:
 
