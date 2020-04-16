@@ -62,15 +62,10 @@
   <section>
     <h2>Introduction</h2>
     <p>
-      Bullet Chatting is called comment (コメント/comment) in Japanese. It refers to a comment or an annotation floating over the
-      video in certain way at a specific point of time of the video, which can bring interesting and unexpected
-      experiences to the users while watching the video. Only when a large amount of comments shown up on the screen at the same time,
-      people call this state of the player a Danmaku. In China, in order to avoid conflict with the function of the original
-      comment, it was renamed as Bullet Chatting.
+      To create more immersive media experiences, many video-sharing platforms embed social mechanisms that allow users to share comments and view others' comments at specific points in a media timeline. One of these mechanisms is <a>bullet chatting</a>, also known as <em lang="ja">danmaku</em> (<span lang="ja">弾幕</span>) in Japanese, where a possibly large number of comments and annotations get rendered and animated as video overlays during playback (see <a href="#fig-an-example-of-bullet-chatting"></a>).
     </p>
     <p>
-      Bullet Chatting first got popular from the Japanese video-sharing website Niconico (ニコニコ). In China, besides the video-sharing websites that feature Bullet Chatting such as Bilibili and AcFun, for most of the other video websites, such as
-      Tencent video, iQiyi video, Youku video and Migu video etc., Bullet Chatting is also provided as a function of the player.
+      <a>Bullet chatting</a> was first introduced by the Japanese video-sharing website Niconico (<span lang="ja">ニコニコ</span>). In China, besides use in video-sharing websites such as Bilibili and AcFun, <a>bullet chatting</a> is also supported by video players embedded in main video websites such as Tencent video, iQiyi video, Youku video and Migu video (see <a href="#commercial-operation-of-bullet-chatting"></a>).
     </p>
     <figure>
       <img alt="Example of bullet chatting" src="images/danmaku.png" width="600">
@@ -81,21 +76,21 @@
     <section>
       <h2>Bullet Chatting attributes</h2>
       <p>
-        The Bullet Chatting has the following four attributes:
+        A <a>bullet chatting comment</a> can be described with the following four attributes:
       </p>
       <ul>
         <li>
-          Mode: Rolling Bullet Chatting, reverse Bullet Chatting, top Bullet Chatting, bottom Bullet Chatting.
+          <dfn>Mode</dfn>: Rolling Bullet Chatting, reverse Bullet Chatting, top Bullet Chatting, bottom Bullet Chatting.
         </li>
         <li>
-          Basic properties: body, appearance time, duration, font, font size, color, etc.
+          <dfn>Basic properties</dfn>: body, appearance time, duration, font, font size, color, etc.
         </li>
         <li>
-          Timeline: The on-demand barcorder is a real-time insertion or custom timeline for video playback time, live
+          <dfn>Timeline</dfn>: The on-demand barcorder is a real-time insertion or custom timeline for video playback time, live
           broadcasts, and other scenarios.
         </li>
         <li>
-          Container: A block-level element, typically the same size as the video.
+          <dfn>Container</dfn>: A block-level element, typically the same size as the video.
         </li>
       </ul>
     </section>
@@ -103,20 +98,20 @@
     <section>
       <h2>Bullet Chatting characteristics</h2>
       <p>
-        Bullet Chatting has three characteristics:
+        A <a>bullet Chatting</a> experience has three characteristics:
       </p>
       <ul>
         <li>
-          Independence of space: Although it is displayed in the same element, each type of Bullet Chatting mode is in
+          <dfn>Independence of space</dfn>: Although it is displayed in the same element, each type of Bullet Chatting mode is in
           different layers in spatial calculation, and each mode can have multiple layers, and the Bullet Chatting
           occupancy in each layer does not overlap.
         </li>
         <li>
-          Deterministic of rendering: If the Bullet Chatting area and the rendered list are fixed, then the position and
+          <dfn>Deterministic of rendering</dfn>: If the Bullet Chatting area and the rendered list are fixed, then the position and
           order of each Bullet Chatting is fixed each time it is rendered.
         </li>
         <li>
-          Uniformity of modes: The survival time of the Bullet Chatting of each mode remains the same.
+          <dfn>Uniformity of modes</dfn>: The survival time of the Bullet Chatting of each mode remains the same.
         </li>
       </ul>
     </section>
@@ -124,47 +119,26 @@
     <section id='basic-modes'>
       <h2>Basic modes of the Bullet Chatting</h2>
       <p>
-        There are four basic modes of the Bullet Chatting:
+        There are four basic <a>modes</a> for a <a>bullet chatting comment</a>:
       </p>
       <ol>
         <li>
-          Rolling Bullet Chatting: the bullet chat moves from right to left at a constant speed, stacked from top to bottom.
+          <dfn>Rolling Bullet Chatting</dfn>: the bullet chat moves from right to left at a constant speed, stacked from top to bottom.
         </li>
         <li>
-          Reverse Bullet Chatting: the bullet chat moves from left to right at a constant speed, stacked from top to bottom. This is contrasted against Rolling Bullet Chatting.
+          <dfn>Reverse Bullet Chatting</dfn>: the bullet chat moves from left to right at a constant speed, stacked from top to bottom. This is contrasted against Rolling Bullet Chatting.
         </li>
         <li>
-          Top Bullet Chatting: A bullet chat that is horizontally and statically centered, stacked from top to bottom.
+          <dfn>Top Bullet Chatting</dfn>: A bullet chat that is horizontally and statically centered, stacked from top to bottom.
         </li>
         <li>
-          Bottom Bullet Chatting: A bullet chat that is horizontally and statically centered, stacked from bottom to top.
+          <dfn>Bottom Bullet Chatting</dfn>: A bullet chat that is horizontally and statically centered, stacked from bottom to top.
         </li>
       </ol>
         <p>
           In addition, Bullet Chatting has higher levels of customization and is out of scope for this document.
         </p>
     </section>
-
-    <section>
-      <h2>Commercial operation of Bullet Chatting</h2>
-      <p>
-        Bullet Chatting has a wide range of applications in China and Japan, and mainstream video sites and their apps
-        have good support and application for Bullet Chatting. The monthly activity of the relevant video websites can be
-        referred to as follows (only counting monthly active users for video-sharing websites/apps):
-      </p>
-      <ul>
-        <li>iQiyi: 575.1677 million monthly active users</li>
-        <li>Tencent Video: 467.491 million monthly active users</li>
-        <li>Youku: 444.829 million monthly active users</li>
-        <li>Mango TV: 100.267 million monthly active users</li>
-        <li>Bilibili animation: 80.652 million monthly active users</li>
-        <li>Sohu video: 36.35 million monthly active users</li>
-        <li>Niconico: 18.74 million monthly active users [<a
-            href='https://ssl4.eir-parts.net/doc/9468/ir_material_for_fiscal_ym/64532/00.pdf'>source</a>]</li>
-      </ul>
-      <p>Source: <a href='https://www.analysys.cn/article/detail/20019224'>2019 Latest Mobile App TOP1000</a></p>
-    </section>
-
   </section>
 
   <section>
@@ -174,12 +148,8 @@
       </p>
       <ul>
         <li>
-          <dfn>WebVTT</dfn> &mdash; A file format for marking text tracks. [[webvtt1]]
-        </li>
-        <li>
-          <dfn>TTML</dfn> &mdash; A type of content that represents a time-series text medium that is exchanged between
-          authoring systems. [[ttml1]]
-        </li>
+          <dfn>bullet chatting</dfn> &mdash; an augmentation mechanism for media experiences whereby a usually large number of comments and annotations get rendered and animated in certain ways and at specific points in time on top of a video. By extension, the term is also used to describe similar experiences on top of other types of content (see for example <a href="#interaction-within-a-webpage"></a> and <a href="#interactive-wall"></a>).</li>
+        <li><dfn>bullet chatting comment</dfn> &mdash; an individual comment or annotation in a <a>bullet chatting</a> experience</li>
       </ul>
   </section>
 
@@ -501,6 +471,26 @@
         </p>
       </section>
   </section>
+
+  <section class="appendix">
+    <h2>Commercial operation of bullet chatting</h2>
+    <p>
+      Bullet Chatting has a wide range of applications in China and Japan, and mainstream video sites and their apps
+      have good support and application for Bullet Chatting. The monthly activity of the relevant video websites can be
+      referred to as follows (only counting monthly active users for video-sharing websites/apps):
+    </p>
+    <ul>
+      <li>iQiyi: 575.1677 million monthly active users</li>
+      <li>Tencent Video: 467.491 million monthly active users</li>
+      <li>Youku: 444.829 million monthly active users</li>
+      <li>Mango TV: 100.267 million monthly active users</li>
+      <li>Bilibili animation: 80.652 million monthly active users</li>
+      <li>Sohu video: 36.35 million monthly active users</li>
+      <li>Niconico: 18.74 million monthly active users [<a
+          href='https://ssl4.eir-parts.net/doc/9468/ir_material_for_fiscal_ym/64532/00.pdf'>source</a>]</li>
+    </ul>
+    <p>Source: <a href='https://www.analysys.cn/article/detail/20019224'>2019 Latest Mobile App TOP1000</a></p>
+    </section>
 </body>
 
 </html>
