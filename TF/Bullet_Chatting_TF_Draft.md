@@ -6,6 +6,9 @@ The Bullet Chatting Task Force is part of the Media & Entertainment Interest Gro
 
 The goal is that Bullet Chatting standardization make it easier to be implemented and maintained. And Bullet Chatting can be used in a wide range of scenarios.
 
+## Scope
+TBD
+
 ## Basic Information
 
 * Start Date: TBD
