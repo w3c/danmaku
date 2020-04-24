@@ -35,7 +35,7 @@ Data structure to render a bullet chatting, such as color, font size, animation 
 
 There are some details covered in this use case 
 
-- The bullet chatting content can include both text and images.
+- The bullet chatting comment can include both text and images.
 - The bullet chatting can be animated.
 - The bullet chatting can be statically displayed at the top or bottom of the video area.
 - The bullet chatting can be displayed in the video area by scrolling in a fixed direction, such as scrolling from right to left.
@@ -51,11 +51,18 @@ There are some details covered in this use case
 > Screenshot of on-demand video interaction
 
 
+### Requirements
+
+-  Time accuracy: Need to know the video time (`video.currentTime`) at every frame of the video
+-  Performance: A tons of bullet chatting comments ared needed to be rendered at the same time
+
 ### Gaps:
 
 When syncing with the video timeline, service provider needs to know the current video time, but since [timeupdate](https://html.spec.whatwg.org/multipage/media.html#event-media-timeupdate) DOM events are triggered every 250 milliseconds, a more accurate time needs to be provided. [requestAnimationFrame()](https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html#animation-frames) may be good option, but it can be more better when considering to use [video.requestVideoFrameCallback()](https://github.com/WICG/video-rvfc/blob/gh-pages/explainer.md).
 
 ### Existing standards:
+
+- [video-rvfc](https://github.com/WICG/video-rvfc/blob/gh-pages/explainer.md)
 
 ### Comments:
 
