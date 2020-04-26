@@ -1,4 +1,4 @@
-## Title: bullet chatting rendering for interactive wall
+## Title: bullet chatting rendering for non-video
 
 ### Submitter
 
@@ -12,7 +12,7 @@ Fuqiao Xue, Zhaoxin Tan, Huaqi Shan, Larry Zhao
 
 ### Category:
 
-Interactive wall
+non-video Scenario
 
 ### Status: 
 
