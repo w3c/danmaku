@@ -12,7 +12,7 @@ Fuqiao Xue, Zhaoxin Tan, Huaqi Shan, Larry Zhao
 
 ### Category:
 
-non-video Scenario
+non-video
 
 ### Status: 
 
@@ -50,7 +50,6 @@ There are some details covered in this use case
 
 
 ### Gaps:
-For example，The WebVTT or TTML rendering subtitles is within the video playback area.In this kind of scenario, the Bullet Chatting is displayed separately and is not attached to the video. Therefore, it is helpful for this scenario that the rendering area(like size, z-index) can be configured.
 
 ### Existing standards:
 
