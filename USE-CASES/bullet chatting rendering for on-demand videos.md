@@ -57,6 +57,7 @@ There are some details covered in this use case
 
 -  Time accuracy: Need to know the video time (`video.currentTime`) at every frame of the video
 -  Performance: A tons of bullet chatting comments ared needed to be rendered at the same time
+-  Lifecycle management:  When the bullet chatting comments scroll out of the display area, in order to reduce the memory consumption, the the bullet chatting comments(DOM) should be removed
 
 ### Gaps:
 
