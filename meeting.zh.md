@@ -1,5 +1,8 @@
 ### w3c中文兴趣组-弹幕标准化小组 会议记录
 
+
+2020-5-05：[Media and Entertainment IG Call (20200505)](https://www.w3.org/2020/05/05-me-minutes.html#item03)
+
 #### 2020-04
 
 2020-4-26：[会议纪要-弹幕标准化小组周例会（第四十一次）](https://docs.qq.com/doc/DUk11cnBobUZEZVRB)
