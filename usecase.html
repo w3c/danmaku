@@ -76,7 +76,7 @@
     <section>
       <h2>Bullet Chatting attributes</h2>
       <p>
-        A <a>bullet chatting comment</a> can be described with the following four attributes:
+        A <a>bullet chatting comment</a> can be described with the following three attributes:
       </p>
       <ul>
         <li>
@@ -84,10 +84,6 @@
         </li>
         <li>
           <dfn>Basic properties</dfn>: body, appearance time, duration, font, font size, color, etc.
-        </li>
-        <li>
-          <dfn>Timeline</dfn>: The on-demand barcorder is a real-time insertion or custom timeline for video playback time, live
-          broadcasts, and other scenarios.
         </li>
         <li>
           <dfn>Container</dfn>: A block-level element, typically the same size as the video.
@@ -102,16 +98,13 @@
       </p>
       <ul>
         <li>
-          <dfn>Independence of space</dfn>: Although it is displayed in the same element, each type of Bullet Chatting mode is in
-          different layers in spatial calculation, and each mode can have multiple layers, and the Bullet Chatting
-          occupancy in each layer does not overlap.
+          <dfn>Independence of space</dfn>: Although displayed in the same element, each <a>mode</a> is in a different <a>layer</a>, and each <a>mode</a> can have multiple <a>layers</a>, and the <a>bullet chatting comments</a> within each <a>layer</a> do not overlap unless there are too many comments to render and overlap is allowed.
         </li>
         <li>
-          <dfn>Deterministic of rendering</dfn>: If the Bullet Chatting area and the rendered list are fixed, then the position and
-          order of each Bullet Chatting is fixed each time it is rendered.
+          <dfn>Rendering determinism</dfn>: Provided that the bullet chatting <a>container</a> and the <a>bullet chatting comment</a> are fixed, and in the absence of user interaction (e.g. to pause a <a>bullet chatting comment</a>), then the rendering position, order and timing of <a>bullet chatting comment</a> are always the same.
         </li>
         <li>
-          <dfn>Uniformity of modes</dfn>: The survival time of the Bullet Chatting of each mode remains the same.
+          <dfn>Uniformity of modes</dfn>: The duration of the <a>bullet chatting comments</a> in each mode remains the same.
         </li>
       </ul>
     </section>
@@ -148,8 +141,12 @@
       </p>
       <ul>
         <li>
-          <dfn>bullet chatting</dfn> &mdash; an augmentation mechanism for media experiences whereby a usually large number of comments and annotations get rendered and animated in certain ways and at specific points in time on top of a video. By extension, the term is also used to describe similar experiences on top of other types of content (see for example <a href="#interaction-within-a-webpage"></a> and <a href="#interactive-wall"></a>).</li>
+          <dfn>bullet chatting</dfn> &mdash; an augmentation mechanism for media experiences whereby a usually large number of comments and annotations get rendered and animated in certain ways and at specific points in time on top of a video. By extension, the term is also used to describe similar experiences on top of other types of content (see for example <a href="#interaction-within-a-webpage"></a> and <a href="#interactive-wall"></a>).
+        </li>
+
         <li><dfn>bullet chatting comment</dfn> &mdash; an individual comment or annotation in a <a>bullet chatting</a> experience</li>
+
+        <li><dfn>layer</dfn> &mdash; a set of bullet chatting comment(s) in the same <a>mode</a>. A <a>mode</a> can have multiple layers, and the bullet chatting comment(s) within each layer do not overlap unless there are too many comments to render and overlap is allowed.</li>
       </ul>
   </section>
 
