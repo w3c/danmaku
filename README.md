@@ -12,3 +12,7 @@ We also have several demos:
 * [simple-demo](https://w3c.github.io/danmaku/demos/simple-demo/)
 * [bulletchatting-proposal-demo](https://w3c.github.io/danmaku/demos/bulletchatting-proposal-demo/)
 * [Demo without video](https://w3c.github.io/danmaku/demos/no-media/)
+
+# Misc
+
+Other documents are in the [bullet-chatting-docs](https://github.com/w3c/bullet-chatting-docs) repo.
