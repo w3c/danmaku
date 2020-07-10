@@ -61,7 +61,7 @@ There are some details covered in this use case
 
 ### Gaps:
 
-When syncing with the video timeline, service provider needs to know the current video time, but since [timeupdate](https://html.spec.whatwg.org/multipage/media.html#event-media-timeupdate) DOM events are triggered every 250 milliseconds, a more accurate time needs to be provided. [requestAnimationFrame()](https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html#animation-frames) may be good option, but it can be more accurate when considering to use [video.requestVideoFrameCallback()](https://github.com/WICG/video-rvfc/blob/gh-pages/explainer.md).
+When syncing with the video timeline, service provider needs to know the current video time, but since [timeupdate](https://html.spec.whatwg.org/multipage/media.html#event-media-timeupdate) DOM events are triggered every 250 milliseconds, a more accurate time needs to be provided. [requestAnimationFrame()](https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html#animation-frames) can be an available option, but it runs at the display's frame rate, so it can be more accurate when considering to use [video.requestVideoFrameCallback()](https://github.com/WICG/video-rvfc/blob/gh-pages/explainer.md), since it uses the video frame rate.
 
 ### Existing proposals/standards:
 
