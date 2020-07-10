@@ -23,7 +23,7 @@ non-video
 
 ### Motivation:
 
-In this scenario, the user can send the content of the Bullet Chatting to the display wall in an offline event. The wall can be a pure Bullet Chatting application, without any video or other content on the big screen. The wall only shows the discussions at the venue or online, and enhances the event atmosphere to make participants have a stronger sense of participation.This is a common scenario, so the bullet chatting rendering behavior standardized should cover this scenario.
+In this scenario, the user can send the Bullet Chatting comments to the display wall (A large display) in an offline event. The wall can be a pure Bullet Chatting web application (Not native app, just built with HTML, CSS and Javascript), without any video in it. The wall only shows the discussions at the venue or online, and enhances the event atmosphere to make participants have a stronger sense of participation.This is a common scenario, so the bullet chatting rendering behavior standardized should cover this scenario.
 
 ### Expected Data:
 
