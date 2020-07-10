@@ -1,7 +1,7 @@
 # Logical Architecture Diagram for Bullet Chatting 
 
 
-[Logical Architecture Diagram](../images/architecture/global.png)
+![Logical Architecture Diagram](../images/architecture/global.png)
 
 
 - In Bullet Chatting client there are mainly Bullet Chatting Data and Rendering modules
