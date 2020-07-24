@@ -2,6 +2,10 @@
 
 #### 2020-07
 
+2020-07-24：[会议纪要-弹幕标准化小组周例会（第五十二次）](https://docs.qq.com/doc/DUmNLT1pGc0pRZmpv)
+
+2020-07-17：[会议纪要-弹幕标准化小组周例会（第五十一次）](https://docs.qq.com/doc/DUmFmRVRRekp2T3Rl)
+
 2020-07-10：[会议纪要-弹幕标准化小组周例会（第五十次）](https://docs.qq.com/doc/DUnVDaXVNQ1BpWXBj)
 
 2020-07-03：[会议纪要-弹幕标准化小组周例会（第四十九次）](https://docs.qq.com/doc/DUmxPS05VbXJqdlhV)
