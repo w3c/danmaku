@@ -3,6 +3,8 @@
 
 #### 2020-08
 
+2020-08-14：[会议纪要-弹幕标准化小组周例会（第五十五次）](https://docs.qq.com/doc/DUk1OYXJ3VW9zYVlU)
+
 2020-08-07：[会议纪要-弹幕标准化小组周例会（第五十四次）](https://docs.qq.com/doc/DUmhacWlxRG1xV29V)
 
 
