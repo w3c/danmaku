@@ -4,6 +4,10 @@
 
 #### 2020-09
 
+2020-09-18：[会议纪要-弹幕标准化小组周例会（第六十次）](https://docs.qq.com/doc/DUmdnY0dHU0Nkcm5Y)
+
+2020-09-09：[会议纪要-弹幕标准化小组周例会（第五十九次）](https://docs.qq.com/doc/DUkpZQWZSTll1Q3li)
+
 2020-09-04：[会议纪要-弹幕标准化小组周例会（第五十八次）](https://docs.qq.com/doc/DUmtkT2ZsVnpGVHBX)
 
 
