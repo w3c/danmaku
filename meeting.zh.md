@@ -1,8 +1,23 @@
 ### w3c中文兴趣组-弹幕标准化小组 会议记录
 
 
+#### 2020-11
+
+2020-11-13：[会议纪要-弹幕标准化小组周例会（第六十五次）](https://docs.qq.com/doc/DUnBQR2ZtZ0xTZlNU)
+
+2020-11-06：[会议纪要-弹幕标准化小组周例会（第六十四次）](https://docs.qq.com/doc/DUlRVaHh1U3lWa1Fn)
+
+
+#### 2020-10
+
+2020-10-30：[会议纪要-弹幕标准化小组周例会（第六十三次）](https://docs.qq.com/doc/DUnlKbEVTUVZyS1Vo)
+
+2020-10-16：[会议纪要-弹幕标准化小组周例会（第六十二次）](https://docs.qq.com/doc/DUkFmWktYVnVTTW5m)
+
 
 #### 2020-09
+
+2020-09-25：[会议纪要-弹幕标准化小组周例会（第六十一次）](https://docs.qq.com/doc/DUk5zaFR4WHRqUlVo)
 
 2020-09-18：[会议纪要-弹幕标准化小组周例会（第六十次）](https://docs.qq.com/doc/DUmdnY0dHU0Nkcm5Y)
 
